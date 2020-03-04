@@ -1,0 +1,269 @@
+id,login,employee-or-volunteer,url,company,location,blog,email,biography
+159,technicalpickles,employee,https://api.github.com/users/technicalpickles,@github ,"Savannah, GA",http://technicalpickles.com,technicalpickles@github.com,"A hacker, a geek, an all around jolly fellow. Internal Tools Engineer @github "
+129327,tombell,volunteer,https://api.github.com/users/tombell,@dapr-project ,"Manchester, England",https://tomb.io,,"I write code, or some shit."
+38,atmos,volunteer,https://api.github.com/users/atmos,Heroku,South Lake Tahoe,http://www.atmos.org,atmos@atmos.org,
+85195,michaelansel,volunteer,https://api.github.com/users/michaelansel,@Box ,,,,
+173,bkeepers,employee,https://api.github.com/users/bkeepers,GitHub,,http://opensoul.org,bkeepers@github.com,
+12676,bhuga,volunteer,https://api.github.com/users/bhuga,Stripe,"New Orleans, LA",http://bhuga.net,blavender@gmail.com,
+39992,gr2m,volunteer,https://api.github.com/users/gr2m,@HoodieHQ @Octokit,Los Angeles,http://hood.ie,,Community Engineer 🔧🤓🌈✨
+21,technoweenie,volunteer,https://api.github.com/users/technoweenie,GitHub,"Louisville, CO",http://techno-weenie.net,technoweenie@gmail.com,:metal:
+119972,jasonkarns,volunteer,https://api.github.com/users/jasonkarns,Test Double,"Columbus, Ohio",http://jasonkarns.com,jason.karns@gmail.com,
+2567,tmm1,volunteer,https://api.github.com/users/tmm1,"GitHub, Inc.","San Francisco, CA",http://twitter.com/tmm1,aman@tmm1.net,
+131461,mose,volunteer,https://api.github.com/users/mose,@bitnami,"Taipei, Taiwan",http://mose.com,,A french geek in Taiwan.
+931887,creatorrr,volunteer,https://api.github.com/users/creatorrr,,New Delhi,http://diwank.name,diwank.singh@gmail.com,
+5158,assaf,volunteer,https://api.github.com/users/assaf,@broadly ,"Bay Area, CA",http://labnotes.org,assaf@labnotes.org,"Founder @broadly ★ Code, design, 2 wheels ★ Oakland CA
+
+We're hiring https://broadly.com/jobs "
+40876,leefaus,employee,https://api.github.com/users/leefaus,GitHub,"Charlotte, NC",http://www.github.com,leefaus@github.com,
+160631,balbeko,volunteer,https://api.github.com/users/balbeko,Hearst Digital Studios,"Kharkiv, Ukraine",http://twitter.com/balbeko,sergey@balbeko.com,
+1939605,sdimkov,volunteer,https://api.github.com/users/sdimkov,,"Sofia, Bulgaria",,stoyan.dimkov@gmail.com,
+3268996,uugengiven,volunteer,https://api.github.com/users/uugengiven,@AcademyPgh ,"Pittsburgh, PA",,,I helped create and teach at Academy Pittsburgh.
+584259,OleMchls,volunteer,https://api.github.com/users/OleMchls,@dnsimple ,Hamburg,http://codestars.eu,Ole.Michaelis@googlemail.com,"Working @dnsimple, curator of @socoded and slidr.io – Passionate Software Engineer. I ❤️ elixir, ruby, node, metrics, NoSQL and all bleeding edge stuff!"
+7501609,scboucher,volunteer,https://api.github.com/users/scboucher,,Montréal,,,
+22101,keithduncan,employee,https://api.github.com/users/keithduncan,@github ,Melbourne,,keith.duncan@github.com,Infrastructure @github
+515706,mexitek,volunteer,https://api.github.com/users/mexitek,Amazon.com,"Seattle, WA",http://arlocarreon.com,arlo.carreon@gmail.com,
+78458,unixcharles,volunteer,https://api.github.com/users/unixcharles,Shopify,Montreal,charlesbarbier.com,unixcharles@gmail.com,
+447151,elliotttf,volunteer,https://api.github.com/users/elliotttf,Four Kitchens,"Austin, TX",http://codebrews.com,elliottf@codebrews.com,Software architect with an interest in distributed systems and elegant solutions.
+237985,parkr,employee,https://api.github.com/users/parkr,GitHub,USA,https://byparker.com,email@byparker.com,:doughnut: :earth_americas: :octocat:
+423529,geoffreyanderson,volunteer,https://api.github.com/users/geoffreyanderson,Box,"Sunnyvale, CA",http://geoffreyanderson.net,geoff@geoffreyanderson.net,
+3384,jhubert,volunteer,https://api.github.com/users/jhubert,,"San Francisco, CA",http://jeremyhubert.com,jhubert@gmail.com,
+39563,jimeh,volunteer,https://api.github.com/users/jimeh,,"London, United Kingdom",https://jimeh.me/,contact@jimeh.me,"I'm a crazy-ass software engineering mercenary, who plays with code, video games, and on occasion, design."
+1396,paulcbetts,volunteer,https://api.github.com/users/paulcbetts,,San Francisco,https://twitter.com/paulcbetts,paul@paulbetts.org,Margot Tenenbaum as software developer.
+290782,tricknotes,volunteer,https://api.github.com/users/tricknotes,Freelance,"Sapporo, Japan",http://tricknotes.hateblo.jp/,tricknotes.rs@gmail.com,
+917945,aroben,volunteer,https://api.github.com/users/aroben,@apple,"Swarthmore, PA",,adam@roben.org,
+282759,benbalter,employee,https://api.github.com/users/benbalter,@GitHub,"Washington, DC",http://ben.balter.com,,"Attorney, open source developer, Product Manager working on Community and Safety at @GitHub. Previously @WhiteHouse Presidential Innovation Fellow."
+71407,ejfinneran,volunteer,https://api.github.com/users/ejfinneran,@rigado,"Portland, OR",http://finneran.us,ej.finneran@gmail.com,
+24086,markstory,volunteer,https://api.github.com/users/markstory,@freshbooks ,"Toronto, Ontario",http://mark-story.com,mark@mark-story.com,
+2546,skalnik,employee,https://api.github.com/users/skalnik,GitHub,"San Francisco, CA",http://mikeskalnik.com,skalnik@github.com,🌮 🐈
+47026,victorcoder,volunteer,https://api.github.com/users/victorcoder,@jobandtalent ,Barcelona,www.victorcastell.com,victor@victorcastell.com,
+13026,titanous,volunteer,https://api.github.com/users/titanous,@flynn ,,https://titanous.com,jonathan@titanous.com,Co-founder @flynn
+391124,espy,volunteer,https://api.github.com/users/espy,,Berlin,,,
+107073,andyfowler,volunteer,https://api.github.com/users/andyfowler,@nutshellcrm,"Ann Arbor, MI",http://www.andyfowler.com/,andy@andyfowler.com,"Cofounder @nutshellcrm. <3 beagles, airplanes, beautiful software."
+77,benburkert,volunteer,https://api.github.com/users/benburkert,,SF,http://benburkert.com,ben@benburkert.com,
+4812,cesar-zz,volunteer,https://api.github.com/users/cesar-zz,,,,,
+47,jnewland,employee,https://api.github.com/users/jnewland,GitHub,"Austin, TX",http://jnewland.com,jesse@github.com,@github 💻 🔧 
+1354,kneath,volunteer,https://api.github.com/users/kneath,Leaping Daisy,"South Lake Tahoe, CA",http://warpspire.com,kneath@gmail.com,"Used to make internet, now I grow trees."
+19693,markpasc,volunteer,https://api.github.com/users/markpasc,,,https://markpasc.org/mark/,,
+794603,MathildeLemee,volunteer,https://api.github.com/users/MathildeLemee,,,,,
+1530581,timclipsham,volunteer,https://api.github.com/users/timclipsham,,,,,
+9868888,twellspring,volunteer,https://api.github.com/users/twellspring,@riskalyze ,"Auburn, CA",http://todd.wells.ws,todd@wells.ws,
+205756,x1a0,volunteer,https://api.github.com/users/x1a0,,Sweden,http://x1a0.com,zhangxiao@xzhang.net,
+86842,afeld,volunteer,https://api.github.com/users/afeld,@18F,"Brooklyn, NY",https://api.afeld.me,aidan.feldman@gsa.gov,"bureaucrat by day, dancer by night"
+127288,madzak,volunteer,https://api.github.com/users/madzak,"Brainfire, LLC","Seattle, WA",http://www.madzak.com,zak@madzak.com,
+260,maddox,employee,https://api.github.com/users/maddox,"GitHub, Inc.","Richmond, Va",http://jonmaddox.com,jon@jonmaddox.com,"Media centers, emulation, and home automation."
+634414,adamgross42,volunteer,https://api.github.com/users/adamgross42,@facebook ,"Palo Alto, CA",http://fb.me/adamgross42,,
+1457682,akiomik,volunteer,https://api.github.com/users/akiomik,,"Tokyo, JAPAN",https://twitter.com/akiomik/,akiomik@gmail.com,
+1938,eventualbuddha,volunteer,https://api.github.com/users/eventualbuddha,,San Francisco,http://brian-donovan.com/,github@brian-donovan.com,
+587830,gotchahn,volunteer,https://api.github.com/users/gotchahn,"LAWgical & UNITEC, HONDURAS",Honduras,www.twitter.com/carlos_gochez,cgotcha@gmail.com,
+814849,davidkassa,volunteer,https://api.github.com/users/davidkassa,,"Madison, WI",http://www.davidkassa.com,,
+290525,Excedrin,volunteer,https://api.github.com/users/Excedrin,,,,,
+194275,joshuarubin,volunteer,https://api.github.com/users/joshuarubin,"zvelo, Inc.","Greenwood Village, CO",http://zvelo.com,,
+92502,kashyapp,volunteer,https://api.github.com/users/kashyapp,,"Bangalore, India",http://kashyapp.in/,github@kashyapp.in,
+68246,OiNutter,volunteer,https://api.github.com/users/OiNutter,Komodo Digital,"Newcastle Upon Tyne, UK",www.oinutter.co.uk,willmckenzie@oinutter.co.uk,
+112567,Vrtak-CZ,volunteer,https://api.github.com/users/Vrtak-CZ,@cookielab  ,"Prague, Czech Republic",https://patrik.votocek.cz,patrik@votocek.cz,Crazy geek & Chaos Monkey & SRE in @cookielab 
+551404,russelldavis,volunteer,https://api.github.com/users/russelldavis,Stripe,"San Francisco, CA",http://russelldavis.blogspot.com/,,
+120350,todd,volunteer,https://api.github.com/users/todd,@Saildrone ,"Oakland, CA",http://t0dd.io,,
+70706,spajus,volunteer,https://api.github.com/users/spajus,,Lithuania,https://varaneckas.com,tomas.varaneckas@gmail.com,
+2723,holman,volunteer,https://api.github.com/users/holman,@during,San Francisco,http://zachholman.com,zach@zachholman.com,"founder, @during"
+68859,MrSaints,volunteer,https://api.github.com/users/MrSaints,,,https://www.fyianlai.com/,,
+972699,ferlores,volunteer,https://api.github.com/users/ferlores,,"San Francisco, California",,ferlores@gmail.com,
+1524496,cupakromer,volunteer,https://api.github.com/users/cupakromer,,DC Metro Area,aaronkromer.com,,
+1781907,ahayworth,volunteer,https://api.github.com/users/ahayworth,@braintree ,"Chicago, IL",https://ahayworth.com/,ahayworth@gmail.com,
+70067,sapegin,volunteer,https://api.github.com/users/sapegin,@wayfair,"Berlin, Germany",http://sapegin.me,artem@sapegin.ru,"Web developer, passionate photographer and owner of crazy dogs."
+3260492,ablwr,volunteer,https://api.github.com/users/ablwr,,"Brooklyn, NY",http://www.ashleyblewer.com,ashley.blewer@gmail.com,"Too many extracurricular activities. 
+
+@bavc @MediaArea @amiaopensource "
+106586,bartolsthoorn,volunteer,https://api.github.com/users/bartolsthoorn,,"Stockholm, Sweden",http://bartolsthoorn.nl,bartolsthoorn@gmail.com,Nordic Institute for Theoretical Physics
+3485126,benodom,volunteer,https://api.github.com/users/benodom,,"Houston, TX",,,
+1144197,mastahyeti,employee,https://api.github.com/users/mastahyeti,GitHub,"Denver, CO",,,
+1184210,christierney,volunteer,https://api.github.com/users/christierney,"Brightcove, Inc.","Boston, MA",,,
+2076273,rantrix,volunteer,https://api.github.com/users/rantrix,,"San Jose, CA",,,"(╯°□°）╯︵ ┻━┻ __└( ° □ ° )┘
+┬──┬ ノ( ゜-゜ノ)"
+110087,halkeye,volunteer,https://api.github.com/users/halkeye,Sauce Labs Inc.,"Burnaby, BC",http://www.gavinmogan.com,gavin@gavinmogan.com,Software simian at @saucelabs. I like to make random stuff. Most of my stuff probably works. I'm very likely not a robot.
+698456,horaceko,volunteer,https://api.github.com/users/horaceko,"Airbnb, Inc.","San Francisco, CA",,,
+118440,simonsj,employee,https://api.github.com/users/simonsj,,,,,
+7032816,kauffecup,volunteer,https://api.github.com/users/kauffecup,IBM,United States,http://jkaufman.io,jdkaufman5@gmail.com,
+220436,ksatirli,volunteer,https://api.github.com/users/ksatirli,@withmethod ,"Amsterdam, The Netherlands",https://withmethod.com/,,Rock climber and cake baker. Occasionally writes code.
+1054558,kristenmills,volunteer,https://api.github.com/users/kristenmills,Software Engineer @postmates ,"Seattle, WA",https://kristenmills.io,,
+33750,LindseyB,employee,https://api.github.com/users/LindseyB,,"Pittsburgh, PA",http://rarlindseysmash.com,,Wednesday Addams sure has a lot of opinions about software
+172607,lornajane,volunteer,https://api.github.com/users/lornajane,,,http://www.lornajane.net,,
+57006,100ideas,volunteer,https://api.github.com/users/100ideas,,"San Francisco, CA",http://has100ideas.com,mac@has100ideas.com,
+1599,Mange,volunteer,https://api.github.com/users/Mange,Hemnet Service HNS AB,"Stockholm, Sweden",,magnus.bergmark@gmail.com,
+8887971,maxkoryukov,volunteer,https://api.github.com/users/maxkoryukov,,,,,
+224051,mdelagrange,volunteer,https://api.github.com/users/mdelagrange,Leapfrog Online,"Chicago, Illinois, USA",,,
+6468605,MyvarHD,volunteer,https://api.github.com/users/MyvarHD,Myvar,South Africa,,MyvarHD@gmail.com,I love Programming
+466674,nwest,volunteer,https://api.github.com/users/nwest,@detroit-labs ,"Detroit, Michigan",http://twitter.com/nate_west,nwestr@gmail.com,
+13967,pgib,volunteer,https://api.github.com/users/pgib,,"Vancouver, BC",http://pgib.me/,patrick@patrickg.com,
+1764210,pchaigno,volunteer,https://api.github.com/users/pchaigno,,"Paris, France",,paul.chaignon@gmail.com,
+69,rsanheim,volunteer,https://api.github.com/users/rsanheim,@3dna ,"Madison, WI, NORTH AMERICA",https://github.com/rsanheim,,lead software engineer at NationBuilder
+55967,ronaldevers,volunteer,https://api.github.com/users/ronaldevers,,Netherlands,,ronald@ch10.nl,
+3372405,TheIronMarx,volunteer,https://api.github.com/users/TheIronMarx,Myriad Mobile,"Fargo, ND",,,
+156815,smerrill,volunteer,https://api.github.com/users/smerrill,@Formlabs ,"Somerville, MA",http://www.stevenwmerrill.com/,steven.merrill@gmail.com,
+6463980,stkent,volunteer,https://api.github.com/users/stkent,@detroit-labs ,"Detroit, MI",www.stkent.com,,Android & iOS developer. Applied Math Ph.D. A Brit abroad.
+15225,travisjeffery,volunteer,https://api.github.com/users/travisjeffery,,Toronto,https://twitter.com/travisjeffery,tj@travisjeffery.com,"Worked at Basecamp, Segment, Confluent on Kafka/Cloud. Building Stash: http://stash.cool.
+
+@travisjeffery on Twitter and Medium."
+563460,commadelimited,volunteer,https://api.github.com/users/commadelimited,Eventbrite,"Nashville, TN",http://andyMatthews.net,andy@commadelimited.com,Senior Software Engineer at Eventbrite • Author • Reader • Board gamer • Bearded One • Father • Husband • Nashvillian • Christian • Founder of @meeplemountain
+1221346,bouzuya,volunteer,https://api.github.com/users/bouzuya,@faithcreates,"Kobe, Japan",http://bouzuya.net,,なさけはひとのためならず
+118829,codec,volunteer,https://api.github.com/users/codec,,Munich,,,
+1444435,danehammer,volunteer,https://api.github.com/users/danehammer,@udacity ,"Kansas City, United States",https://danehammer.rocks,,"DevOps but like, with real programming. Currently in love with go, but want to get back into Clojure again soon."
+671378,kevinsawicki,employee,https://api.github.com/users/kevinsawicki,GitHub Inc.,"Portland, OR",https://twitter.com/kevinsawicki,kevin@github.com,
+3692812,aqnouch,volunteer,https://api.github.com/users/aqnouch,Groupe Omnidata - Dial Technologies ,Casablanca,https://aqnouch.com,aqnouch.mohammed@gmail.com,"Guess what, I'm a programmer."
+787066,aaronj1335,volunteer,https://api.github.com/users/aaronj1335,Google,"Austin, Texas",aaronstacy.com,,a credible developer wouldn't know this much about shell scripting
+94930,adamvduke,volunteer,https://api.github.com/users/adamvduke,Google,"Cambridge, MA",https://adamvduke.com,adam.v.duke@gmail.com,
+4295,aitor,volunteer,https://api.github.com/users/aitor,Linking Paths,Reykjavík,http://aitor.is,hello@aitor.is,
+2517560,xuoe,volunteer,https://api.github.com/users/xuoe,,,,,
+911174,strugee,volunteer,https://api.github.com/users/strugee,,Washington / University of Rochester,https://strugee.net,alex@strugee.net,"19. FLOSS zealot. Lead maintainer @pump-io, author of @straticjs. UNIX philosophy subscriber. Sysadmin. @recursecenter alum.
+
+he/they"
+422013,alexwhitman,volunteer,https://api.github.com/users/alexwhitman,Durham University,,http://alexwhitman.com,,
+153401,aw,volunteer,https://api.github.com/users/aw,Unscramble,"海の前, Japan",https://a1w.ca,,Ex-GitHubber
+469120,anroots,volunteer,https://api.github.com/users/anroots,@bigbank-as ,Estonia,https://sqroot.eu,ando@sqroot.eu,"Ethical Hacker, DevOps Engineer, Improviser, Maker"
+23787,omega,volunteer,https://api.github.com/users/omega,,"Bangkok, Thailand",http://omega.palle.net,,
+3386,agrieser,volunteer,https://api.github.com/users/agrieser,,,,,
+28146,cadwallion,employee,https://api.github.com/users/cadwallion,GitHub,"Sycamore, IL",http://www.cademon.com/,cadwallion@github.com,"I make stuff.  Mediums include puns, source code, metal, wood, and beer."
+123550,andresilva,volunteer,https://api.github.com/users/andresilva,@paritytech,"Porto, Portugal",,,A guy on the internet 🍍
+14123216,loafoe,volunteer,https://api.github.com/users/loafoe,Aemian,"Amsterdam, Netherlands",https://aemian.com,,
+377261,Restuta,volunteer,https://api.github.com/users/Restuta,@BuildingConnected ,"San Francisco, CA",http://restuta.me,restuta8@gmail.com,"(🦄, 🐙) ⇒ ∞"
+3895,arttu,volunteer,https://api.github.com/users/arttu,,"Helsinki, Finland",,arttu.tervo@gmail.com,
+18631,ngs,volunteer,https://api.github.com/users/ngs,@campfire-inc ,"Meguro, Tokyo, JAPAN",https://ngs.io/,a@ngs.io,Software engineer based in Tokyo. Founder @littleapps / CTO @campfire-inc / NO HEAD HUNTERS
+39902,ben,volunteer,https://api.github.com/users/ben,Currently @zendesk. Formerly @github and @gridium.,"Portland, OR, USA",http://ben.straub.cc,ben@straub.cc,Software engineer with 15 years of experience in all parts of the stack. Author of @progit.
+45141,brntbeer,employee,https://api.github.com/users/brntbeer,GitHub,"San Francisco, CA",github.com/brntbeer,brentbeer@github.com,
+172843,bhardin,volunteer,https://api.github.com/users/bhardin,,"Santa Clara, CA",http://bretthard.in,,
+77563,brianshumate,volunteer,https://api.github.com/users/brianshumate,,⛵️,http://brianshumate.com/,,Art ⁂ Data ⁂ Boards ⁂ Water
+831974,xt0rted,volunteer,https://api.github.com/users/xt0rted,@equineexchange,"NJ, USA",http://hackingonhacks.com,,🙈 🙉 🙈 🙉 🙈 🙉 🙈 🙉
+1167509,BrokenEnso,volunteer,https://api.github.com/users/BrokenEnso,,,,,
+136931,berg,volunteer,https://api.github.com/users/berg,App.net,"San Francisco, CA",http://ber.gd,,
+8216,kch,volunteer,https://api.github.com/users/kch,,Berlin,http://caiochassot.com/,,
+1172532,Eliada,volunteer,https://api.github.com/users/Eliada,,,,,
+903643,charlie-hadden,volunteer,https://api.github.com/users/charlie-hadden,,"Sussex, England",http://charliehadden.co.uk,charlie@hadden.me,
+1466729,arcturial,volunteer,https://api.github.com/users/arcturial,,,http://www.chrisbrand.co.za,chris.brand@iflix.com,
+17064,xrd,volunteer,https://api.github.com/users/xrd,Webiphany.com,"Portland, OR",http://webiphany.com,xrdawson@gmail.com,
+181256,ChrisLundquist,volunteer,https://api.github.com/users/ChrisLundquist,Stripe,"Seattle, Wa",http://chrislundquist.github.com,rampantdurandal@gmail.com,
+513961,canadianveggie,volunteer,https://api.github.com/users/canadianveggie,@newhippo,"Vancouver, BC",http://canadianveggie.wordpress.com,,
+658220,coryallegory,volunteer,https://api.github.com/users/coryallegory,,"Winnipeg, Canada",,,
+811954,danielcompton,volunteer,https://api.github.com/users/danielcompton,Deps,"Morrinsville, New Zealand",https://deps.co,desk+github@danielcompton.net,Working on Deps - Private Maven repository hosting
+1264102,mcmahoniel,volunteer,https://api.github.com/users/mcmahoniel,@newrelic ,::1,http://danieljamesmcmahon.com,,VmFzYmV6bmd2YmEgRnJwaGV2Z2wgQGFyamVyeXZwLiBOcXp2YSBAZnluZnVlYnB4cmcuIEJoZ2Z6bmVncnEgZ3VyIElidnR1Zy1Ybnpjc3Mgem5wdXZhci4=
+68183,mrtazz,volunteer,https://api.github.com/users/mrtazz,@etsy ,Berlin,https://unwiredcouch.com,d@unwiredcouch.com,Staff Systems Engineer Compute at Etsy. A Cheap Trick and a Cheesy One-Liner. git and a Makefile. Feminist.
+60604,dannytatom,volunteer,https://api.github.com/users/dannytatom,,"Seattle, WA",,@dannytatom,
+62967,davereid,volunteer,https://api.github.com/users/davereid,Lullabot,"Omaha, NE",http://www.davereid.net/,dave@davereid.net,
+11758,djl,volunteer,https://api.github.com/users/djl,,,,,
+4748863,pseudomuto,volunteer,https://api.github.com/users/pseudomuto,Shopify,"Ottawa, ON, Canada",https://pseudomuto.com/,david.muto@gmail.com,Data Infrastructure @Shopify. DadOps @home. I read a lot and sometimes speak at conferences. Huge sportsball fan.
+714287,DavidWittman,volunteer,https://api.github.com/users/DavidWittman,,"Austin, Texas",https://wittman.xyz,david@wittman.com,"Dev, Ops, Security, Lens Flares"
+2728948,denisvm,volunteer,https://api.github.com/users/denisvm,OSTEC,Brazil,https://denisvm.com,denisvm@gmail.com,
+123595,dblandin,volunteer,https://api.github.com/users/dblandin,@codeclimate,"New York, NY",https://devon.io,dblandin@gmail.com,
+2952947,dianakhuang,volunteer,https://api.github.com/users/dianakhuang,,,,,
+11197,sishen,volunteer,https://api.github.com/users/sishen,@growingio ,"Hangzhou, Zhejiang, China",http://yedingding.com,yedingding@gmail.com,Co-Founder of GrowingIO
+1480751,doque,volunteer,https://api.github.com/users/doque,Netlight Consulting GmbH,"Munich, Germany",http://doque.de,,
+3896844,ellisv,volunteer,https://api.github.com/users/ellisv,,Lithuania,,eligijusvitkauskas@gmail.com,
+181752,futuraprime,volunteer,https://api.github.com/users/futuraprime,The Economist,"London, UK",,,
+4451,packetmonkey,volunteer,https://api.github.com/users/packetmonkey,,"Holland, Michigan ",http://packetmonkey.org,evan@packetmonkey.org,
+11653812,Sirius-A,volunteer,https://api.github.com/users/Sirius-A,@Siemens,Switzerland,,,Instant Human (add coffee)
+26912,felixdv,volunteer,https://api.github.com/users/felixdv,Egeniq,"Gent, Belgium",http://blog.felixdv.com,felix.devliegher@gmail.com,
+507,franc,volunteer,https://api.github.com/users/franc,,Stellenbosch,rails.co.za,,
+86659,francois2metz,volunteer,https://api.github.com/users/francois2metz,@stormz ,"Paris, France",https://twitter.com/francois2metz,francois@2metz.fr,
+11994,cldwalker,volunteer,https://api.github.com/users/cldwalker,,"Boston, MA",http://tagaholic.me,,
+64050,gjtorikian,employee,https://api.github.com/users/gjtorikian,@github,"Brooklyn, NY",,,I inhale and exhale.
+3620,mizzy,volunteer,https://api.github.com/users/mizzy,,"Kanagawa, Japan",http://mizzy.org/,gosukenator@gmail.com,
+193115,haf,volunteer,https://api.github.com/users/haf,qvitoo.com,Stockholm,https://qvitoo.com?utm_source=github&utm_campaign=profile,henrik@haf.se,
+6247885,Hbrinj,volunteer,https://api.github.com/users/Hbrinj,,,,Hbrinjcar@gmail.com,
+1066160,hhaidar,volunteer,https://api.github.com/users/hhaidar,SDElements,Toronto,https://twitter.com/letstweetbro,,
+1162602,huafu,volunteer,https://api.github.com/users/huafu,@Mastly ,"Ban Nong Ta-kian, Buriram, Thailand",http://huafu.github.io,,
+78887,iangreenleaf,volunteer,https://api.github.com/users/iangreenleaf,,"Minneapolis, MN",http://www.iangreenleaf.com,ian@iangreenleaf.com,
+7014,igorgue,volunteer,https://api.github.com/users/igorgue,@cetuslabs ,"Miami, FL",http://igorgue.com,igfgt1@gmail.com,Type in color
+810824,jjasghar,volunteer,https://api.github.com/users/jjasghar,Chef,"Austin, Texas",http://jjasghar.github.io,jj@chef.io,"Father, Eagle Scout, Beer Nerd, and Computer Nerd. I work at @Chef as a Partner Architect making integrations work better with the Chef Suite."
+3983253,jackmawer,volunteer,https://api.github.com/users/jackmawer,,England,http://jack.mawersoft.co.uk/,,Friendly British student. Mostly. Fairly opinionated.
+175515,ajacksified,volunteer,https://api.github.com/users/ajacksified,@EasyPost ,Mars,http://www.thejacklawson.com,,"Frontend infrastructure @easypost. Prior: @reddit, @airbnb, others."
+13301,jbr,volunteer,https://api.github.com/users/jbr,Consultant,pdx,https://jbr.me,hi@jbr.me,
+65057,jdennes,employee,https://api.github.com/users/jdennes,GitHub,Netherlands,http://jdenn.es,,Engineer at @github.
+123403,jasford,volunteer,https://api.github.com/users/jasford,May Designs,"Austin, TX",feedmagnet.com,jason@jason-ford.com,
+2344456,jaythomas,volunteer,https://api.github.com/users/jaythomas,@ChartIQ ,"Virginia, USA",,,Professional web application developer with hobbies in music and game development.
+487245,JetFault,volunteer,https://api.github.com/users/JetFault,JobHero,New York,https://gojobhero.com,jreptak@gmail.com,
+119121,jbosse,volunteer,https://api.github.com/users/jbosse,,Maryland,http://codalicio.us,jimmy@codalicio.us,
+228958,lusis,volunteer,https://api.github.com/users/lusis,The Lusis Group,"Roswell, GA.",http://about.me/lusis,lusis.org+github.com@gmail.com,
+281076,numbcoder,volunteer,https://api.github.com/users/numbcoder,NetEase,"Hangzhou, China",seekr.im,wzhao23@gmail.com,
+222019,busbyjon,volunteer,https://api.github.com/users/busbyjon,,Beaconsfield,http://www.jonbusby.co.uk,busbyjon@gmail.com,
+13887,jonklo,volunteer,https://api.github.com/users/jonklo,@kolonialno,Norway,https://kolonial.no/,,
+623,jonmagic,employee,https://api.github.com/users/jonmagic,GitHub,San Mateo California,http://theprogrammingbutler.com,jonmagic@github.com,Senior security engineer at GitHub trying to make the world a safer and better place.
+183678,Seldaek,volunteer,https://api.github.com/users/Seldaek,Packagist,"Zürich, Zurich, Switzerland",https://seld.be/,j.boggiano@seld.be,Working on https://packagist.com and https://teamup.com - @composer lead - Wandering Belgian - OSS wishlist: https://seld.be/wishlist
+1465895,jcbantuelle,volunteer,https://api.github.com/users/jcbantuelle,,,,,
+246978,justincampbell,volunteer,https://api.github.com/users/justincampbell,,"West Chester, PA",https://justincampbell.me,justin@justincampbell.me,
+79303,searls,volunteer,https://api.github.com/users/searls,Test Double,"Columbus, OH",http://twitter.com/searls,justin@testdouble.com,"I talk to humans and also write code. I co-founded @testdouble, which is trying to make everything in software just a little bit less awful."
+747202,unok,volunteer,https://api.github.com/users/unok,Suehiro Networks Inc.,"Tokyou, Chuou-ku, Shinkawa",http://www.suehiro.ne.jp/,kazuhiko.uno@gmail.com,
+714,kballard,volunteer,https://api.github.com/users/kballard,Twitch,"San Francisco, CA",https://eridius.micro.blog,kevin@sb.org,iOS Developer at Twitch. Open source contributor. Programming language aficionado. Philonoist.
+6173,vinbarnes,volunteer,https://api.github.com/users/vinbarnes,,"Nashville, TN",,,
+1126497,kevinsimper,volunteer,https://api.github.com/users/kevinsimper,Connected Cars,"Copenhagen, Denmark",http://kevinsimper.dk,kevin.simper@gmail.com,Working on Connected Cars
+582487,khellang,volunteer,https://api.github.com/users/khellang,Miles Stavanger AS,"Stavanger, Norway",http://kristian.hellang.com/,kristian@hellang.com,
+836375,rgbkrk,volunteer,https://api.github.com/users/rgbkrk,@Netflix,"Los Gatos, CA",https://lambdaops.com,rgbkrk@gmail.com,"Data Experience at @Netflix, @nteract hacker"
+12444,kyleslattery,volunteer,https://api.github.com/users/kyleslattery,Artisan Mobile,"Philadelphia, PA",http://kyleslattery.com,k@kslat.com,
+46888,kylev,volunteer,https://api.github.com/users/kylev,,"San Francisco, CA",http://www.kylev.com/,kylev@kylev.com,
+305268,msabramo,volunteer,https://api.github.com/users/msabramo,@adobe-platform ,"San Jose, California, USA",http://marc-abramowitz.com,msabramo@gmail.com,
+517619,softarn,volunteer,https://api.github.com/users/softarn,iZettle,Stockholm,softarn.github.com,,
+65531,marsam,volunteer,https://api.github.com/users/marsam,,,,,
+20283,praseodym,volunteer,https://api.github.com/users/praseodym,Delft University of Technology,The Netherlands,http://www.praseodym.net,mark@praseodym.net,
+377537,mbmccormick,volunteer,https://api.github.com/users/mbmccormick,Microsoft,"Seattle, WA",http://mbmccormick.com,,Program Manager for Office 365 at @Microsoft and Computer Science graduate from Purdue University. Opinions are my own.
+783024,vanetix,volunteer,https://api.github.com/users/vanetix,@CreditCardsCom ,"Austin, TX",,,
+14751,malditogeek,volunteer,https://api.github.com/users/malditogeek,Freelance,"Brighton, UK",,,
+342665,maxgoedjen,volunteer,https://api.github.com/users/maxgoedjen,,"Los Angeles, CA",,,
+1994,kavu,volunteer,https://api.github.com/users/kavu,@polys-vote ,"Moscow, Russia",https://twitter.com/hornedkavu,kavu13@gmail.com,
+1505907,cycomachead,volunteer,https://api.github.com/users/cycomachead,@gradescope ,"Bay Area, CA",http://michaelball.co,cycomachead@gmail.com,"Berkeley MS '16 Coffee. Photography.
+
+Educational stuff for @beautyjoy & @cs10 "
+6,ivey,volunteer,https://api.github.com/users/ivey,Riot Games,"Bay Minette, AL",http://gweezlebur.com,ivey@gweezlebur.com,
+17725,mgriffin,employee,https://api.github.com/users/mgriffin,,"Castlebar, Ireland",https://mikegriffin.ie,github@mikegriffin.ie,
+2236277,MonicaG,volunteer,https://api.github.com/users/MonicaG,,Canada,https://monicagranbois.com/,,
+1560770,elmoeleven,volunteer,https://api.github.com/users/elmoeleven,@platterz ,"Toronto, Canada",,elmoeleven@gmail.com,Front-End Developer
+219155,occ,volunteer,https://api.github.com/users/occ,@google ,"New York, NY",https://occ.me,occ@occ.me,
+306297,pauliwang,volunteer,https://api.github.com/users/pauliwang,,,,,
+1192314,petedmarsh,volunteer,https://api.github.com/users/petedmarsh,,,,,
+557895,pdehaan,volunteer,https://api.github.com/users/pdehaan,Mozilla,"Errington, BC, Canada",http://about.me/peterdehaan,,
+31462,philnash,volunteer,https://api.github.com/users/philnash,@twilio ,Melbourne ,https://philna.sh,philnash@twilio.com,"Developer evangelist for @twilio. I write mostly JavaScript, Ruby and Swift. Probably listening to ska punk right now.
+
+console.log(""🍻"");"
+555397,philippbeckmann,volunteer,https://api.github.com/users/philippbeckmann,,Germany,,philippbeckmann@pabnet.de,
+8641,pcarrier,volunteer,https://api.github.com/users/pcarrier,@apollographql / @meteor,Toronto,https://pcarrier.ca,pc@rrier.ca,
+829526,pra85,volunteer,https://api.github.com/users/pra85,@StylifyYourBlog @BTemps,Noida,https://www.StylifyYourBlog.com/,prayag@stylifyyourblog.com,A die-hard @Blogger platform fan
+47848,rafaelfranca,volunteer,https://api.github.com/users/rafaelfranca,Shopify,"Ottawa, ON",,rafaelmfranca@gmail.com,
+1105290,makii42,volunteer,https://api.github.com/users/makii42,PayPal,San Francisco Bay Area,https://get-serio.us/,,
+692817,rileytg,volunteer,https://api.github.com/users/rileytg,,Los Angeles,,,
+300,cannikin,volunteer,https://api.github.com/users/cannikin,@workingnotworking ,"San Diego, CA",http://ridingtheclutch.com,cannikin@fastmail.com,"Web developer since 1998, Ruby developer since 2006. Into woodworking, electronics, amateur radio (W6AKJ), and offroading. Husband and father of two."
+655187,rodrigoaguilera,volunteer,https://api.github.com/users/rodrigoaguilera,Ymbra,Barcelona,http://www.rodrigoaguilera.net,,
+174433,smoak,volunteer,https://api.github.com/users/smoak,Yammer Redmond,"Seattle, WA",http://mybrainoncode.com,scott.moak@mybrainoncode.com,
+1772,seancribbs,volunteer,https://api.github.com/users/seancribbs,,"Kansas City, MO",http://seancribbs.com/,seancribbs@gmail.com,
+6164,schisamo,volunteer,https://api.github.com/users/schisamo,Chef Software Inc,"Marietta, GA",http://seth.chisamore.com,schisamo@chef.io,"Geek, husband, herder of triplets. Principal Engineer at Chef Software Inc (née Opscode)...all your server configurations are belong to us."
+6191831,sethjackson,volunteer,https://api.github.com/users/sethjackson,PNC,,,,
+920911,shaunkawano,volunteer,https://api.github.com/users/shaunkawano,"Torte, Inc.","Tokyo, Japan",http://blog.shaunkawano.com,shaunkawano@gmail.com,"Android developer at Torte, Inc."
+1025342,shiwano,volunteer,https://api.github.com/users/shiwano,(/ω･＼) Digroad Inc. ,(乂･ω･) Tokyo└(･ω･)┘Japan!,http://twitter.com/shiwano,shiwano@gmail.com,(´・ω・`)
+2408,smgt,volunteer,https://api.github.com/users/smgt,@ecraft ,"Lädja, Sweden",http://smgt.me,simon@smgt.me,
+122633,Sing-Li,volunteer,https://api.github.com/users/Sing-Li,,,,,
+442620,slawekzachcial,volunteer,https://api.github.com/users/slawekzachcial,,,,,
+46283,wingrunr21,volunteer,https://api.github.com/users/wingrunr21,@GuildEducationInc,"Denver, CO",,stafford.brunk@gmail.com,
+545193,sopel,volunteer,https://api.github.com/users/sopel,Utoolity,,http://utoolity.net/,,
+132443,tacoe,volunteer,https://api.github.com/users/tacoe,Q42,Amsterdam,http://tacoekkel.nl/,,
+3499,miyagawa,volunteer,https://api.github.com/users/miyagawa,,"San Francisco, CA",http://weblog.bulknews.net/,miyagawa@bulknews.net,
+1330693,Taytay,volunteer,https://api.github.com/users/Taytay,YouNeedABudget.com,"Austin, TX, or Torino, Italy",http://taytay.com,taytay@taytay.com,
+408753,tfausak,volunteer,https://api.github.com/users/tfausak,ITProTV,"Gainesville, Florida",http://taylor.fausak.me,taylor@fausak.me,
+97197,thiagogabriel,volunteer,https://api.github.com/users/thiagogabriel,@eventene ,Londrina,www.thiagoborg.es,,
+322239,thiagopnts,volunteer,https://api.github.com/users/thiagopnts,@nytimes,"Brooklyn, NY",https://thiago.me,hello@thiago.me,"u̗͙͉̙n̬̤͈͞d͖̩̙͉̳́e͖̦̞̙f̰̘i̪̹͚n͓͚̥ed̢͚̼ ̲̟̀i̤͙͍̖͕̪s̷͓̱͕͖̙ ̟̣̣͎̣͜no̼͍̹̗̩̕t̻̫ͅͅ ̝́a̬̲̣̟̦͠ͅ ͔̮̯̫̩͇͓̕f͏̥͍̦̻u͖͘n̟̼c͚̩̣͝ͅṱ̶͖͉̣̞̜i̼̻͇̳̺͕ò̞͈̻̺̭̟ͅn҉̼
+"
+893393,thomaschaaf,volunteer,https://api.github.com/users/thomaschaaf,Komola GmbH,"Braunschweig, Germany",http://komola.de,schaaf@komola.de,
+136521,tclem,employee,https://api.github.com/users/tclem,GitHub,San Francisco,http://adaptivepatchwork.com,timothy.clem@gmail.com,"Product engineer, programmer, and hacker at GitHub."
+1015200,tas50,volunteer,https://api.github.com/users/tas50,Chef,"Portland, OR",http://www.therealtimsmith.com,tsmith@chef.io,
+205796,needcaffeine,volunteer,https://api.github.com/users/needcaffeine,@researchsquare ,"Raleigh, NC",https://vicvijayakumar.com,,I do the codes.
+19264,lautis,volunteer,https://api.github.com/users/lautis,,"Helsinki, Finland",http://twitter.com/lautis,lautis@gmail.com,
+819711,vinteo,volunteer,https://api.github.com/users/vinteo,@Adslot ,"Melbourne, Australia",https://vincentteo.com,,Technical Lead at Adslot Ltd
+462705,trumbitta,volunteer,https://api.github.com/users/trumbitta,@EasyNetwork ,"Cagliari, IT",http://www.williamghelfi.com/,william@williamghelfi.com,"Born, growing up."
+597,ymendel,volunteer,https://api.github.com/users/ymendel,,,,ymendel@pobox.com,
+770645,ZachBeta,volunteer,https://api.github.com/users/ZachBeta,,"New Haven, CT",www.ZachBeta.com,,"Software Engineer, Rubyist, Techie, Bicyclist"
+4002137,akameco,volunteer,https://api.github.com/users/akameco,,"Japan, Tokyo",akameco.github.io,akameco.t@gmail.com,アルバイト.js
+77775,erikzaadi,volunteer,https://api.github.com/users/erikzaadi,BigPanda,Israel,http://erikzaadi.com/,,
+748808,gasolin,volunteer,https://api.github.com/users/gasolin,,Taiwan,http://www.gasolin.idv.tw,gasolin@gmail.com,"I'm an open source contributor, worked on Mozilla as a 🔥🦊 Firefox and 👨‍💻Devtools module peer."
+185506,knomedia,volunteer,https://api.github.com/users/knomedia,,,knomedia.com,,
+2996203,ouadie-lahdioui,volunteer,https://api.github.com/users/ouadie-lahdioui,,Somewhere with a computer,,ouadiesoft@gmail.com,"Software craftsman ❯ I ❤ #SoftwareDesign, #SoftwareArchitecture, #Agile, #Java, #JavaScript | organiser of @ngMorocco "
+1412864,ta1kt0me,volunteer,https://api.github.com/users/ta1kt0me,,Japan,http://jangajan.com/,p.wadachi@gmail.com,
+379922,thogg4,volunteer,https://api.github.com/users/thogg4,,Salt Lake City,,,
+7847935,tspascoal,volunteer,https://api.github.com/users/tspascoal,Microsoft,Portugal,http://pascoal.net,,
+48770,xhan,volunteer,https://api.github.com/users/xhan,Qiushibaike.com,"Shenzheng , China",http://ixhan.com,xhan87@gmail.com,
+185041,aendrew,volunteer,https://api.github.com/users/aendrew,@ft-interactive ,"London, UK",http://aendrew.com,aendrew@aendrew.com,"Polynerd. http://æ.ninja
+---
+Not looking for work, I but have a massive network and willing to share particularly-awesome opportunities with it."

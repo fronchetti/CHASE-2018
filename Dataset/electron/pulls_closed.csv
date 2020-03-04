@@ -1,0 +1,2087 @@
+pull_request,number_of_commits,number_of_comments,number_of_reviews,user_type,user_login,closed_at,number_of_additions,number_of_deletions,number_of_files_changed,number_of_days,message,number_of_characters,second_line_is_blank,language,number_of_test_files
+11610,1,0,0,Externals,nitsakh,2018-01-09 23:00:15,6,2,2,0,Test PR for @zcbenz .,21,False,en,0
+11599,1,5,0,Externals,johev09,2018-01-08 14:02:31,1,1,1,0,"Tested on OS: Mac OS X 10.12.6
+
+`browserWindow.setVisibleOnAllWorkspaces(boolean)` was not able to show app over Fullscreen app's workspaces. This commit fixes the function to do so. The change is inspired from [Helium](http://heliumfloats.com/) app's [code](https://github.com/JadenGeller/Helium/blob/b35a416376dee7184f788e6ae5736f19890d3ddc/Helium/Helium/HeliumPanelController.swift#L122).",393,True,en,0
+11596,15,1,0,Internals,zcbenz,2018-01-08 11:35:31,109,28,12,0,"Backports https://github.com/electron/electron/pull/11589 to 1.8.x.
+
+Refs https://github.com/electron/libchromiumcontent/pull/431.",132,True,en,0
+11543,1,2,0,Externals,Amandakita,2017-12-31 10:52:09,1,0,1,0,"function FeaturedPost(a){(function(e){var h={blogURL:"""",MaxPost:5,idcontaint:""#featuredpost"",ImageSize:500,interval:10000,autoplay:false,loadingClass:""loadingxx"",pBlank:""http://3.bp.blogspot.com/-v45kaX-IHKo/VDgZxWv0xUI/AAAAAAAAHAo/QJQf8Dlh3xc/s1600/grey.gif"",MonthNames:[""Jan"",""Feb"",""Mar"",""Apr"",""May"",""Jun"",""Jul"",""Aug"",""Sep"",""Oct"",""Nov"",""Dec""],tagName:false};h=e.extend({},h,a);var g=e(h.idcontaint);var c=h.blogURL;var d=h.MaxPost*200;if(h.blogURL===""""){c=window.location.protocol+""//""+window.location.host}g.html('<div id=""slides""><ul class=""randomnya""></ul></div><div id=""buttons""><a href=""#"" id=""prevx"" title=""prev""></a><a href=""#"" id=""nextx"" title=""next""></a></div>').addClass(h.loadingClass);var f=function(w){var q,k,m,u,x,p,t,v,r,l="""",s=w.feed.entry;for(var o=0;o<s.length;o++){for(var n=0;n<s[o].link.length;n++){if(s[o].link[n].rel==""alternate""){q=s[o].link[n].href;break}}if(""media$thumbnail""in s[o]){u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,""/s""+h.ImageSize+""-c"")}else{u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,""/s""+h.ImageSize+""$1"")}k=s[o].title.$t;r=s[o].published.$t.substring(0,10);m=s[o].author[0].name.$t;x=r.substring(0,4);p=r.substring(5,7);t=r.substring(8,10);v=h.MonthNames[parseInt(p,10)-1];l+='<li><a target=""_blank"" href=""'+q+'"" title=""'+k+'""><div class=""overlayx""></div><img class=""random"" src=""'+u+'"" title=""'+k+'""><h4>'+k+'</h4></a><div class=""label_text""><span class=""date""><span class=""dd"">'+t+'</span> <span class=""dm"">'+v+'</span> <span class=""dy"">'+x+'</span></span> <span class=""autname"">'+m+""</span></div></li>""}e(""ul"",g).append(l)};var b=function(){var i=""/-/""+h.tagName;if(h.tagName===false){i="""";e.ajax({url:c+""/feeds/posts/default""+i+""?max-results=""+h.MaxPost+""&orderby=published&alt=json-in-script"",success:f,dataType:""jsonp"",cache:true})}else{e.ajax({url:c+""/feeds/posts/default""+i+""?max-results=""+h.MaxPost+""&orderby=published&alt=json-in-script"",success:f,dataType:""jsonp"",cache:true})}(function(){setTimeout(function(){e(""#prevx"").click(function(){e(""#slides li:first"").before(e(""#slides li:last""));return false});e(""#nextx"").click(function(){e(""#slides li:last"").after(e(""#slides li:first""));return false});if(h.autoplay){var k=h.interval;var l=setInterval(""rotate()"",k);e(""#slides li:first"").before(e(""#slides li:last""));e(""#slides"").hover(function(){clearInterval(l)},function(){l=setInterval(""rotate()"",k)});function j(){e(""#nextx"").click()}}g.removeClass(h.loadingClass)},d)})()};e(document).ready(b)})(jQuery)};function rotate(){$('#nextx').click();};document.write('')",2527,False,oc,0
+11516,1,1,0,Externals,leethomas,2017-12-25 16:10:13,10,3,3,0,"Addresses: https://github.com/electron/electron/issues/10699
+
+Tested on Linux Mint but don't have access to a Windows box. Would someone be able to verify that this works on Windows as well, please?",200,True,en,0
+11477,250,1,0,Internals,ckerr,2017-12-19 15:52:58,3714,2911,303,0,Apply Felix's #11376 bugfix to `1-8-x`,38,False,en,1
+11397,5,4,0,Externals,xdjinnx,2017-12-10 20:03:23,73,19,3,0,"I have implemented two new apis for the webview:
+- setPermissionRequestHandler
+- removePermissionRequestHandler
+
+I implemented these because I were trying to handle a fullscreen event.
+I had to dig around in the issue tracker to find that the session setPermissionRequestHandler could be used for this.
+
+I decided to use an event object to allow and deny request because the chrome api already had an implementation of this.
+https://developer.chrome.com/apps/tags/webview#event-permissionrequest
+
+## Test instructions
+I used this index.html to test blocking and allowing requests.
+I also used this to remove the handler after adding it.
+
+Test the fullscreen request by clicking on the fullscreen button.
+
+``` html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=""UTF-8"">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+
+    <webview id=""view"" src=""https://en.wikipedia.org/wiki/Cat#/media/File:Cat_poster_1.jpg"" style=""height: 600px;""></webview>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+
+      window.onload = function () {
+	      document.getElementById(""view"").setPermissionRequestHandler(function(e) {
+		      e.request.allow();
+	      })
+      }
+    </script>
+  </body>
+</html>
+
+```",1637,False,en,0
+11394,1,4,0,Externals,denysdovhan,2017-12-10 16:15:13,1,1,1,0,"Actually `action` works, not `actions`. It killed a lot of my time until I get that it's a mistake in docs. Hope it would help other developers.",144,False,en,0
+11360,1,2,0,Externals,CommanderXL,2017-12-06 12:14:01,1,1,1,0,change 'ABI'  ->  'API',23,False,en,0
+11338,1,10,0,Externals,lzxb,2017-12-05 01:36:59,1,4,1,0,"```javascript
+const callback = () => { }
+
+const event = new Event()
+
+event.addListener(callback)
+event.addListener(callback)
+event.removeListener(callback)
+
+// Before
+// event.listeners = [callback]
+
+// Now
+// event.listeners = []
+```",248,False,de,0
+11308,1,2,0,Externals,slaweet,2017-12-01 15:32:25,2,2,1,0,"I was getting the following error when trying to build `Error: Exit code: ENOENT. spawn icns2png ENOENT`
+This solution was proposed here: https://github.com/SimulatedGREG/electron-vue/issues/130#issuecomment-331993257",218,False,en,0
+11285,36,2,0,Externals,AdrienFery,2017-11-29 15:26:50,1313,47,53,0,"In order to release a commercial application on the Mac Apple Store, it must use in-app purchase (see [App Store Guidelines](https://developer.apple.com/app-store/review/guidelines/#in-app-purchase)). It is why I have added the in-app purchase feature for MacOS into Electron. I have tested the build and it works well but I didn't implement automatic tests.
+
+Let me know if you see some modifications to do.
+
+See [in-app-purchase.md](https://github.com/AdrienFery/electron/blob/in-app-purchase-macos/docs/api/in-app-purchase.md) for the module documentation.
+
+<img width=""901"" alt=""screen shot"" src=""https://user-images.githubusercontent.com/8200795/33381878-7dec43d8-d51f-11e7-9d0d-7232c6dc707b.png"">
+",710,True,en,0
+11252,1,0,0,Externals,alexeykuzmin,2017-11-24 22:49:03,1,1,1,0,Just to run CI builds for electron/libchromiumcontent#402.,58,False,en,0
+11228,162,0,0,Internals,ckerr,2017-11-23 09:14:24,1377,694,169,0,"These are still rough notes and shouldn't be merged yet.
+
+PRing them for collaborative editing",96,True,en,0
+11213,5,2,0,Externals,ssu2030,2017-11-22 07:02:49,108,3,4,0,"Adding some context : 
+Show current version of Electron  
+to help linux user.",79,False,en,0
+11201,1,2,0,Externals,kstar0714,2017-11-21 16:47:50,0,0,0,0,,0,False,en,0
+11200,250,2,0,Externals,kstar0714,2017-11-21 16:35:29,9855,50046,616,0, electron/electron-i18n/tree/master/content -> electron-i18n/content,68,False,en,2
+11173,1,2,0,Externals,TiagoDanin,2017-11-19 16:41:32,0,0,0,0,Improve in Doc of Display API :),32,False,en,0
+11156,8,5,2,Externals,lipis,2017-11-17 23:14:11,2397,5072,122,0,More info #11143,16,False,en,1
+11143,2,10,2,Externals,lipis,2017-11-17 00:58:30,2395,5072,122,0,"Prettier is now supporting Markdown since v1.8.0 and also formats the code inside the fences.
+
+https://prettier.io
+
+If something is actually breaking or it's wrong, please let me know as we can add a few ignore blocks in that case.
+",237,True,en,1
+11129,2,2,0,Internals,jkleinsc,2017-11-15 16:34:06,184,1,2,0,This PR adds macOS builds for CircleCI,38,False,en,0
+11119,1,4,0,Externals,oscarafuentes,2017-11-15 04:49:38,0,0,0,0,"[ci skip]
+
+Electron Version: 1.7.8
+OS Version: MacOS High Sierra Version 10.13.1 Beta
+
+Was trying to import `net` module into `renderer.js`. It seems that the only attributes available from `require('electron')` are `['clipboard','crashReporter','nativeImage','shell','desktopCapturer','ipcRenderer','remote','screen','webFrame']`, none of which are `net`, which was misleading. I then found you could access built-in modules like this: https://github.com/electron/electron/blob/master/docs/api/remote.md#accessing-built-in-modules-in-the-main-process
+
+![image](https://user-images.githubusercontent.com/19781463/32819134-8e5cfb44-c995-11e7-831a-d2e255a8fa30.png)",670,True,en,0
+11091,1,3,0,Externals,marswong,2017-11-11 02:07:39,0,0,0,0,,0,False,en,0
+11085,250,2,0,Externals,lee-doppelganger,2017-11-10 20:42:55,45961,52818,1154,0,:wave:,6,False,en,0
+11078,2,4,0,Externals,ssu2030,2017-11-10 08:09:49,1,1,1,0," Korean community existed in Slack, So fix it.",46,False,en,0
+11045,1,3,0,Externals,minakawa-daiki,2017-11-07 11:13:16,1,1,1,0,"'current' is called '現在の(genzai-no)' in Japanese.
+'減殺の' is called 'gensai-no'.",91,False,ja,0
+11023,1,7,0,Externals,ssu2030,2017-11-06 03:15:28,1,1,1,0,"Mostly spacing errors. Haven't look at full Korean translation, but will do.
+
+Signed-off-by: Dongho Lee <ssu2030@naver.com>",125,True,en,0
+11021,1,4,0,Externals,ChangJoo-Park,2017-11-06 00:21:09,5,5,1,0,"I found old API instruction in electron documentation(KOREAN).
+
+`--debug` is changed to `--inspect`, also --inspect-brk too.",126,True,en,0
+11019,1,4,0,Externals,ssu2030,2017-11-05 14:19:38,3,3,1,0,"
+1. Fix Mistranslation
+
+- There was a mistranslation in the Core Philosophy part
+  Philosophy has many meanings in Korea. It was used korea in the sense
+   of like 'the philosophy of jung' = '철학'
+
+- It seems to be right to modify the meaning of 'Ideology' = '이념'
+  The '핵심' rather than the '중심' is more appropriate in Korean.
+
+- '지원하지 않습니다.' more appropriate than '빠집니다'
+
+2. Sentence Spacing
+
+-  '그후에' should be changed to '그 후에'. It is a Korean grammar error
+
+Signed-off-by: Dongho Lee <ssu2030@naver.com>",574,False,la,0
+11018,250,2,0,Externals,vincentwan100,2017-11-05 14:18:33,11157,5918,338,0,"In my project, I need to achieve a very special function: pull div content to external display, div content include text, image,  video...",138,False,en,0
+11002,3,4,0,Externals,ssu2030,2017-11-03 08:26:59,2,2,1,0,"#fix docs-translation/ko-KR/tutorial/about.md
+
+## 1. Modify mistranslation
+
++    There was a mistranslation in the Core Philosophy part
+       Philosophy has many meanings in Korea. It was used korea in the sense
++    of like 'the philosophy of jung' = '~~철학~~'
++    It seems to be right to modify the meaning of '_Ideology_' = '이념'
++    The '핵심' rather than the '~~중심~~' is more appropriate in Korean.
++
+## 2. Sentence spacing
+
++   '~~그후에~~' should be changed to '그 후에'. It is a Korean grammar error",540,True,la,0
+10979,1,2,0,Externals,daluntw,2017-10-31 17:03:13,4,0,1,0,,0,False,en,0
+10978,1,1,0,Externals,daluntw,2017-10-31 17:02:11,4,0,1,0,,0,False,en,0
+10976,1,1,0,Externals,daluntw,2017-10-31 16:52:15,97,0,1,0,,0,False,en,0
+10956,3,2,3,Externals,vadikcorp,2017-10-28 12:58:05,0,0,0,0,added quick-start.md in ukrainian,33,False,en,0
+10907,1,1,0,Externals,amtj,2017-10-25 09:49:00,0,0,0,0,,0,False,en,0
+10885,3,3,7,Externals,MarshallOfSound,2017-10-23 16:41:41,18,10,2,0,"Still needs to be validated but I think this will fix things 😄 
+
+Fixes #10433",82,True,en,0
+10881,1,1,0,Externals,codebytere,2017-10-23 14:25:06,15,22,1,0,"Tracking work for https://github.com/electron/electron/issues/5869
+
+Currently blocked pending https://github.com/electron/electron/pull/10888",143,True,en,0
+10878,4,2,0,Externals,codebytere,2017-10-23 04:28:09,55,76,1,0,"In my plans to implement removal of leading and trailing menu separators per https://github.com/electron/electron/issues/5869, i determined that some things needed to be cleaned up, refactored, and golfed before i could effectively proceed. 
+
+/cc @zeke ",255,True,en,0
+10855,1,1,0,Externals,dittos,2017-10-20 01:29:56,2,2,1,0,"`NativeWindowMac::IsFocused()` returns `[window_ isKeyWindow]` but focus event is fired on `windowDidBecomeMain`.
+
+Fixes #9530.
+
+See also: [Cocoa docs](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/WinPanel/Concepts/ChangingMainKeyWindow.html#//apple_ref/doc/uid/20000236-128794) on key vs main windows.",336,True,en,0
+10854,1,5,4,Externals,dittos,2017-10-20 01:24:16,85,1,9,0,Add `Notification.closeAll()` (static) and `Notification.close()`.,66,False,en,0
+10785,1,2,0,Externals,aoom,2017-10-13 13:31:00,1,1,1,0,,0,False,en,0
+10742,2,2,3,Externals,codebytere,2017-10-10 16:43:50,16,0,3,0,"Tracking progress for implementation of https://github.com/electron/electron/issues/9926
+",90,True,en,0
+10729,11,0,0,Externals,excfergodst,2017-10-09 17:30:12,16,0,4,0,,0,False,en,0
+10726,1,0,0,Externals,alexeykuzmin,2017-10-09 15:27:22,11,11,5,0,,0,False,en,0
+10706,3,7,0,Externals,qazbnm456,2017-10-06 18:01:37,0,0,0,0,"Try to implement the certificate viewer for viewing detail of certificate through webContents's API and the button in DevTools. Now with this commit, only `macOS` is supported.
+
+Screenshot:
+![](https://i.imgur.com/2XnQnM9.png)",229,True,en,0
+10682,1,1,0,Externals,crweiner,2017-10-03 18:01:14,0,0,0,0,Update pull request,19,False,en,0
+10523,2,1,0,Externals,leo,2017-09-14 20:44:06,6,3,1,0,This is a very important fix: As stated [here](https://electron.atom.io/docs/api/notification/) the current example is not correct.,131,False,en,0
+10491,1,3,0,Externals,ImgBotApp,2017-09-12 04:41:16,0,0,3,0,"Hey there. I've just optimized all of your images. They are the same dimensions and quality as before, only they take up less space now.
+
+\spec\fixtures\assets\3x3.png (83.83%))
+\spec\fixtures\assets\2x2.jpg (83.66%))
+\spec\fixtures\asar\unpack.asar.unpacked\atom.png (33.08%))",281,True,en,0
+10404,6,5,3,Externals,alexstrat,2017-08-30 22:18:20,54,0,2,0,"_Following #9494_
+
+### Background
+For extension's content scripts injection, Chromium relies on [""isolated world""](https://developer.chrome.com/extensions/content_scripts#execution-environment).
+
+> Content scripts execute in a special environment called an isolated world. They have access to the DOM of the page they are injected into, but not to any JavaScript variables or functions created by the page. It looks to each content script as if there is no other JavaScript executing on the page it is running on. The same is true in reverse: JavaScript running on the page cannot call any functions or access any variables defined by content scripts.
+
+In Electron, the current implementation relies on [`vm.runInThisContext`](https://github.com/electron/electron/blob/master/lib/renderer/content-scripts-injector.js#L16-L23) that does not have the same isolation properties.
+
+### Objective
+This PR wants to add the necessary APIs to deal with isolated world and use it in content scripts injection.
+
+### Exploration
+_Picked from #9494_
+Here are my findings from diving into [`ScriptInjection`](https://cs.chromium.org/chromium/src/extensions/renderer/script_injection.h?type=cs&sq=package:chromium):
+- it relies on `blink::WebFrame#executeScriptInIsolatedWorld`
+- however there is no way to pass an existing `V8:Context` to `executeScriptInIsolatedWorld` (I think blink is creating contexts internally). Instead, chromium is hooking into `DidCreateScriptContext` in [` Dispatcher`](https://cs.chromium.org/chromium/src/extensions/renderer/dispatcher.cc?type=cs&sq=package:chromium&l=291) that returns a `V8:Context` freshly created.
+- from there and by mapping `world_id` passed in `executeScriptInIsolatedWorld` and returned in `DidCreateScriptContext`, it can manipuate the `V8:Context` to add the necessary `chrome.*` APIs to the context (how exactly?)
+
+### Plan
+I think what can be done is:
+- add `webFrame.executeJavaScriptInIsolatedWorld(worldId, code, ..)` to the `webFrame` API alongside the existing `webFrame.executeJavaScript`
+- have an event `'did-create-script-context'` which callback returns `worldId` and `context` (type of context representing `v8::context`?)
+- but how to inject chrome apis in the `context`? Looks like [this](https://github.com/electron/electron/blob/c6918966c25144e85956b8614bd5f005ae4e642a/atom/renderer/atom_renderer_client.cc#L172-L204) can lead to ideas.
+- [bonus] add `webFrame.setIsolatedWorldContentSecurityPolicy` and `setIsolatedWorldSecurityOrigin` that could be needed at some point",2555,True,en,0
+10376,1,2,0,Externals,beilunyang,2017-08-29 00:20:12,0,0,0,0,,0,False,en,0
+10373,5,1,4,Externals,arnavb,2017-08-28 18:34:48,0,0,0,0,"In the file in this folder `bluetooth_chooser.cc`, I made a few small refactorings for clarity.",95,False,en,0
+10354,35,2,9,Externals,arnavb,2017-08-25 16:26:26,0,0,0,0,"I refactored some of the functions and files so they could be shorter, such as by changing conditionals and using the ternary operator where it would introduce clarity in `return` statements. I also removed unnecessary code as well. Most of these refactorings are short and sweet, so they should have little effect on the behavior of the code.",343,False,en,0
+10350,1,2,0,Externals,sgeisbacher,2017-08-25 09:01:34,22,0,1,0,there is a login-event on autoupdater when it needs auth for proxy. it's emitted here https://github.com/electron-userland/electron-builder/blob/master/packages/electron-updater/src/AppUpdater.ts#L109,200,False,en,0
+10348,1,2,0,Externals,bigosmallm,2017-08-25 01:15:29,6,1,1,0,"The code as documented here does not work anymore.
+
+`navigator.mediaDevices.getUserMedia` API has been updated to return a Promise object.
+[https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
+
+",298,True,en,0
+10331,1,2,0,Externals,akkyjumbade,2017-08-22 20:16:34,0,0,0,0,,0,False,en,0
+10325,1,2,0,Externals,develar,2017-08-22 14:31:50,4,0,1,0,Add note about electron-updater (features listed in the mentioned docs).,72,False,en,0
+10267,83,0,0,Externals,alexeykuzmin,2017-08-14 20:56:01,935,857,104,0,,0,False,en,0
+10265,1,1,0,Externals,alexeykuzmin,2017-08-14 18:23:26,1,0,1,0,"Check [Travis builds](https://travis-ci.org/electron/electron/builds/263625304) in #10250, exactly this happens on a user's machine when they run `./script/bootstrap.py`.
+
+```
+$ ./script/bootstrap.py
+
+> electron@1.7.6 install /Volumes/Transcend/Projects/electron
+> node-gyp rebuild
+
+gyp: binding.gyp not found (cwd: /Volumes/Transcend/Projects/electron) while trying to load binding.gyp
+gyp ERR! configure error
+gyp ERR! stack Error: `gyp` failed with exit code: 1
+gyp ERR! stack     at ChildProcess.onCpExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:336:16)
+gyp ERR! stack     at emitTwo (events.js:106:13)
+gyp ERR! stack     at ChildProcess.emit (events.js:191:7)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:12)
+gyp ERR! System Darwin 16.7.0
+gyp ERR! command ""/usr/local/Cellar/node@6/6.11.0/bin/node"" ""/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js"" ""rebuild""
+gyp ERR! cwd /Volumes/Transcend/Projects/electron
+gyp ERR! node -v v6.11.0
+gyp ERR! node-gyp -v v3.6.2
+gyp ERR! not ok
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! electron@1.7.6 install: `node-gyp rebuild`
+npm ERR! Exit status 1
+npm ERR!
+npm ERR! Failed at the electron@1.7.6 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/alkuzmin/.npm/_logs/2017-08-14T18_23_04_816Z-debug.log
+
+Traceback (most recent call last):
+  File ""./script/bootstrap.py"", line 250, in <module>
+    sys.exit(main())
+  File ""./script/bootstrap.py"", line 54, in main
+    update_node_modules('.')
+  File ""/Volumes/Transcend/Projects/electron/script/lib/util.py"", line 289, in update_node_modules
+    execute_stdout(args, env)
+  File ""/Volumes/Transcend/Projects/electron/script/lib/util.py"", line 186, in execute_stdout
+    execute(argv, env)
+  File ""/Volumes/Transcend/Projects/electron/script/lib/util.py"", line 174, in execute
+    raise e
+subprocess.CalledProcessError: Command '['npm', 'install']' returned non-zero exit status 1
+```",2161,True,en,0
+10247,113,6,4,Externals,liusy182,2017-08-11 14:51:45,29,2,4,0,"fixes #10240 
+
+Return empty string when theme color turns out to have alpha value of 0 (transparent).",103,True,en,0
+10221,9,4,1,Externals,MarshallOfSound,2017-08-08 15:32:36,30,5,4,0,"This should fix the tests that were failing as a result of this merge before, basically putting this up so that LCC builds overnight and I can test this tomorrow with proper LCC builds",184,False,en,0
+10217,2,0,0,Internals,zcbenz,2017-08-08 06:20:42,1032,183,6,0,Continue of https://github.com/electron/electron/pull/10205 due to my mistake.,78,False,en,0
+10210,1,1,0,Externals,smildlzj,2017-08-07 14:27:24,0,0,0,0,"support location api property: host/href/protocol/search/path/hash
+```
+var win = window.open('http://www.github.com');
+//...
+console.log(win.location.host);
+//...
+win.location.href = 'https://www.google.com'
+```
+",220,False,en,0
+10207,1,1,0,Externals,alespergl,2017-08-07 13:43:44,1,1,1,0,The latest libcc should make the Linux CI tests green again.,60,False,en,0
+10205,0,7,0,Externals,HAMIDx9,2017-08-07 11:34:47,0,0,0,0,"This PR has patches to build arm64 electron package successfully. 
+I've also provided unofficial packages for download until official releases prepared for the community.
+This build has been tested successfully on Odroid C2 (arm64). Unfortunately support for electron-packager is not provided here.
+You may just copy your resources to the `electron-v1.7.5-linux-arm64.zip` and run `electron` there.
+
+libcromiumcontent build instructions:
+
+```bash
+$ git clone https://chromium.googlesource.com/chromium/src.git
+$ cd libcromiumcontent
+$ ./script/bootstrap
+$ ./script/update -t arm64
+$ ./script/build -t arm64
+$ ./script/create-dist -t arm64
+$ mkdir -p linux/arm64/7a9d4a1c9c265468dd54005f6c1920b2cc2c8ec3 # HACK for using later for electron build process
+$ mv libchromiumcontent* linux/arm64/7a9d4a1c9c265468dd54005f6c1920b2cc2c8ec3
+```
+
+
+
+electron + arm64 support build instruction:
+```bash
+$ git clone https://github.com/HAMIDx9/electron.git
+$ cd electron
+$ ./script/bootstrap.py -v --target_arch=arm64 -u file:///home/hamidx9/dev/electron/libchromiumcontent/
+$ ./script/build.py -c R
+$ ./script/create-dist.py
+$ ls ./dist/electron-v1.7.5-linux-arm64.zip
+```
+
+
+**Unofficial Builds**:
+[electron-v1.7.5-linux-arm64-symbols.zip](https://www.hamidx9.ir/dl/electron_arm64/electron-v1.7.5-linux-arm64-symbols.zip)
+[electron-v1.7.5-linux-arm64.zip](https://www.hamidx9.ir/dl/electron_arm64/electron-v1.7.5-linux-arm64.zip)
+[ffmpeg-v1.7.5-linux-arm64.zip](https://www.hamidx9.ir/dl/electron_arm64/ffmpeg-v1.7.5-linux-arm64.zip)
+[libchromiumcontent/libchromiumcontent-static.zip](https://www.hamidx9.ir/dl/electron_arm64/libchromiumcontent/libchromiumcontent-static.zip)
+[libchromiumcontent/libchromiumcontent.zip](https://www.hamidx9.ir/dl/electron_arm64/libchromiumcontent/libchromiumcontent.zip)
+
+**sha256sum**:
+```bash
+2d3fe036b4fa1efdb99b8fa15e03f11b9829428529640fa9db4794c8cd2babf7  electron-v1.7.5-linux-arm64-symbols.zip
+2df42153e59d40ca03bc281cc515db3331d4facd9d2cdc7fe66aa660b76d43a2  electron-v1.7.5-linux-arm64.zip
+4528e28412e5d1074b35e6bcb6198e07f0e4b6ef3434565b4d294124f9e01dbd  ffmpeg-v1.7.5-linux-arm64.zip
+b4e8d028d34ce5a9010d4900140466e1f55c835ad7e64c0c7403d82ea41c44bf  libchromiumcontent/libchromiumcontent-static.zip
+afa2486256ce561fd3a815e08a0dfee4841a7cbe467f3e518a4712aae48e25fe  libchromiumcontent/libchromiumcontent.zip
+```
+",2387,False,en,0
+10203,1,3,0,Internals,zcbenz,2017-08-07 09:57:34,1,1,1,0,Include the change of https://github.com/electron/libchromiumcontent/pull/333.,78,False,en,0
+10198,1,1,0,Internals,zeke,2017-08-04 23:09:17,22,0,1,0,just another step to make sure a draft release is legit,55,False,en,0
+10194,8,5,0,Externals,alexeykuzmin,2017-08-04 11:25:35,12,13,9,0,**TODO**: Change target branch to *master*.,43,False,en,0
+10187,1,12,0,Externals,saschagehlich,2017-08-03 09:34:03,46,23,3,0,"This PR adds a new `hideDisabledButtons` option to BrowserWindow's `titleBarStyle` option.
+
+![screenshot 2017-08-01 16 35 35](https://user-images.githubusercontent.com/119684/28915391-4b1a9654-783f-11e7-8373-e5e93a0629bc.png)
+
+Some implementation details: Since `NativeWindowMac`'s `IsMaximizable` method checks if the maximize button is enabled (which is always the case inside `InstallView()`), I had to add three new flags to the class: `minimizable_`, `maximizable_` and `closable_` which are set to the option the user has passed to the BrowserWindow.",560,True,en,0
+10137,3,4,3,Externals,miniak,2017-07-27 12:45:04,962,961,13,0,"It's more correct to use the term element, as tag only refers to `<webview>` in HTML code. The DOM contains elements, also the API is `document.createElement` not `document.createTag`",183,False,en,0
+10136,1,1,0,Externals,robinwassen,2017-07-27 12:03:15,0,0,0,0,"Changed from [NSWindow toggleFullScreen:] to [NSView enterFullScreenMode:withOptions:] when enabling kiosk mode since it resolves a lot of kiosk mode related issues such as menu bar, dock and applications on other displays being visible.
+
+Example issues that are solved are: #8426 and #1054
+
+**Special note:** Worth mentioning is that this kiosk mode is so aggressive that it will not even allow dialogs to show - showing dialogs will practically cause the computer to hang, because you will not be able to interact with the application when the dialog is alive, and you cannot interact with the dialog since the application is running in strict full screen.
+
+So this is a decision if it is worth a tighter kiosk mode with the con that dialogs does not work as intended.
+
+Examples on a multi-screen setup:
+
+**Before changes:**
+![before_kiosk_changes](https://user-images.githubusercontent.com/302151/28669329-2c731a7a-72d4-11e7-83f8-66768332db86.png)
+
+**After changes:**
+![after_kiosk_changes](https://user-images.githubusercontent.com/302151/28669333-30582b4e-72d4-11e7-9c40-1daa78110e35.png)
+
+
+
+",1115,True,en,0
+10114,2,0,0,Internals,jkleinsc,2017-07-25 17:48:46,2,0,1,0,Attempt to fix ImportError: No module named google_compute_engine that is happening in Travis,93,False,en,0
+10111,84,8,0,Externals,alexeykuzmin,2017-07-25 16:19:17,935,857,104,0,Rel to #9946.,13,False,en,0
+10092,1,4,0,Externals,3n-mb,2017-07-23 01:29:42,8,8,1,0,"Adding missing `(optional)` to make structural part be the same as textual. In line with comment in #10091, i.e. that definition generating utility will properly generate overloading definitions, when first parameter is optional.",229,False,en,0
+10091,1,1,0,Externals,3n-mb,2017-07-23 00:08:35,25,2,1,0,"Docs are used for generation of `d.ts`. Typescript likes optional parameters on the tail, and a signature with optional first parameter should be changed to overloading (?) multiple definitions. In this case, there should be two of them.
+
+It may look uglier, cause we are repeating docs. May be we need some convention for cases like these? Or, may be, d.ts generation utility should work around first parameters, marked as optional. In later case, fix is trivial addition of `(optional)` for the first argument. Does utility handle first optional parameter, turning it into several definitions? I assumed not, but I may be wrong :) .
+
+By the way `webRequest.onHeadersReceived([filter, ]listener)` and others need change like this.",735,True,en,0
+10090,1,2,7,Externals,3n-mb,2017-07-22 23:05:41,3,3,1,0,"#### Issue 1:
+Lines 2929-2945, definition of `registerFileProtocol(...)`.
+Doc lines say (as well as docs on site),
+```
+     *  .... To handle
+     * the request, the callback should be called with either the file's path or an
+     * object that has a path property, e.g. callback(filePath) or callback({path:
+     * filePath}). When callback is called with nothing, a number, or an object that
+     * has an error property, the request will fail with the error number you
+     * specified. 
+```
+but definition itself is
+```
+    registerFileProtocol(scheme: string, handler: (request: RegisterFileProtocolRequest, callback: (filePath?: string) => void) => void, completion?: (error: Error) => void): void;
+```
+`callback`'s function definition has arguments `filePath?: string`, but it should also take in values that will make request fail, i.e. `filePath?: string | number | ...`
+
+#### Issue 2:
+Lines 2922-2928, definition for `registerBufferProtocol(...)`.
+Doc lines say (as well as docs on site),
+```
+     *  ....  The usage
+     * is the same with registerFileProtocol, except that the callback should be called
+     * with either a Buffer object or an object that has the data, mimeType, and
+     * charset properties. Example:
+     */
+```
+but definition itself is
+```
+    registerBufferProtocol(scheme: string, handler: (request: RegisterBufferProtocolRequest, callback: (buffer?: Buffer | MimeTypedBuffer) => void) => void, completion?: (error: Error) => void): void;
+```
+misses types for `buffer` argument in `callback`, that will make request to fail. It should be at least `buffer?: Buffer | MimeTypedBuffer | number`, which I know runs properly.
+
+By the way, it seems that an *Example:* part of the doc line is chopped off.
+
+#### Issue 3:
+Lines 2917-2921, definition for `isProtocolHandled(...)`.
+Doc lines say,
+```
+    /**
+     * The callback will be called with a boolean that indicates whether there is
+     * already a handler for scheme.
+     */
+```
+but definition itself is
+```
+isProtocolHandled(scheme: string, callback: (error: Error) => void): void;
+```
+where callback argument should be `callback: (isHandled: boolean) => void`.",2196,False,en,0
+10089,33,0,0,Externals,AndreasM-Avd26,2017-07-22 12:57:38,205,47,27,0,,0,False,en,0
+10029,1,6,0,Externals,gerhardberger,2017-07-16 22:17:16,28,3,5,0,"This PR adds a `setDisplayNotifications` method to the `app` object.
+
+This allows to add a quick option for Electron apps to disable and enable displaying notifications, sort of like a more fine grained Do not disturb mode.",225,True,en,0
+9968,1,2,0,Externals,Hum4n01d,2017-07-10 16:27:51,1,1,1,0,"If somebody wants to make an actual description, they can. :) Thanks for the awesome project!",93,False,en,0
+9905,3,4,0,Externals,awvalenti,2017-06-30 21:21:22,7,0,1,0,"Many users should benefit from knowing upfront how to generate a distributable package and how large will it be. For those reasons, I'm opening this pull request to include that info on README.md.",196,False,en,0
+9893,2,0,0,Externals,ferreus,2017-06-29 04:41:19,18,1,4,0,"Because SetEnabled tracks number of calls and re-enables the window only when counter is back to 0,
+Calling Show() on already visible window would prevent the modal lock to be released when modal is closed. This PR fixes it, by calling SetEnabled only when window is invisible. Preventing duplicate calls to SetEnabled.
+
+",324,False,en,0
+9850,1,3,0,Externals,poiru,2017-06-25 18:08:46,1,0,1,0,Fixes #8793.,12,False,en,0
+9848,1,3,0,Externals,liusy182,2017-06-25 09:02:19,60,12,3,0,"#9697 
+
+Promisify `getZoomFactor()` and `getZoomLevel()` APIs",63,True,en,0
+9841,6,0,0,Externals,MarshallOfSound,2017-06-24 11:25:26,192,105,16,0,,0,False,en,0
+9829,1,0,0,Externals,zh880517,2017-06-22 08:40:12,0,0,0,0,updat,5,False,en,0
+9820,1,0,0,Externals,ferreus,2017-06-21 13:00:04,9,4,2,0,"SetEnabled uses internal counter to handle multiple calls to SetEnabled however that resulted in modal dialog not re-enabling the parent window, when used incorrectly.",167,False,en,0
+9810,1,1,0,Externals,Tazeg,2017-06-20 15:35:31,0,0,0,0,,0,False,en,0
+9809,0,0,0,Externals,ferreus,2017-06-20 14:32:24,0,0,0,0,"I tracked down this crash to https://chromium.googlesource.com/experimental/chromium/src/+/58.0.3029.110/content/browser/browser_plugin/browser_plugin_guest.h#153
+```
+WebContentsImpl* embedder_web_contents() const {
+    return attached_ ? owner_web_contents_ : nullptr;
+}
+```
+
+Which results in null pointer access on LoadURL when the view is hidden (Because it's detached).
+This is actually not a matter of race condition. As it's simply enough to hide the webview, then issue LoadURL to crash it.
+
+This will avoid the crash by simply refusing to navigate when the view is not attached.",596,False,en,0
+9806,1,0,0,Externals,ferreus,2017-06-20 14:00:53,13,0,3,0,"I tracked down this crash to https://chromium.googlesource.com/experimental/chromium/src/+/58.0.3029.110/content/browser/browser_plugin/browser_plugin_guest.h#153
+```
+WebContentsImpl* embedder_web_contents() const {
+    return attached_ ? owner_web_contents_ : nullptr;
+}
+```
+
+Which results in null pointer access on LoadURL when the view is hidden (Because it's detached).
+This is actually not a matter of race condition. As it's simply enough to hide the webview, then issue LoadURL to crash it.
+
+This will avoid the crash by simply refusing to navigate when the view is not attached.",596,False,en,0
+9766,43,19,0,Externals,alexeykuzmin,2017-06-15 15:24:54,743,679,78,0,"Related to #9679.  
+Here are mostly fixes of trivial compilation errors. There are still plenty of errors left, I'm working on it.  
+Keep it mind that a [PR](https://github.com/electron/libchromiumcontent/pull/313) with changes to libcc hasn't been merged yet.
+
+/cc @tonyganch @kevinsawicki @zcbenz @setpixel @dezmathio
+
+Almost all commits have a corresponding CL title as a first line of their commit message.
+Link(s) to the CL(s) can be also found in the commit message.
+
+Incomplete list of the compilation errors left:
+- [x] **atom/browser/bridge_task_runner.cc**:16:28: error: call to implicitly-deleted copy constructor of 'base::OnceClosure'
+  Related CLs: [chromium/2637843002](https://codereview.chromium.org/2637843002), [chromium/2726523002](https://codereview.chromium.org/2726523002), [chromium/2797133002](https://codereview.chromium.org/2797133002).
+- [x] **atom/browser/api/frame_subscriber.cc**:87:10: error: no member named 'copyPixelsTo' in 'SkBitmap'
+  Related issue: [Remove SkBitmap::copyPixelsTo](https://bugs.chromium.org/p/skia/issues/detail?id=6465)
+- [x] **atom/browser/net/atom_url_request_job_factory.h**:58:44: error: only virtual member functions can be marked 'override'
+  Related CL: https://codereview.chromium.org/2783343002
+- [ ] _(OSR disabled)_ **atom/browser/osr/osr_web_contents_view.cc**:104:14: error: allocating an object of abstract class type 'atom::OffScreenRenderWidgetHostView'
+- [ ] _(OSR disabled)_ **atom/browser/osr/osr_render_widget_host_view.cc**:562:40: error: use of undeclared identifier 'GetBackgroundOpaque'
+- [ ]  _(OSR disabled)_ **atom/browser/osr/osr_render_widget_host_view.cc**:581:37: error: out-of-line definition of 'OnSwapCompositorFrame' does not match any declaration in 'atom::OffScreenRenderWidgetHostView'
+- [ ]  _(OSR disabled)_ **atom/browser/osr/osr_render_widget_host_view.cc**:602:32: error: no member named 'SwapDelegatedFrame' in 'content::DelegatedFrameHost'
+- [ ]  _(OSR disabled)_ **atom/browser/osr/osr_render_widget_host_view_mac.mm**:44:51: error: only virtual member functions can be marked 'override'
+- [ ]  _(OSR disabled)_ **atom/browser/osr/osr_render_widget_host_view_mac.mm**:45:43: error: unknown type name 'ViewMsg_ReclaimCompositorResources'
+- [x] **atom/common/native_mate_converters/blink_converter.cc**:250:28: error: no member named 'x' in 'blink::WebMouseEvent'
+  Related CL: https://codereview.chromium.org/2782893002
+- [x] **atom/renderer/api/atom_api_spell_check_client.h**:39:64: error: only virtual member functions can be marked 'override'
+  Related issue: [OOPIF: SpellCheckProvider is a RenderViewObserver](https://crbug.com/638361) and [design doc](https://goo.gl/VfCENk).
+- [x] **atom/renderer/atom_autofill_agent.h**:38:45: error: only virtual member functions can be marked 'override'
+  Related CL: https://codereview.chromium.org/2766053002
+- [x] **vendor/native_mate/native_mate/converter.h**:298:24: error: no member named 'ToV8' in 'mate::Converter<content::ServiceWorkerCapability, void>'
+  Related CL: https://codereview.chromium.org/2751343002",3092,False,en,0
+9734,1,1,4,Externals,igorshevach,2017-06-12 09:20:09,25,7,1,0,"usage:
+enable full dump creation:
+-full-memory-crash-report=1
+force disable full dump creation:
+-full-memory-crash-report=0.
+
+IMPORTANT:
+vendor/breakpad should be updated to latest master version since commit 33a4375 does not contain required code fixes.",261,False,en,0
+9730,1,1,0,Externals,dezmathio,2017-06-12 06:58:00,1,1,1,0,"`Update CLANG_VERSION to match version Chrome is using in update.py`
+
+was following https://electron.atom.io/docs/development/upgrading-chrome/ a bit loosely;
+
+I followed this locally: https://github.com/electron/electron/blob/master/docs/development/build-instructions-osx.md
+ran bootstrap.py, then build.py, then test.py scripts -- Wasn't 100% sure if I missed anything, the instructions in the upgrade guide didn't have instructions as detailed as the ones for building electron itself. Let me know if you want me to take this PR down. Cheers.",551,True,en,0
+9708,1,11,0,Externals,juturu,2017-06-09 04:05:21,1,1,1,0,"Fixes #9688 #9560 #9691 
+
+Reverts #8786 ",42,True,en,0
+9648,2,78,8,Externals,develar,2017-06-01 16:03:16,290,5,11,0,"Addresses [Code Signing of ASAR files](https://github.com/electron/asar/issues/123).
+
+* Any application that uses external files as code sources are not protected and code signing doesn't make sense.
+* Anyone can use trusted app from trusted vendor as a template for malicious app.
+  * macOS: Static validation failed (when you manually check using codesign tool or another tools), dynamic (performed on run for quarantined apps) passed.
+  * Windows: no app bundle concept at all, no way to statically check app, no dynamic validation at all. Nothing prevents.
+* Java, Electron apps are affected. 
+
+How do we can fix it?
+
+1. Embedding code sources into the executables.
+    1.1 Modifying existing executable.
+    * macOS: [Not possible](https://stackoverflow.com/questions/4022495/how-can-i-add-sections-to-an-existing-os-x-executable).
+    * Windows: using windows resources.
+
+     As it is not possible on macOS, this approach is rejected.
+
+    1.2 Linking during build. It will complicate Electron app development. Another approach should be used.
+
+    So, although embedding code sources into the executables approach is the most secured, price is too high. 
+
+2. Really sign ASAR file and verify on ASAR file load. Well, implementation will be complex and fragile (very easy to verify code integrity, but identity validation...). So, this approach is rejected.
+
+3. Keep code integrity data in the application manifest and verify only integrity on ASAR file load. As application manifest is a part of executable file (Windows) and `Info.plist` is a part of application bundle (macOS), we don't need to verify identity and so, our implementation is robust and straightforward. If integrity data will be changed — code signature will be broken and application will be marked as damaged by OS.
+
+Third approach, ""code integrity data in the application manifest"", is implemented in this PR.
+
+Some notes:
+* macOS specific: Depending on not yet known reasons even modified Info.plist is not a reason to prevent run on macOS sometimes. Under some conditions app is marked as damaged, but under another conditions not (interestingly, in both cases app is quarantined (`com.apple.quarantine`, can be checked using `xattr` tool)). Well, it doesn't invalidate the whole idea of this PR:
+    * small amount of data can be embedded into existing Mach-O object file if will be proven that `Info.plist` is not really secured. So, it can be implemented later if need.
+    * static validation is not passed (since code signature will be broken), so, user has ability to verify application using standard tools.
+* sha512 is used because [it is faster](https://crypto.stackexchange.com/questions/26336/sha512-faster-than-sha256) than sha256 on x64 machines.
+   * 5MB hashed in 4ms, 30MB hashed in 45ms. So, integrity check doesn't slow down app loading.
+* macOS specific: Officially [not recommended](https://developer.apple.com/library/content/technotes/tn2206/_index.html#//apple_ref/doc/uid/DTS40007919-CH1-TNTAG201) to sign non-Mach-O executables. So, unlikely PR to `electron-osx-sign` will be filed to sign ASAR files.
+* Windows is unsecured, even macOS Gatekeeper doesn't work as expected... Should we worry about code integrity if even checks on OS level so insecure? Well... no excuse for us. Integrity check is cheap, build process is not complicated. So, why not to make sure that on our level user is protected and we do our best to protect users?
+
+Checksums stored as JSON object under the key `AsarChecksums`. If key not specified — no integrity check. `electron-builder` (asar is enabled by default) will add integrity data on build (will be implemented as separated npm module to reuse this logic in other build tools).
+
+Implemented for macOS only for now, I want to hear your feedback.
+
+update 1: macOS performs full static validation on first run of downloaded application. So, changes in this PR not ""should"", but ""must"" be implemented (planned fix on `electron-osx-sign` under investigation).",4039,True,en,1
+9617,1,2,0,Externals,iamsingla9,2017-05-29 16:46:47,1,1,1,0,Resolves #8118,14,False,et,0
+9571,7,0,0,Externals,ghost,2017-05-24 00:36:19,147,131,12,0,I like Electron.,16,False,es,0
+9565,1,3,1,Externals,Svennisen,2017-05-23 18:01:41,68,6,2,0,"Needed to use the capturePage functionality and then turn my NativeImage into a monochrome bitmap. Doing the monochrome conversion in nodejs was incredibly slow and therefore I added it as a separate function to NativeImage.
+
+This is very useful when printing images to any kind of thermal printer.",300,True,en,0
+9536,22,5,0,Externals,pilotpirxie,2017-05-19 21:47:31,0,0,0,0,,0,False,en,1
+9502,2,1,0,Externals,liusy182,2017-05-17 02:49:40,17,0,2,0,"fix for #9454
+
+This issue affects Windows as well. I have only tested on Windows platform but not on Mac (Sorry I do not have a Mac env set up).",146,True,en,0
+9494,5,7,2,Externals,alexstrat,2017-05-16 15:48:41,39,24,2,0,"With the objective to load some Chrome extensions in an Electron app, I noticed few things to add or correct in Electron's [`content_scripts`](https://developer.chrome.com/extensions/content_scripts) basic support that I propose in this PR:
+
+1. Fixed: script was injected only if the current URL matched the first item of `content_scripts[].matchs` ignoring the following items (=> independent PR in https://github.com/electron/electron/pull/10075)
+2. Fixed: run the different scripts in a same context. I stumbled upon a popular extension ([mailtracker](https://chrome.google.com/webstore/detail/mailtracker-for-gmail/pgbdljpkijehgoacbjpolaomhkoffhnl)) that works and expects this behavior, so I assumed it is the expected behavior. ⚠️ _bug: see below_
+3. Added support for CSS injection (independent PR in https://github.com/electron/electron/pull/10076)
+---
+However, it looks like the changes I introduced in 48cff0c make the webContents crash when a script of the extension tries to modify `window` (`window.what = 'whatever'`).
+
+I was able to setup an [environment](https://github.com/alexstrat/electron-boilerplate/pull/3) to reproduce and got this stack trace:
+```
+Received signal 11 SEGV_MAPERR 003f7b840822
+ [0x00010b26d7ec]
+ [0x00010b26d6a1]
+ [0x7fffe71fab3a]
+ [0x00010ab6fa12]
+ [0x00010b4dc59a]
+ [0x00010b4a2ee0]
+ [0x00010b494830]
+ [0x00010c054b7e]
+ [0x00010ac17144]
+ [0x00010ac99b13]
+ [0x00010aca6c28]
+ [0x00010aca6aa6]
+ [0x00010ac0bbbc]
+ [0x00010ac10854]
+ [0x19664be8437d]
+[end of stack trace]
+```
+How can I move forward with this stack trace?
+Has anyone an idea of what may causes this?
+
+_Related: #1498_",1653,True,en,0
+9488,2,1,0,Externals,paulinaika,2017-05-16 06:29:01,263,1,3,0,…ws-store-guide.md [ci skip],30,False,da,0
+9478,1,0,0,Externals,djpereira,2017-05-15 18:18:00,0,0,0,0,"Updated documentation given that:
+* `navigator.webkitGetUserMedia` is deprecated
+* Passing `audio: true` as a constraint to `getUserMedia` when trying to capture audio for presentation throws an exception (i.e. ""Invalid screen capture request"").",247,False,en,0
+9465,5,0,0,Externals,mrxf,2017-05-15 06:07:22,4,4,1,0,,0,False,en,0
+9426,1,0,0,Externals,MarshallOfSound,2017-05-10 23:23:08,3,4,2,0,/cc @zeke @kevinsawicki ,24,False,hu,0
+9406,2,2,0,Externals,neknalb,2017-05-08 13:20:50,6,6,3,0,"In case you want to use a BrowserWindow subclass the current implementation of `showSaveDialog` from `Electron.Dialog` fails in `parseArgs`.
+
+The unwanted result of the current implementation leads to:
+
+- window = null
+- options = my_given_browserwindow_subclass_instance
+- callback = my_given_options
+
+With this PR I hopefully provide a solution.",355,True,en,0
+9390,2,1,0,Externals,TimNZ,2017-05-06 01:28:05,19,0,1,0,"#9346 
+",8,True,en,0
+9370,1,1,0,Externals,RobertWHurst,2017-05-04 04:48:27,0,0,0,0,"Changed ""ABI"" to ""API""",22,False,en,0
+9367,2,2,0,Externals,thomasLechaptois,2017-05-03 15:54:14,0,0,0,0,,0,False,en,0
+9366,2,0,0,Externals,thomasLechaptois,2017-05-03 15:51:19,0,0,0,0,,0,False,en,0
+9365,2,0,0,Externals,thomasLechaptois,2017-05-03 15:42:08,0,0,0,0,,0,False,en,0
+9337,1,0,0,Externals,mcizol,2017-05-01 13:28:40,0,0,0,0,,0,False,en,0
+9336,1,0,0,Externals,mcizol,2017-05-01 13:28:32,0,0,0,0,,0,False,en,0
+9335,1,0,0,Externals,mcizol,2017-05-01 13:28:00,0,0,0,0,,0,False,en,0
+9334,1,0,0,Externals,mcizol,2017-05-01 13:25:57,0,0,0,0,updated all turkish community links with auto invite link ,58,False,en,0
+9224,1,3,0,Externals,poiru,2017-04-18 17:47:29,99,4,6,0,"This is a breaking change, but we must to do what we can to make
+Electron secure by default. This is a small and necessary step towards
+that goal.",148,False,en,0
+9218,1,14,0,Externals,herrjemand,2017-04-18 06:59:36,36,36,36,0,"I found that it's a pain to build electron when you are running os with main python version to be python3. I think shebangs need to be more strict. This pull request updates all shebangs from: 
+
+```
+#!/usr/bin/env python
+```
+
+to
+
+```
+#!/usr/bin/env python2
+```",270,True,en,1
+9217,1,1,0,Externals,upicik,2017-04-18 04:54:22,5,0,1,0,"[RAM] usage is added
+issue #[8362 (https://github.com/electron/electron/issues/8362) ]",87,False,en,0
+9169,19,5,0,Externals,runinspring,2017-04-12 02:33:19,1600,256,19,0,,0,False,en,0
+9140,1,8,0,Externals,poiru,2017-04-07 16:40:05,38,39,6,0,"Tested both framed and frameless windows with 100%, 125%, 150%, 175%,
+and 200% DPI on Windows 10.
+
+The only issue is that you might get the resize cursor at the right and
+bottom edge of maximized frameless windows on some DPIs (>100% DPI for
+me). This might just be a VM issue though.
+
+This fixes #5267 and #8728.
+
+# Test Plan
+
+## Windows 7
+
+### With Frame
+
+- [ ] 200% DPI
+- [ ] 150% DPI
+- [ ] 125% DPI
+- [ ] 100% DPI
+
+### Without Frame
+
+- [ ] 200% DPI
+- [ ] 150% DPI
+- [ ] 125% DPI
+- [ ] 100% DPI
+
+## Windows 8
+
+### With Frame
+
+- [ ] 200% DPI
+- [ ] 150% DPI
+- [ ] 125% DPI
+- [ ] 100% DPI
+
+### Without Frame
+
+- [ ] 200% DPI
+- [ ] 150% DPI
+- [ ] 125% DPI
+- [ ] 100% DPI
+
+## Windows 10
+
+### With Frame
+
+- [x] 200% DPI
+- [x] 150% DPI
+- [x] 125% DPI
+- [x] 100% DPI
+
+### Without Frame
+
+- [x] 200% DPI
+- [x] 150% DPI
+- [x] 125% DPI
+- [x] 100% DPI
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=""utf-8"">
+    <style>
+      body, html {
+        padding: 0;
+        margin: 0;
+      }
+
+      #outer {
+        border: 5px solid red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #inner {
+        border: 5px solid blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id=""outer"">
+      <div id=""inner"">
+        <button onclick=""require('electron').remote.getCurrentWindow().maximize()"">Maximize</button>
+        <button onclick=""require('electron').remote.getCurrentWindow().unmaximize()"">Unmaximize</button>
+        <button onclick=""window.close()"">Close</button>
+      </div>
+    </div>
+  </body>
+</html>
+```",1800,False,en,0
+9098,54,0,0,Externals,HackersZone,2017-04-03 17:24:13,552,142,44,0,No Way,6,False,en,0
+9069,1,0,0,Externals,fonghuiyue,2017-03-31 01:49:18,358,11,16,0,,0,False,en,0
+9068,14,13,0,Internals,joshaber,2017-03-30 21:32:51,0,0,0,0,"Add the `app.showCertificateTrust` API to show the OS-provided UI to let the user decide to accept and trust a self-signed or untrusted certificate:
+
+![cert_trust_panel_5b4faf16-9b52-4d4f-8aa0-63b89361dd60](https://cloud.githubusercontent.com/assets/13760/24527176/0b9a9dfe-156f-11e7-9795-ecb429b25949.jpg)
+
+~~I believe this would address https://github.com/electron/electron/issues/1956.~~ Negative, see the discussion below.
+
+This is only the macOS-side of things. I think we can get @shiftkey to do the Windows side.
+
+I'm opening this early because I have no idea what I'm doing and I'd welcome any feedback or advice anyone would like to provide.",658,True,en,0
+9045,1,3,0,Externals,secondfry,2017-03-28 13:04:44,0,0,0,0,https://github.com/enlight/electron-inspector/issues/7,54,False,en,0
+8990,1,3,0,Externals,saikrishnadeep,2017-03-23 07:17:02,0,0,0,0,"Fixes #5862 ""Menu.buildFromTemplate"" is not a function because of new electron require ",87,False,en,0
+8980,1,6,0,Externals,arkon,2017-03-22 03:41:57,45,0,9,0,"This would be useful for https://github.com/Microsoft/vscode/issues/19707
+
+Note that this PR is a WIP -- I just wanted to open it to get feedback on whether or not I'm going about this the right way, since I'm new to the codebase.",232,True,en,0
+8953,1,9,0,Externals,tarruda,2017-03-17 17:21:41,30,17,8,0,"- Change the return type of AtomViewHostMsg_Message_Sync from `base::string16`
+  to `base::ListValue`
+- Adjust lib/browser/api/web-contents.js and /lib/renderer/api/ipc-renderer.js
+  to wrap/unwrap return values to/from array, instead of
+  serializing/deserializing JSON.
+
+This change can greatly improve `ipcRenderer.sendSync` calls where the return
+value contains Buffer instances, because those are converted to Array before
+being serialized to JSON(which has no efficient way of representing byte
+arrays).
+
+A simple benchmark where remote.require('fs') was used to read a 16mb file got
+at least 5x faster, not to mention it used a lot less memory.  This difference
+tends increases with larger buffers.",718,False,en,0
+8884,1,6,0,Externals,JanCVanB,2017-03-10 00:32:45,2,2,1,0,"Some array notations (`String[]` followed immediately by `(optional)`) results in an empty markdown link, which prevents `[] (optional)` from showing up in the final documentation preview.",188,False,en,0
+8822,1,3,0,Externals,Anrock,2017-03-03 10:01:54,0,0,0,0,"Just wasted couple of days on that, so i wanted to document this, so other people won't waste they time again.",110,False,en,0
+8808,2,19,0,Externals,odensc,2017-03-01 23:50:03,26,12,4,0,"Fixes #5267, #8728.",19,False,en,0
+8782,1,2,0,Externals,odensc,2017-02-27 04:18:06,9,0,1,0,"Resolves #5267.
+
+A frameless window with a thick frame (default) would overflow onto another monitor when maximized.
+
+This PR fixes the issue by resetting the `maxPosition` pointer of `MINMAXINFO` to (0, 0) - before it was (-7, -7), which caused overflow onto the left monitor.",281,True,en,0
+8761,3,1,0,Internals,kevinsawicki,2017-02-23 23:58:49,19,31,3,0,"The V8 value converter used for IPC arguments previously had a max recursion depth of 100: https://github.com/electron/electron/blob/cc688d7fa6a48e5133735eb67d665f5d193ec94f/atom/common/native_mate_converters/v8_value_converter.cc#L22
+
+Really deep objects specified as arguments to remote functions currently throw errors because the metadata received gets truncated at the IPC layer and so the format received by `rpc-server.js`  is invalid/incomplete.
+
+This pull request removes this recursion depth completely. This value seemed somewhat arbitrary and was originally inherited from Chrome. Currently we don't limit the size of IPC objects in other ways so this seems okay to do and can be improved upon further via https://github.com/electron/electron/issues/7286.
+
+The other options I can think of here would be:
+
+- Have `remote.js` throw errors when function arguments that will exceed this limit are specified.
+- Gracefully handle invalid/incomplete metadata in `rpc-server.js`. This option would seem surprising to developers since large objects they send over would just have `null` fields certain places and would be hard to track the cause.
+
+I noticed this issue while investigating #8423 and trying to send `module` over the remote interface which is pretty nested.
+
+/cc @electron/maintainers ",1317,True,en,0
+8688,2,9,1,Externals,tonyganch,2017-02-15 14:27:41,61,11,4,0,"Fix for #8209.
+
+In situation when there are two windows open, with one being in focus and another one being blurred, if we popup menu for the blurred window, click callbacks for menu items will get either `null` or focused window as second parameter.
+That fix passes information about window used in `popup` method with fallback to a focused window.
+
+Note that even though Chrome focuses a blurred window when you right-click on it, I don't think that will be a desired behavior for Electron users. Plus devs can always focus desired window manually. So I didn't modify that ""focusing"" logic.
+
+I had trouble with the test. Apparently if I just use `menu.popup(window)`, the test gets stuck because no code after that line is run before I manually click on the window to close context menu. And I see no way to close it programmatically. So as a workaround I just set `menu.window` property (which should be done by `popup` method) and for that I created a testing-only method `_setWindow`. I don't like how it all looks, so I'll be grateful for advice on how to write a good test for my changes.",1102,True,en,0
+8683,1,1,9,Externals,fab1an,2017-02-14 19:02:45,21,21,7,0,,0,False,en,0
+8674,1,8,0,Externals,danyaal,2017-02-13 22:53:42,0,0,0,0,"For security purposes, I believe we would want nodeIntegration to be disabled, right?",85,False,en,0
+8631,10,3,0,Externals,YurySolovyov,2017-02-08 19:08:20,27,14,4,0,Refs #8624 #7851 ,17,False,fr,0
+8630,1,11,0,Externals,fab1an,2017-02-08 18:26:39,1,1,1,0,,0,False,en,0
+8581,1,3,0,Externals,crowchirp,2017-02-03 13:57:05,1,1,1,0,,0,False,en,0
+8580,1,1,0,Externals,crowchirp,2017-02-03 13:41:50,1,1,1,0,,0,False,en,0
+8579,1,0,0,Externals,crowchirp,2017-02-03 13:28:57,3,3,1,0,,0,False,en,0
+8578,1,4,0,Externals,ColinEberhardt,2017-02-03 06:27:38,2,0,1,0,"The new `sandbox` option is a very useful feature, but quite hidden. I think it should be added to the list!",108,False,en,0
+8550,1,7,0,Externals,CharlieHess,2017-02-01 02:55:23,1,5,1,0,"After performing some navigation that should be transparent to the user, I'd like to `clearHistory` so that they're unable to traverse it. Problem is, after doing that all calls to `getURL` start returning empty strings. It seems (to me) that `getURL` should always return the current `webContents` location.",308,False,en,0
+8527,2,0,0,Externals,xchopin,2017-01-27 22:18:38,0,0,0,0,"Hi,
+
+for the french doc there is a huge problem almost every links are dead",77,True,en,0
+8444,0,4,0,Externals,natebwangsut,2017-01-19 07:20:41,0,0,0,0,"I'm working on Thai translation to the Electron documents. I'll let you guys know if I have finished every translation in docs folder.
+
+**TODO**:
+
+- [x] Translate docs/README.md
+- [x] Translate docs/faq.md
+- [x] Translate docs/glossary.md
+- [x] Translate docs/styleguide.md
+- [ ] Translate docs/api/*
+- [ ] Translate docs/development/*
+- [ ] [WIP] Translate docs/tutorial/*",383,True,en,0
+8442,150,5,8,Externals,renaesop,2017-01-19 05:57:11,0,0,0,0,"Add a print option and an api to get printer list
+
+### contents.printerList():
+Get a list of printers, eg:
+````js
+[ { printerName: 'Zebra_LP2844',
+    printerDescription: 'Zebra LP2844',
+    printerStatus: 3,
+    isDefault: 1,
+    options: 
+     { copies: '1',
+       'device-uri': 'usb://Zebra/LP2844?location=14200000',
+       finishings: '3',
+       'job-cancel-after': '10800',
+       'job-hold-until': 'no-hold',
+       'job-priority': '50',
+       'job-sheets': 'none,none',
+       'marker-change-time': '0',
+       'number-up': '1',
+       'printer-commands': 'none',
+       'printer-info': 'Zebra LP2844',
+       'printer-is-accepting-jobs': 'true',
+       'printer-is-shared': 'true',
+       'printer-location': '',
+       'printer-make-and-model': 'Zebra EPL2 Label Printer',
+       'printer-state': '3',
+       'printer-state-change-time': '1480656412',
+       'printer-state-reasons': 'none',
+       'printer-type': '36932',
+       'printer-uri-supported': 'ipp://localhost/printers/Zebra_LP2844',
+       system_driverinfo: 'Z' } } ]
+````
+ 
+### contents.print([options]):
+- +deviceName: **string** The printerName  
+
+",1165,True,en,1
+8402,2,2,0,Externals,czipperz,2017-01-13 01:50:40,12,11,3,0,This also narrows the scope of the static global variable to inside the only function it is used in.,100,False,en,0
+8382,1,3,5,Externals,ide,2017-01-11 04:15:55,27,1,4,0,"See the fixed issue for the context. This pulls in a vendored copy of Node that includes the described patch. **This commit depends on first merging https://github.com/electron/node/pull/21.**
+
+Fixes #8358
+
+Test Plan: Built Electron and verified it loaded the sample app correctly and that the module wrapper is the new one by viewing Node's source code in the Blink Inspector.",381,True,en,0
+8372,1,15,0,Externals,Dhanielk,2017-01-09 19:32:22,1,1,1,0,"Fix properties type. Previously showed as 'String', now 'String[]'",66,False,en,0
+8367,1,1,0,Externals,alespergl,2017-01-09 15:37:30,2,18,2,0,See [libchromiumcontent #249](https://github.com/electron/libchromiumcontent/pull/249) for context.,99,False,en,0
+8359,1,1,1,Externals,Maurice-Byrne,2017-01-07 11:00:27,2,0,1,0,Reminding the reader to exclude the electron/dist directory from their app.asar so it does not ad unnecessary file size.,120,False,en,0
+8315,1,0,0,Externals,oukan,2016-12-31 15:19:23,81,3,1,0,"### Additional Entitlements
+
+Depending on which Electron APIs your app uses, you may need to add additional
+entitlements to your `parent.plist` file to be able to use these APIs from your
+app's Mac App Store build.
+
+I can't correct translation",249,True,en,0
+8307,1,3,0,Externals,boriskaiser,2016-12-29 19:43:04,1,1,1,0,,0,False,en,0
+8280,3,12,0,Externals,MarshallOfSound,2016-12-24 21:33:40,166,0,6,0,"This allows apps to hook into the new `MPRemoteCommandCenter` API's on macOS 10.12.2.  Pretty sure this breaks on older macOS versions so I need to add a few ifs.  It add's two new `app` API's.
+
+```js
+app.initializeAsMediaPlayer()
+```
+
+```js
+app.setNowPlaying({
+  currentTime,
+  duration,
+  title,
+  artist,
+  album,
+  id,
+  state,
+});
+```
+
+When I hooked this up to GPMDP it generates the correct system wide touch bar 😄 
+
+<img width=""1085"" alt=""touch bar shot 2016-12-25 at 10 30 24 am"" src=""https://cloud.githubusercontent.com/assets/6634592/21468814/876ccfa6-ca8d-11e6-9cb8-09bcf171f1f3.png"">
+
+**NOTE:** I totally did this on the plane on my way home still it still needs a bit of cleanup 👍 
+
+**TODO**
+
+* [ ] Add docs
+* [x] Ensure it builds on non-macOS platforms
+* [ ] Ensure it builds / runs on older macOS versions",854,True,en,0
+8264,2,7,2,Externals,gfpacheco,2016-12-21 17:23:34,3,0,1,0,Fixes #8208,11,False,en,0
+8241,4,3,9,Externals,paulcbetts,2016-12-19 22:38:54,108,6,5,0,"This PR uses dodgy private APIs in order to set the application's title in Activity Monitor dynamically:
+
+![image](https://cloud.githubusercontent.com/assets/1396/21331411/23aee6d8-c5f7-11e6-8319-198211d8d7c9.png)
+
+On Windows you can't do this at all, and on Linux this calls `setproctitle`",294,True,en,0
+8222,1,4,0,Externals,uber-morlock,2016-12-16 22:31:27,0,0,0,0,":memo:
+because if file is absent
+IOError: [Errno 2] No such file or directory: 'your/path/electron/out/electron-api.json'",123,False,en,0
+8219,1,2,0,Externals,EtienneLem,2016-12-16 17:32:02,1,1,1,0,"I don’t know what’s your point of view on `instanceof`, for there a very few in the codebase and `var.constructor === Class` seems to be the preferred way. However, that doesn’t take inheritance into account.
+
+In my app my windows instances are instantiated from classes that extends `BrowserWindow` and AFAIK that shouldn’t be an anti-pattern(?). Checking for `window.constructor` is always false, which means arguments are shifted making it impossible to attach a dialog to my windows and throws the `Buttons must be an array` error because it doesn’t properly find the `options` argument.
+
+[api-dialog-spec.js](https://github.com/electron/electron/blob/master/spec/api-dialog-spec.js) only tests thrown errors, so I didn’t update them.",754,True,en,0
+8168,1,5,3,Externals,wildeyes,2016-12-08 07:44:13,13,11,1,0,Guard against Object.prototype extensions causing errors like ` TypeError: Cannot read property 'checked' of undefined` in line 132.,132,False,en,0
+8164,2,2,0,Externals,liusy182,2016-12-08 01:40:51,27,5,4,0,window portion of the implementation for #7725 ,47,False,en,0
+8146,1,0,0,Externals,liusy182,2016-12-06 09:10:20,36,11,2,0,"Fix for #8079 
+
+As part of the fix, the `session` option for `protocol.registerHttpProtocol` is updated to accept a `string` or `null` instead of an object. The correct `BrowserContext` is obtained based on session's partition name if given.",243,True,en,0
+8091,1,3,0,Internals,zeke,2016-11-28 19:41:43,16,4,3,0,cc @kevinsawicki @groundwater how does this look?,49,False,en,0
+8058,3,1,1,Internals,zeke,2016-11-23 00:54:35,75,20,6,0,"This is an effort to document the codebase, and the roles different directories play in it.
+
+🍐  @groundwater ",114,True,en,0
+8053,3,0,0,Externals,LuisHsu,2016-11-22 16:00:57,499,0,3,0,,0,False,en,0
+7996,2,11,0,Externals,deed02392,2016-11-17 07:36:48,1,1,1,0,Fix 'properties' type in documentation (was missing `[]` notation due to lack of Markdown escaping).,100,False,en,0
+7948,1,1,3,Externals,paulcbetts,2016-11-12 00:09:03,7,0,1,0,"![image](https://cloud.githubusercontent.com/assets/1396/20233847/19937fce-a829-11e6-8689-a99fbfcee224.png)
+
+I suspect that on Windows, calling into process.env is not a very snappy operation ",194,True,en,0
+7914,2,3,0,Externals,gregnolle,2016-11-09 13:18:37,37,20,3,0,"First go at resolving #7891.
+
+/cc @deepak1556: Thanks for your guidance in the issue report. Would you mind taking a look at this and see if you can see any issues please? I removed the call into the CT delegate that I see you added in #7651 since I don't want to bypass CT checking. I'm not clear exactly when CT checking happens though (before or after the CertVerifier::Verify call?) and perhaps there should still be a way of bypassing it?
+
+I thought about maybe changing the interpretation of the callback value to:
+* true - resets the verify_result, bypass CT and send back OK result
+* false - send back ERR_FAILED result regardless of default cert verifier's result
+* null - send back whatever result the default cert verifier sent and let CT checking happen normally; this assumes that CT checking happens afterwards
+
+What do you think?",853,True,en,0
+7909,35,5,0,Internals,groundwater,2016-11-09 07:50:24,524,407,74,0,"Debug build compiles on:
+- [x] OS X
+- [x] Linux
+- [x] Windows
+
+Release build compiles on:
+- [x] OS X
+- [x] Linux
+- [x] Windows
+
+Tests passing on:
+- [x] OS X
+- [x] Linux
+- [x] Windows
+
+Fix features:
+- [x] `insertCSS`
+- [x] `inspectElement`
+- [x] offscreen rendering
+- [x] POST navigations
+- [x] `navigator.requestMIDIAccess`
+
+Merge:
+- [ ] https://github.com/electron/libchromiumcontent/pull/239
+- [ ] https://github.com/electron/brightray/pull/260
+
+Fixes #6571
+Fixes #7814 
+Fixes #8062
+Fixes #8366",525,False,en,0
+7889,0,0,0,Externals,gregnolle,2016-11-06 13:41:08,0,0,0,0,"…vent.
+
+The existing ""data"" attribute only contains the certificate at the end of the chain. This PR exposes the full chain as an array of PEM-encoded strings.",163,True,en,0
+7862,1,5,0,Externals,aliib,2016-11-03 16:59:05,4,4,1,0,A very long space is inserted between union type if I use for instance (String | Object).,89,False,en,0
+7817,4,11,2,Externals,felixrieseberg,2016-10-31 21:41:38,27,0,2,0,"This tiny fix ensures that a fullscreen window on macOS can be hidden using `hide()` without the screen turning black.
+
+Closes https://github.com/electron/electron/issues/6033",177,True,en,0
+7800,1,0,0,Externals,rtspeaks360,2016-10-30 13:56:38,0,0,0,0,"Adding appropriate comments to the test.py to make it more justified.
+",70,True,en,1
+7799,1,0,0,Externals,sparshtekriwal,2016-10-30 10:53:04,0,0,1,0,,0,False,en,0
+7798,1,2,0,Externals,sparshtekriwal,2016-10-30 10:49:36,2,0,1,0,,0,False,en,0
+7789,8,1,3,Externals,paulcbetts,2016-10-28 19:48:55,45,6,6,0,"This PR adds a new field to the `sender` parameter of the browser's IPC callout `senderWebContentsId`. This along with a corresponding PR to `electron-remote` will allow Electron applications to consider certain frames as ""Trusted"" vs ""Untrusted"" with regards to allowing access to remote objects - without this, the only way to determine the source of an IPC message is via the sender sending along its WebContents ID, which means that a potentially compromised sender could possibly impersonate a trusted frame simply by guessing IDs until it works.",551,False,en,0
+7786,1,0,3,Externals,privatzee,2016-10-28 14:32:49,2,0,1,0,"I , and likely many others, got tripped up while substituting single or double quotes in place of backticks in the loadURL example:
+
+>   // and load the index.html of the app.
+>   win.loadURL(\`file://${__dirname}/index.html\`)
+
+Examples of the confusion being discussed: 
+https://github.com/electron/electron-quick-start/issues/18
+https://github.com/jaketrent/jaketrent-blog/issues/11
+",394,True,en,0
+7775,1,3,0,Internals,zeke,2016-10-27 16:43:28,9,9,1,0,"@as-cii pointed out that node-gyp will soon have a `--devdir` flag: https://github.com/nodejs/node-gyp/pull/916
+
+This updates the native modules doc to use that new flag instead of the `HOME=` prefix.
+
+@as-cii, once that update is released, we should add something to this doc that specifies which version of node-gyp users will need to get this functionality. Right?
+",368,True,en,0
+7773,2,1,4,Externals,freakomonk,2016-10-27 14:40:30,4,4,1,0,,0,False,en,0
+7706,1,1,0,Internals,kevinsawicki,2016-10-24 02:12:33,20,6,3,0,"https://github.com/electron/electron/pull/7468 introduced focusing the menu bar button when clicked.
+
+This caused the web contents to no longer report as focused causing some role-based menu items to no longer work on Windows.
+
+This pull request updates the menu item role behavior to use the focused window's web contents as a fallback when the web contents itself is not reporting as focused.
+
+Closes #7663
+",409,True,en,0
+7703,1,0,0,Externals,arjndr,2016-10-23 05:28:48,0,0,0,0,"Cleared unwanted whitespace and beautified HTML code
+",53,True,en,0
+7702,1,0,0,Externals,arjndr,2016-10-22 09:34:47,0,0,0,0,"Fixed typos I guess
+",20,True,en,0
+7701,250,0,0,Externals,ghost,2016-10-22 02:16:48,12004,4515,477,0,,0,False,en,0
+7695,1,1,0,Externals,dumconstantin,2016-10-21 21:48:23,1,1,1,0,,0,False,en,0
+7682,1,7,0,Externals,tong,2016-10-20 15:07:52,1,1,1,0,"There exists no type of `any`, should be object.
+",49,True,en,0
+7677,4,0,0,Externals,MichaelVasseur,2016-10-20 08:03:10,4343,9,17,0,,0,False,en,0
+7675,1,0,0,Externals,kokdemo,2016-10-20 04:14:36,0,0,0,0,"update from electron
+",21,True,en,0
+7671,1,15,0,Externals,pfrazee,2016-10-19 23:19:08,47,0,7,0,"Solves https://github.com/electron/electron/issues/7670
+
+Per @deepak1556's advice, I added an interface to the `ContentClient:: AddSecureSchemesAndOrigins` method. Due to the timing in my tests, I found it had to be called before the 'ready' event, as with `registerStandardSchemes`.
+
+I'm not sure what the best way is to automatically test this. Suggestions? I was able to confirm it works in my bug demo, https://github.com/pfrazee/electron-bug-securewebviewcrash.
+",467,True,en,0
+7664,1,1,0,Externals,amtj,2016-10-18 19:46:31,0,0,0,0,,0,False,en,0
+7648,1,3,0,Externals,MarshallOfSound,2016-10-17 08:34:24,3,1,1,0,"This might be up for debate but I've recently come across some really annoying errors on Sentry that I can't catch, prevent or handle in any way.  Here is an example of one.
+
+``` js
+Attempting to call a function in a renderer window that has been closed or released. Function provided here:  
+n._triggerFile (C:\Users\<username>\AppData\Local\GPMDP_3\app-4.0.1\resources\app.asar\build\renderer\ui\components\settings\FileInput.js:9:1841.
+```
+
+This traces to a callback [here](https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/blob/master/src/renderer/ui/components/settings/FileInput.js#L28) from a call to `showOpenDialog`.  Somehow the `webContents` is being destroyed before that callback is fired.  There is literally nothing I can do about this as I can't ""unbind"" a callback.
+
+I don't want to completely remove these errors as during development they are good and catch some issues.  However in production I don't want random webContents crashes or race conditions to throw errors at my users that I can't catch in a sensible way (`process.on('uncaughtException')`) doesn't count....
+
+This PR adds a single environment variable which will stop these errors being thrown.  By default they will still be thrown but it means in production we can disable them.
+",1294,True,en,0
+7646,1,0,0,Externals,cflatts,2016-10-17 01:52:05,2,0,1,0,"This is a comment on a function for Hacktoberfest.
+",51,True,en,0
+7642,82,0,0,Externals,jasonjyu,2016-10-16 02:05:10,2610,2217,215,0,,0,False,en,0
+7638,1,0,0,Externals,tanishkhandelwal,2016-10-15 14:33:23,6,6,1,0,,0,False,en,0
+7634,1,1,0,Externals,Varun-Sethu,2016-10-15 09:27:25,0,0,0,0,,0,False,en,0
+7617,2,1,0,Externals,kbhatia1996,2016-10-14 04:37:20,2,0,1,0,,0,False,en,0
+7612,0,20,9,Externals,gabriel,2016-10-13 20:34:10,0,0,0,0,"As discussed in https://github.com/electron/electron/issues/6889
+
+Added an optional callback argument to openExternal which will perform it asynchronously.
+
+``` js
+electron.shell.openExternal('http://electron.atom.io', {}, function(err) {
+  if (err) console.log('Callback error:', err)
+  else console.log('Callback opened')
+})
+```
+
+I only implemented the asynchronous behavior on macOS.. I would need some help on the other platforms?
+",447,True,en,0
+7568,1,1,0,Externals,mukuljainx,2016-10-11 22:16:18,2,1,1,0,"Solving issue #6939
+Added one line after line 122 in docs/api/web-view-tag.md specifying default value of nodeintegration.
+<img width=""1277"" alt=""screen shot 2016-10-12 at 3 32 40 am"" src=""https://cloud.githubusercontent.com/assets/10228876/19290661/547314f0-902e-11e6-9896-61abf4c68ec8.png"">
+",293,False,en,0
+7554,1,0,2,Externals,vojtatranta,2016-10-11 12:19:00,6,1,1,0,"addresses #7351 
+
+Does not fix the error but adds login and removes `Uncaught exception` possibility
+",101,True,en,0
+7546,1,9,0,Externals,karvapallo,2016-10-10 15:55:24,1,1,1,0,"…d correctly when passed back
+",32,True,en,0
+7523,2,0,0,Externals,manishch6652,2016-10-07 08:43:40,0,0,0,0,,0,False,en,0
+7514,1,1,0,Externals,siddharthkhandelwal,2016-10-06 17:12:35,2,2,1,0,,0,False,en,0
+7513,1,1,0,Externals,aayushitanwar,2016-10-06 17:06:57,3,3,1,0,,0,False,en,0
+7497,1,2,0,Externals,anshk00,2016-10-05 19:11:09,0,0,0,0,"Change wording
+",15,True,nl,0
+7483,1,1,0,Externals,ambrosiora,2016-10-04 14:57:09,1,0,1,0,"Documentation
+",14,True,en,0
+7450,250,1,0,Externals,jakobamster,2016-10-02 13:41:57,7680,2310,271,0,,0,False,en,0
+7441,1,5,0,Externals,bryongloden,2016-10-01 14:40:20,1,0,1,0,":bug: label: [hacktoberfest](https://hacktoberfest.digitalocean.com)
+
+Greetings,
+
+On line number `131` of [atom_blob_reader.cc](https://github.com/electron/electron/blob/master/atom/browser/atom_blob_reader.cc#L131) we believe there is a memory leak, which is an bug. The reason we should delete is that memory is a finite resource within our running programs. Sure in very short running simple programs, failing to delete memory won't have a noticeable effect. However on long running programs, failing to delete memory means we will be consuming a finite resource without replenishing it. Eventually it will run out and our program will abruptly crash. This is why we must delete memory.
+
+Signed-off-by: Bryon Gloden, CISSP® cissp@bryongloden.com
+",750,True,en,0
+7435,216,0,0,Externals,b-orlov,2016-10-01 10:41:40,5133,1548,184,0,,0,False,en,0
+7431,1,4,0,Externals,pfrazee,2016-09-30 21:16:06,66,0,4,0,"Per https://github.com/electron/electron/issues/2749
+
+Adds the following webview tags:
+- disableimages
+- disablejavascript
+- disablewebgl
+- disablewebaudio
+- displayinsecurecontent
+- runinsecurecontent
+",202,True,en,0
+7425,1,0,0,Externals,malexanderboyd,2016-09-30 13:54:10,44,1,2,0,,0,False,en,0
+7420,1,0,0,Externals,Elkrite,2016-09-29 22:16:24,1,1,1,0,,0,False,en,0
+7382,3,1,0,Externals,Frewacom,2016-09-28 10:02:10,14,12,9,0,,0,False,en,0
+7365,250,2,0,Externals,abhinavralhan,2016-09-27 18:39:40,6214,1597,241,0,"v6.6.0 is the current version available for Linux(x64) 
+",56,True,en,0
+7332,1,9,0,Externals,miniak,2016-09-24 00:47:12,3,0,1,0,"Is there a reason, why electron.exe (32-bit) is not `/LARGEADDRESSAWARE` by default?
+",85,True,en,0
+7270,1,3,0,Externals,tinydew4,2016-09-20 13:24:56,3,3,3,0,"Contributing Guide links at top of some documents are invalid.
+I've changed them as a translated guide links.
+",110,False,en,0
+7257,1,2,0,Internals,kevinsawicki,2016-09-19 19:54:03,1,1,1,0,"Seeing some odd AppVeyor failures:
+
+```
+FAILED: ninja -t msvc -e environment.x64 -- ""C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\cl.exe"" /nologo /showIncludes /FC @obj\atom\browser\api\electron_lib.atom_api_app.obj.rsp /c ..\..\atom\browser\api\atom_api_app.cc /Foobj\atom\browser\api\electron_lib.atom_api_app.obj /Fdobj\electron_lib.cc.pdb 
+c:\projects\electron\atom\browser\ui\win\jump_list.h(8): fatal error C1083: Cannot open include file: 'atlbase.h': No such file or directory
+```
+
+https://ci.appveyor.com/project/Atom/electron/build/2176/job/ngh0sxfrwjx5cqng#L426
+
+Looks like there was an update today, https://www.appveyor.com/updates/2016/09/19/
+
+Trying to roll back to the old images to see if they build 🍏 
+",743,True,en,0
+7252,147,0,0,Externals,bbondy,2016-09-19 07:42:13,21988,1558,234,0,"Auditors: @bridiver, @darkdh 
+Please review / cherry-pick just the last commit.
+Staying on 52 for now until I have a build of 53 available.
+",140,False,en,0
+7197,2,4,0,Internals,zeke,2016-09-14 06:30:47,17,12,4,0,"I cherry-picked these commits from the [brave fork](https://github.com/brave/electron), per @bbondy's suggestion.
+
+Fixes #6648 
+",128,True,en,0
+7159,1,2,0,Externals,MarshallOfSound,2016-09-09 18:24:56,44,1,2,0,"This is the easiest and most unintrusive way I could come up with to implement this.
+
+Basically I didn't want to put it into the native code as I don't think Squirrel specific things should end up there (this is consistent with all our other Squirrel specific customization).  The general idea was to keep the API consistent with the documentation but override the defaults to be Squirrel.Windows compatible if we could.
+
+Fixes #7148 
+
+/cc @paulcbetts Would be good if you could verify I haven't screwed up the arguments syntax 👍 
+",534,True,en,0
+7126,3,3,5,Externals,karupanerura,2016-09-07 11:13:53,20,1,2,0,"I need it:
+
+``` es6
+webContents.loadUrl('https://www.example.com', {
+  extraHeaders: {
+    'Accept-Encoding': 'gzip;q=0,deflate;q=0'
+  }
+});
+```
+",145,True,en,0
+7115,1,1,0,Externals,leyanlo,2016-09-06 20:38:09,1,1,1,0,,0,False,en,0
+7114,4,7,2,Internals,kevinsawicki,2016-09-06 19:14:13,17,10,11,0,"This pull request deletes the [`Buffer`](https://nodejs.org/api/buffer.html) global when node integration is disabled.
+
+It also switches places using that global to use a `const {Buffer} = require('buffer')` instead.
+
+It seems expected that `Buffer` would be unavailable when node integration is disabled since it is a node global but I'm curious what others think.
+
+This pull request does run the risk of breaking existing apps that were previously relying on this global (accidentally or deliberately) so perhaps this should wait for Electron 2.0.
+
+/cc @electron/maintainers 
+
+Closes #7081
+",592,True,en,0
+7082,1,1,0,Externals,Sential,2016-09-03 11:21:54,0,0,0,0,,0,False,en,0
+7072,2,8,5,Externals,TimvdEijnden,2016-09-02 15:09:14,31,1,7,0,"We want to send along the logged in user in our application when submitting a crash report.
+But we want to start the crash report directly on start so we wont miss any crashes.
+
+When we load our website we can get the logged in user from the loaded website and add that info to the extra_parameters of the crashReporter. This was not possible so i've added it.
+
+![screen shot 2016-09-02 at 17 08 35](https://cloud.githubusercontent.com/assets/951290/18208466/e5c42d72-712f-11e6-8951-b0f7e0043adb.png)
+",501,False,en,0
+7058,1,8,0,Externals,sboekhoff,2016-09-01 12:38:43,43,78,1,0,"The [documentation style guide](https://github.com/electron/electron/blob/master/docs/styleguide.md#methods) postulates using lists when documenting methods and their options. Especially for long list this can be confusing (see e.g. https://github.com/electron/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions)
+
+In order to ease the grasping of information, I'd like to propose using tables instead of lists.
+
+Currently the [documentation for the constructor of BrowserWindow](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions) looks like this:
+
+![current](https://cloud.githubusercontent.com/assets/10683690/18167532/5afb3ea8-7051-11e6-8c96-1a1c6c37a644.png)
+
+Using a table makes it much easier to find data-types, default values, etc.
+
+![new](https://cloud.githubusercontent.com/assets/10683690/18167548/74623f86-7051-11e6-9bea-670e3a622ada.png)
+",923,True,en,0
+7019,40,1,0,Externals,derfmilo,2016-08-29 11:57:51,313,88,32,0,,0,False,en,0
+6999,5,4,1,Externals,hellonearthis,2016-08-26 17:09:36,106,0,1,0,"Updated the RELP to a smalled doc with just the basics including a link to Node.js RELP for a more detail.
+",107,True,en,0
+6979,2,2,0,Externals,hellonearthis,2016-08-25 17:49:52,546,0,1,0,"Added RELP documentation from Node.js to Electron API docs.
+",60,True,en,0
+6962,2,0,0,Internals,zeke,2016-08-24 22:18:32,66,33,9,0,"For every method of every API, I compared its signature (e.g. `(switch[, value])` with its `<ul>` of documented parameters. This PR:
+- documents all module method parameters
+- documents all class instance method parameters
+- treats getters like `remote.process` and `win.closed` as properties instead of methods
+",312,False,en,0
+6929,1,1,0,Internals,kevinsawicki,2016-08-22 16:57:21,1,1,1,0,"⚠️ do not merge 🚨 
+
+Testing for #6924 
+",46,True,he,0
+6902,2,5,1,Externals,TheColorRed,2016-08-19 16:01:09,17,0,1,0,"It is hard or nearly impossible to find any documentation or examples on how to create/simulate a local shortcut or a shortcut that doesn't override other applications shortcuts.
+
+I have added an example to the global-shortcut.md to show how to simulate this.
+",260,True,en,0
+6895,1,3,0,Externals,WillEccles,2016-08-18 15:24:40,1,1,1,0,"Added ""the"" to ""in future.""
+",28,True,en,0
+6764,1,1,0,Externals,miniak,2016-08-07 20:42:10,77,0,5,0,"The other option would be to add a second optional argument to `setProgressBar`. If you think that's a better approach, I'll redo the change.
+",142,True,en,0
+6758,3,6,1,Externals,MarshallOfSound,2016-08-06 17:37:09,14,1,2,0,"Fixes #6407
+
+Personally I am not aware of any side affects this may have (apart from a small performance hit), but this should allow `executeJavaScript` to return non-primitive objects (objects with getters and setters attached) such as `window` and `document.location` and pass the properties through correctly.
+",313,True,en,0
+6750,1,0,0,Externals,lgalabru,2016-08-05 21:04:28,49,0,4,0,"This PR is about making electron a good inter-process-communication citizen.
+
+I'm working on an electron app, using a native helper/agent/daemon as a backend. 
+I've been handling IPC using sockets. It works, but it's heavy, and not a great practice. 
+Since electron supports receiving distributed notifications, it would be great to also make it able to send some of them.
+",373,True,en,0
+6748,2,4,0,Internals,kevinsawicki,2016-08-05 19:01:04,4,4,3,0,"Noticed a few blocks on the docs website weren't fenced as JavaScript which causes them to highlight badly:
+
+<img width=""827"" alt=""screen shot 2016-08-05 at 12 00 20 pm"" src=""https://cloud.githubusercontent.com/assets/671378/17447611/41339612-5b04-11e6-886f-77a13b668065.png"">
+",277,True,en,0
+6738,1,7,1,Externals,bnookala,2016-08-05 02:58:47,79,0,4,0,"Fixes #4852
+
+![custom_jump_list_categories](https://cloud.githubusercontent.com/assets/87996/17424859/b6754f8e-5a7c-11e6-8cd4-b66a18ec3b7f.PNG)
+
+I'm not _that_ familiar with C++, and most of the code I added in `browser_win.cpp` was based on the example set by the existing `SetUserTasks` method. Attempts to refactor shared functionality (the entirety of the for-loop that creates and populates `IShellLink` objects) didn't seem to work, so I would appreciate a second pair of eyes to give me feedback on how that can be done.
+",528,True,en,0
+6543,1,1,0,Externals,bhupendra-bhudia,2016-07-20 08:57:37,0,0,0,0,"Update to latest electron master repo
+",38,True,en,0
+6542,1,1,0,Externals,bhupendra-bhudia,2016-07-20 08:49:54,0,0,0,0,"Update to latest electron master repo
+",38,True,en,0
+6471,1,1,0,Externals,a904guy,2016-07-13 09:00:06,0,0,0,0,"A repository setup for writing your electron application with typescript.
+",74,True,en,0
+6461,1,4,0,Internals,zeke,2016-07-12 19:27:11,4,4,1,0,"@zcbenz I think these headings were too deep. Is that correct?
+",63,True,en,0
+6408,5,11,0,Internals,zeke,2016-07-08 23:54:31,7,5,4,0,"This is an effort to parse the markdown files in `docs/api` into a JSON object that describes all the APIs in meticulous detail. This includes things like:
+- name
+- description
+- processes the API is available in
+- methods
+- instance methods
+- events
+- instance events
+
+This is a first pass, and there are undoubtedly some areas where the parsing needs to be tweaked. Please have a look at `docs/api.json`, and report anything that looks inconsistent with the documentation. Feel free to report your findings on this PR or file issues directly on the [electron-docs-linter](https://github.com/zeke/electron-docs-linter/issues) repository.
+
+To lint the docs and write the JSON file, I ran this:
+
+``` sh
+npm run lint-docs -- 1.2.7
+```
+
+... where 1.2.7 is the version of electron that is _about to be released_.
+
+@zcbenz you said your release process is this:
+
+> usually I push a commit with message “Bump vx.x.x”, wait for CI machines to build and upload the binaries, and finally run `./script/upload.py -p` to update checksum files and publish the release.
+
+I don't wish to add any more manual steps to that process. Maybe we can make a release script that takes a single `version` argument, lints the docs, commits with the bump message, etc.
+",1248,False,en,0
+6360,1,0,0,Externals,chetverikov,2016-07-06 09:10:28,1,1,1,0,,0,False,en,0
+6254,1,4,0,Externals,miniak,2016-06-27 13:48:40,5,1,1,0,"Fixes https://github.com/electron/electron/issues/6253
+",55,True,en,0
+6239,1,4,0,Externals,speedily,2016-06-25 15:48:02,2,2,1,0,"[Mixed context mode](http://docs.nwjs.io/en/latest/For%20Users/Advanced/JavaScript%20Contexts%20in%20NW.js/#mixed-context-mode) is introduced in NW.js 0.13 Allowing to work with [Multiple Contexts](http://docs.nwjs.io/en/latest/For%20Users/Advanced/JavaScript%20Contexts%20in%20NW.js/#working-with-multiple-contexts) with some work arounds.
+",341,True,en,0
+6229,23,3,0,Internals,kevinsawicki,2016-06-24 18:54:45,354,66,25,0,"Only use the default role accelerators introduced in #6190 in application menus and not in tray menus.
+
+This adds a bit more state to `MenuItem` since the created template does not know which menu it will appear in so mark the items to use the default role accelerator only when the template is passed as a pareameter to `Menu.setApplicationMenu`.
+
+Closes #6206
+",362,True,en,0
+6228,1,1,0,Externals,miniak,2016-06-24 17:43:25,47,41,1,0,"Fixes https://github.com/electron/electron/issues/6227
+",55,True,en,0
+6200,1,1,0,Externals,storm-factory,2016-06-23 04:39:04,1,1,1,0,"require('electron').remote returns the remote object, not a dialog object. So when you call a function of the dialog object given the above example an error is thrown.
+",168,True,en,0
+6114,80,2,1,Externals,CharlieHess,2016-06-17 20:29:14,0,0,0,0,"This PR attempts to fix https://github.com/electron/electron/issues/6066 by adding a `subscribeLocalNotification` API. The subscription code has been refactored into a helper so both methods can use it.
+",203,True,en,3
+6112,1,1,0,Internals,zeke,2016-06-17 19:43:23,155,155,28,0,"https://developer.apple.com/macos/
+
+> A rose by any other name would smell as sweet 🌹 
+",90,True,en,1
+6099,1,0,1,Externals,kyo4311,2016-06-17 03:06:56,0,0,0,0,,0,False,en,0
+6034,1,2,0,Internals,kevinsawicki,2016-06-13 22:58:51,15,3,1,0,"Noticed while running the react dev tools on master that an error is thrown on shutdown because a destroyed background page is being accessed. Seems to be related to the changes in #5913 which changed to use the `destroyed` event on `webContents` instead of `closed` on `BrowserWindow`.
+
+This adds a helper `getBackgroundPages` method that filters and removes any background pages that have been destroyed to prevent this error on shutdown.
+
+<img width=""532"" alt=""screen shot 2016-06-13 at 3 57 14 pm"" src=""https://cloud.githubusercontent.com/assets/671378/16025956/a3215372-317f-11e6-849b-255728090c40.png"">
+",609,True,en,0
+6010,1,0,0,Externals,miniak,2016-06-12 11:14:15,162,641,160,0,,0,False,en,0
+5988,1,6,0,Externals,wa4557,2016-06-10 17:56:54,4,3,1,0,"Simple fix that generate tray icons with name corresponding to the app name
+",76,True,en,0
+5980,1,2,0,Externals,netham91,2016-06-10 07:38:18,2,0,1,0,"Some new users will find this helpful.
+",39,True,en,0
+5970,64,1,0,Externals,bj7,2016-06-09 20:01:53,593,271,71,0,"As per issue #2813, this adds the application name to the 'Quit' menu on OS X so as to be more 'native'. 
+Before: 
+![image](https://cloud.githubusercontent.com/assets/1395096/15944372/44a8d2b0-2e5b-11e6-8120-ac3a6cf65b8a.png)
+
+After:
+![image](https://cloud.githubusercontent.com/assets/1395096/15944387/57fbef0a-2e5b-11e6-8576-bb0c3279598b.png)
+
+It uses the `app.getName()` to append the name to the 'Quit' label in the menu system.  Please let me know if there is anything that needs to be changed for this PR. Thanks
+",519,False,en,0
+5926,1,2,0,Externals,atdrago,2016-06-08 00:42:38,3,0,1,0,"- Mantle.framework
+- ReactiveCocoa.framework
+- Squirrel.framework
+",66,False,en,0
+5899,1,2,0,Externals,also,2016-06-07 01:53:31,0,0,0,0,"This link 404s on http://electron.atom.io/docs/tutorial/quick-start/
+",69,True,en,0
+5880,0,0,0,Externals,miniak,2016-06-06 00:03:42,0,0,0,0,,0,False,en,0
+5832,1,0,2,Externals,wolfgang42,2016-06-01 21:23:23,5,0,1,0,"I spent far too long trying to figure out how to do this.
+
+It looks a bit odd to have a heading with only one line under it, but I'm not sure where else to put it.
+",164,True,en,0
+5815,1,2,0,Externals,felixrieseberg,2016-05-31 20:50:39,1,0,1,0,"Windows 10 (Anniversary Update) allows apps to receive paths with
+more than 260 characters (yes, that was already possible with UNC,
+but we're finally allowing it for non-UNC, too).
+
+This commit opts Electron in for said feature.
+",230,False,en,0
+5774,1,2,0,Externals,adill,2016-05-30 20:50:04,12,0,2,0,"this is something we've been using for a while in our fork and i figured it might be desirable upstream. we tend to use this when minimizing to tray to shrink our footprint as much as possible.
+",194,True,en,0
+5757,1,1,0,Externals,danhp,2016-05-29 13:51:26,0,0,0,0,"Closes #5745
+",13,True,en,0
+5740,1,5,9,Externals,aldeka,2016-05-27 19:51:08,2,2,1,0,"More information on what file path formats work with `shell.openItem` and `shell.showItemInFolder`.
+
+Related to https://github.com/electron/electron/issues/5739
+",161,True,en,0
+5717,1,1,0,Externals,felixrieseberg,2016-05-26 16:40:32,8,0,2,0,"Closes #5685
+",13,True,en,0
+5693,1,1,0,Externals,ashsel88,2016-05-25 14:47:13,3,3,1,0,,0,False,en,0
+5674,1,2,0,Externals,MathijsvVelde,2016-05-24 09:46:51,4,4,1,0,"Hello,
+
+I was looking at the changelogs at [Electron](http://electron.atom.io/releases)
+I think you forgot to edit this after version 1.1.0 (ref:[log v1.1.0](http://electron.atom.io/releases/#httpsgithubcomelectronelectronreleasestagv110-may-13-2016))
+
+So I edited it for you, correct me when wrong.
+
+You're welcome!
+",317,True,en,0
+5671,12,2,0,Externals,leethomas,2016-05-24 07:46:17,129,21,8,0,"Closes https://github.com/electron/electron/issues/5400
+",56,True,en,0
+5573,1,1,0,Internals,johndbritton,2016-05-17 21:58:06,0,0,0,0,"Making an attempt at https://github.com/electron/electron/issues/5543
+
+I haven't been able to get tests running locally yet, so just opening a PR to get a build status.
+",169,True,en,0
+5554,1,1,0,Internals,zcbenz,2016-05-16 23:25:58,1,1,1,0,"Refs https://github.com/atom/atom/pull/11474/commits/683bef5b9d133cb194b476938c77cc07fd05b972.
+",95,True,en,0
+5524,1,2,0,Externals,paulcbetts,2016-05-13 23:19:25,0,23,2,0,"We are once again getting reports that this PR causes input lag :-/
+
+Reverts electron/electron#5056
+",100,True,en,0
+5503,1,3,1,Externals,deepak1556,2016-05-12 02:07:58,7,2,3,0,"Ref https://github.com/electron/devtron/issues/60#issuecomment-218499197
+
+Steps to reproduce:
+- install any devtools extension
+- change dock state
+- duplicate panels created on every dock state change
+
+Currently we close and reopen devtools whenever dock state is changed, this causes extensions to be loaded multiple times. A more appropriate fix would be to emit `devtools-opened` and `devtools-closed` once per lifetime of devtools.
+
+Depends on https://github.com/electron/brightray/pull/218
+",495,True,en,0
+5481,1,2,0,Externals,mpchadwick,2016-05-11 01:54:04,2,0,1,0,"Since we're on the subject of files it makes sense to include a link to info on the `open-file` event. Otherwise, it can only be found by reading about the `app` module for the main process which a user may not think to look at when trying to find documentation on interacting with files.
+",289,True,en,0
+5472,1,0,0,Externals,juturu,2016-05-10 18:14:12,36,31,3,0,"Adding auth token to squirrel mac auto updates URL request
+Changing setFeedURL to be allowed to invoked multiple times as authToken can expire.
+",144,False,en,0
+5466,4,2,0,Externals,jlord,2016-05-10 12:03:21,28,28,28,0,"This PR adds the process each API belongs to next to the header of the doc. It will be styled on the website much like the platform labels that follow methods:
+
+<img width=""424"" alt=""screen shot 2016-05-10 at 2 00 51 pm"" src=""https://cloud.githubusercontent.com/assets/1305617/15145731/a3abb090-16b7-11e6-8a62-1024e5a3798f.png"">
+
+cc @kevinsawicki 
+",348,True,en,0
+5415,1,1,0,Externals,deepak1556,2016-05-06 08:44:53,76,1,2,0,"Ref https://github.com/electron/electron/pull/5406
+",51,True,en,0
+5407,4,2,1,Externals,danhp,2016-05-05 19:20:09,0,0,0,0,"If the user tries to set the bounds of the window such that a value falls outside of the min/max of width or height, the app will default to the corresponding min or max.
+
+Closes #4586
+",185,True,en,0
+5351,1,3,0,Internals,zeke,2016-04-29 21:26:07,2,2,1,0,"📝 
+
+Is there some special reason this was written in bracket notation?
+",74,True,en,0
+5339,1,1,0,Externals,miniak,2016-04-29 10:01:45,7,1,1,0,,0,False,en,0
+5335,23,4,3,Internals,kevinsawicki,2016-04-28 17:08:24,35,379,24,0,"This pull request queues up the removal of the deprecated APIs that will **not** be included in the **1.0** release.
+
+It does leave the `deprecate` and `deprecations` helper classes for post 1.0 usage when more APIs need to be deprecated.
+
+/cc @electron/maintainers 
+",267,True,en,0
+5322,24,11,0,Externals,bbondy,2016-04-27 23:36:13,290,119,50,0,"Debug build compiles on:
+- [x] OS X
+- [x] Linux
+- [x] Windows
+
+Release build compiles on:
+- [x] OS X
+- [x] Linux
+- [x] Windows
+
+Tests passing on:
+- [x] OS X
+- [x] Linux
+- [x] Windows
+
+See also:
+https://github.com/electron/brightray/pull/216
+https://github.com/electron/libchromiumcontent/pull/200
+",297,False,en,0
+5291,1,4,0,Externals,blainesch,2016-04-26 05:06:37,0,0,0,0,"This documentation change makes it more obvious you need to wait for the `did-finish-load` event from the `webContents`.
+",121,True,en,0
+5262,1,1,0,Externals,miniak,2016-04-22 22:39:56,69,1,8,0,"https://github.com/electron/electron/issues/4954
+",49,True,en,0
+5259,1,8,0,Internals,zeke,2016-04-22 21:29:39,0,64,32,0,"As of [Chromium 49](http://blog.chromium.org/2016/02/chrome-49-beta-css-custom-properties.html), `use strict` is no longer required for `const` and `let`.
+",155,True,en,0
+5212,55,0,0,Externals,parro-it,2016-04-19 14:51:49,9867,1292,154,0,"test
+",5,True,en,0
+5133,105,1,0,Externals,Empact,2016-04-13 06:04:59,18025,9500,255,0,"This rebased #4981 onto the brave fork.
+
+I saw this issue come up in test, e.g.:
+
+```
+ 1) findbar should display no results correctly:
+     unknown error: Cannot read property 'object' of undefined
+TypeError: Cannot read property 'object' of undefined
+    at ObjectsRegistry.get (/Users/ben/Development/OpenSource/Brave/browser-laptop/node_modules/electron-prebuilt/dist/Brave.app/Contents/Resources/atom.asar/browser/objects-registry.js:44:28)
+    at EventEmitter.<anonymous> (/Users/ben/Development/OpenSource/Brave/browser-laptop/node_modules/electron-prebuilt/dist/Brave.app/Contents/Resources/atom.asar/browser/rpc-server.js:318:31)
+    at emitMany (events.js:122:13)
+    at EventEmitter.emit (events.js:196:7)
+    at EventEmitter.<anonymous> (/Users/ben/Development/OpenSource/Brave/browser-laptop/node_modules/electron-prebuilt/dist/Brave.app/Contents/Resources/atom.asar/browser/api/web-contents.js:136:25)
+    at emitTwo (events.js:101:13)
+    at EventEmitter.emit (events.js:186:7)
+  RuntimeError: unknown error: Cannot read property 'object' of undefined
+  TypeError: Cannot read property 'object' of undefined
+      at ObjectsRegistry.get (node_modules/electron-prebuilt/dist/Brave.app/Contents/Resources/atom.asar/browser/objects-registry.js:44:28)
+      at EventEmitter.<anonymous> (node_modules/electron-prebuilt/dist/Brave.app/Contents/Resources/atom.asar/browser/rpc-server.js:318:31)
+      at EventEmitter.<anonymous> (node_modules/electron-prebuilt/dist/Brave.app/Contents/Resources/atom.asar/browser/api/web-contents.js:136:25)
+      at execute(<Function>) - brave.js:143:19
+```
+
+I suspect this is also exibiting as race conditions outside the test suite. In any case, it seems good to keep proper track of remote objects.
+",1743,True,en,0
+5084,1,1,0,Externals,Tyriar,2016-04-08 04:26:15,6,0,1,0,"Since xdg-open does not recommend/support opening URLs as root, disallow it and
+log a warning.
+
+Fixes #5039
+",108,False,en,0
+5067,1,6,0,Externals,deepak1556,2016-04-07 04:35:53,249,0,11,0,"Instead of electron describing the security style of the webcontents, we allow users to decide custom security style when requested by devtools security panel.
+
+Depends on https://github.com/electron/brightray/pull/206
+
+Fixes #5022 
+",233,True,en,0
+5002,0,0,0,Externals,preco21,2016-04-03 15:53:45,0,0,0,0,,0,False,en,0
+4960,9,2,3,Externals,dylan-cooper,2016-03-31 02:03:28,69,0,8,0,"Addresses #1861 and #4954.
+
+This seemed to me like an appropriate solution to this problem, but it isn't like anything that you are doing currently in electron so if I am doing something crazy, let me know and I won't take offence :)
+
+The basic idea is that this can be used rather than implementing an API like the one for dark mode with every system preference (like the graphite appearance setting) one by one.  This provides a mechanism for letting users create front-ends as separate npm packages like this one: https://github.com/dylan-cooper/electron-osx-prefs while electron is used as the back-end.  Note that it can also be used for things unrelated to the system preferences such as bluetooth turning on/off, new users being added, etc.
+
+The reason that I did this in electron rather than in its own package is because you need an Objective-C runtime to listen to the notifications.  I initially tried with nodobjc, but it didn't work because interfacing the two runtime loops was non-trivial.  I assumed that this would come up if I tried to do this as a separate add-on as well, and the reason this worked was because it was using the chromium run time behind the scenes, but if that will work and this is a bad fit for the electron core, I can give that a shot.
+",1276,True,en,0
+4848,1,1,0,Externals,mitchhentges,2016-03-19 00:32:55,33,33,33,0,"Right now, I need to manually link `python` -> `python2`. By default, `python` links to `python3`. This should make building `electron` easier, because manual re-linking won't be necessary.
+",190,True,en,1
+4847,1,2,12,Externals,mitchhentges,2016-03-19 00:08:23,14,8,1,0,"Fix #4733
+",10,True,en,0
+4833,6,3,4,Internals,kevinsawicki,2016-03-16 23:34:28,360,344,21,0,"- Cleans up the `ref`, `ref1`, `ref2`, etc. variables left over from the CoffeeScript migration.
+- Migrates to using `const` and `let` over long `var` lines at the top of several functions.
+- Migrates to using `forEach`, `find`, `filter`, `map` over `for` loops in several places.
+### Before
+
+``` js
+BrowserWindow.fromWebContents = function(webContents) {
+  var i, len, ref1, window, windows;
+  windows = BrowserWindow.getAllWindows();
+  for (i = 0, len = windows.length; i < len; i++) {
+     window = windows[i];
+     if ((ref1 = window.webContents) != null ? ref1.equal(webContents) : void 0) {
+       return window;
+     }
+   }
+};
+```
+### After
+
+``` js
+BrowserWindow.fromWebContents = function(webContents) {
+  return BrowserWindow.getAllWindows().find(function(window) {
+    const contents = window.webContents;
+    return contents != null && contents.equal(webContents);
+  });
+};
+```
+
+Refs #4065 
+",902,False,en,0
+4762,36,2,0,Externals,bbondy,2016-03-11 18:08:02,0,0,0,0,,0,False,en,0
+4756,2,1,0,Internals,zcbenz,2016-03-11 11:00:25,14,6,2,0,"Refs #4733.
+
+Instead of throwing exception we just print warning when an unexist remote object is requested, in case it is just a rare situation.
+",146,True,en,0
+4753,58,1,0,Externals,preco21,2016-03-11 08:13:31,69,38,8,0,,0,False,en,0
+4747,1,1,0,Externals,maxbeatty,2016-03-11 01:13:05,4,0,1,0,"First attempt to fix #4724. `BrowserWindow` which does not have a `blur` method so use the `blurWebView` method that exists instead.
+",133,True,en,0
+4730,56,11,0,Externals,preco21,2016-03-09 15:22:11,48,30,8,0,"- Fix typos
+- Update as upstream
+- Small changes
+",49,False,en,0
+4726,2,3,6,Externals,bugparty,2016-03-09 08:56:48,7,3,1,0,"Add node-gyp windows compile command and update the targer version
+",67,True,en,0
+4716,11,3,0,Externals,paulcbetts,2016-03-08 07:22:31,9042,2920,158,0,"This PR updates `chromium_src` in Electron - I split this into its own PR so that the other changes would have a sane chance at being reviewed
+## TODO:
+- [x] Write script to update chromium_src code against libchromiumcontent
+- [x] Move printing to under components
+
+This is probably missing more (some Widevine changes come to mind) but we can fix that up in #4714 
+",367,False,en,0
+4667,1,2,0,Externals,deepak1556,2016-03-04 00:14:51,48,14,5,0,"Related https://github.com/atom/electron/issues/4626
+
+Target OS: archlinux x64
+
+building with wheezy 64 bit image resulted in some undefined symbols with glib module. So changed to jessie build which had the required version of glib, https://github.com/deepak1556/debian-sysroot-image-creator . Building content layer with the jessie build resulted in some ODR violation, other than that things worked. So there might be some hiccup when shifting to use sysroot for x64.
+",471,True,en,0
+4642,1,11,0,Externals,flying-sheep,2016-03-01 11:41:59,1,0,1,0,"fixes #2927
+",12,True,en,0
+4632,1,1,0,Externals,zmbc,2016-02-28 22:29:39,0,0,0,0,,0,False,en,0
+4631,54,1,0,Externals,preco21,2016-02-28 16:42:37,85,12,5,0,,0,False,en,1
+4611,1,1,0,Externals,rowanoulton,2016-02-26 03:42:59,1,1,1,0,"Fixes a broken link to the FAQ in the Quick Start tutorial.
+
+This change breaks the linkage when the tutorial is viewed in Github but my guess is having a correct link on http://electron.atom.io/ takes precedence.
+
+Cheers! :v:
+",227,True,en,0
+4605,1,1,0,Externals,ghost,2016-02-25 16:22:51,0,0,0,0,"Source: http://stackoverflow.com/a/34331808/2803917
+This fixed the issue for me.
+",81,False,en,0
+4561,51,1,0,Externals,preco21,2016-02-20 09:42:48,5,1,2,0,,0,False,en,0
+4546,1,2,0,Externals,lonnylot,2016-02-18 23:30:59,8,8,1,0,"The links w/ `.md` do not work. If you remove `.md` then they work.
+",68,True,en,0
+4542,48,1,0,Externals,preco21,2016-02-18 15:19:41,22,4,4,0,,0,False,en,0
+4537,1,5,0,Externals,simpzan,2016-02-18 10:33:04,2,2,2,0,"explicitly document that file path for nativeImage need to be normalized.
+[ci skip]
+",84,False,en,0
+4499,45,1,0,Externals,preco21,2016-02-16 15:40:23,222,135,15,0,":memo:
+",7,True,en,0
+4493,43,1,0,Externals,preco21,2016-02-16 00:56:14,44,23,8,0,,0,False,en,0
+4474,1,2,0,Externals,Juul,2016-02-14 13:03:51,8,1,1,0,"On a clean Ubuntu 14.04 the bootstrap script fails because npm and node are both missing.
+",90,True,en,0
+4458,1,0,1,Externals,ZhouQD,2016-02-12 17:24:51,0,0,0,0,,0,False,en,0
+4457,2,3,2,Externals,HR,2016-02-12 16:13:32,8,24,1,0,"In order to prevent confusion
+",30,True,en,0
+4448,2,2,0,Externals,berlysia,2016-02-11 22:20:26,0,0,0,0,"fix #4066 
+
+Non-enumerable member function is defined as configurable and writable in renderer. It's same as enumerable member function except for enumerability.
+",162,True,en,0
+4413,1,1,0,Externals,hintjens,2016-02-07 21:13:16,1,1,1,0,"The note about defaulting to index.js is incorrect. Electron 0.36.7 gives a syntax error and halts.
+",100,True,en,0
+4412,1,3,0,Externals,adam-lynch,2016-02-07 20:19:48,2,11,1,0,,0,False,en,0
+4410,1,2,0,Externals,adam-lynch,2016-02-07 19:05:16,1,1,1,0,,0,False,en,0
+4409,1,0,1,Externals,adam-lynch,2016-02-07 19:04:02,2,2,1,0,,0,False,en,0
+4408,1,1,0,Externals,adam-lynch,2016-02-07 18:59:32,2,2,1,0,,0,False,en,0
+4393,3,1,11,Externals,gerhardberger,2016-02-06 21:54:17,34,2,3,0,"Adds some additional special key codes to be recognized for OSX and Windows.
+
+On OSX, using `sendInputEvent`, the passed `NativeWebKeyboardEvent` object didn't have the `os_event` object, so the `Edit` menu's key combinations didn't work, e.g. `cmd+c`. Using the `webContents` object's methods this pull request executes these functions, when needed.
+",351,True,en,0
+4353,41,1,0,Externals,preco21,2016-02-03 23:48:58,34,15,7,0,,0,False,en,0
+4344,2,2,6,Externals,bengotow,2016-02-03 07:17:42,34,9,7,0,"Adds an optional `options` parameter to openExternal. Currently the only option is `withoutActivation`, which allows you to open a URL in the background (without bringing the opening application to the foreground) on Mac OS X. Would be great to implement this option on Linux + Windows as well if it's possible. 
+
+I think it's worthwhile to make a `options` a second parameter vs a single boolean because I think the capabilities might vary by platform.
+
+Fixes #3224
+",467,True,en,0
+4331,2,0,6,Externals,Rafaelgfirmino,2016-02-02 18:11:17,0,0,0,0,,0,False,en,0
+4318,9,1,0,Externals,wgrafael,2016-02-02 01:48:51,30,1,2,0,"Translate supported platforms and fix readme.
+",46,True,en,0
+4308,30,1,0,Externals,preco21,2016-02-01 18:59:04,465,72,13,0,,0,False,en,0
+4287,29,1,0,Externals,preco21,2016-01-30 22:07:00,405,72,13,0,,0,False,en,0
+4263,28,1,0,Externals,preco21,2016-01-29 00:09:03,350,64,11,0,,0,False,en,0
+4253,27,1,0,Externals,preco21,2016-01-27 18:26:34,300,51,9,0,"- Update as upstream
+",21,True,en,0
+4225,26,1,0,Externals,preco21,2016-01-25 20:31:16,273,51,9,0,"- Update as upstream
+",21,True,en,0
+4207,25,1,0,Externals,preco21,2016-01-23 17:34:51,176,51,8,0,"- Update as upstream
+- Fix typos
+- Improve grammar
+",51,False,en,0
+4205,1,4,0,Externals,deepak1556,2016-01-23 13:43:53,28,1,7,0,"Fixes #4174 
+
+Depends on https://github.com/atom/brightray/pull/193
+",68,True,en,0
+4180,21,1,0,Externals,preco21,2016-01-21 17:39:33,197,83,15,0,"- Update as upstream (latest)
+",30,True,en,0
+4123,1,2,0,Externals,miniak,2016-01-15 18:21:26,0,1,1,0,,0,False,en,0
+4094,20,1,0,Externals,preco21,2016-01-13 22:35:26,91,60,10,0,"- Update as upstream
+- Fix the small typos
+",43,False,en,0
+4092,2,2,1,Externals,paulcbetts,2016-01-13 20:32:33,12,6,3,0,"We should always fallback to ShellExecute when revealing a file fails, since this API seems to be highly subject to Random Bad Things happening based on your environment
+",170,True,en,0
+4047,7,13,0,Externals,leethomas,2016-01-10 23:20:05,88,0,6,0,"Closes https://github.com/atom/electron/issues/539
+
+Not sure if this is the best way to do it but it seemed like the most straightforward.  It works on OS X/Linux but it's a work in progress because I'd like to get it working for Windows as well. ~~I need a way to check if a PID still exists on Windows- but I'm trying to avoid adding pywin32 as a dependency. Any suggestions?~~ should work on Windows now. 
+",409,True,en,0
+4035,17,1,0,Externals,preco21,2016-01-08 23:14:19,240,89,8,0,"- Update as upstream to latest master branch
+- Small fixes
+- Improve grammar
+",77,False,en,0
+3998,15,1,0,Externals,preco21,2016-01-05 21:12:45,85,2,2,0,"- Update as upstream
+",21,True,en,0
+3993,1,2,0,Externals,swissmanu,2016-01-05 13:30:18,0,0,0,0,"This PR changes the documentation only.
+It changes the `loadURL` calls throughout all code examples when loading a local file from the apps bundle. Where `__dirname` was used before, `app.getAppPath()` is used now.
+
+I spent two hours until I found the problem why my `index.html` was not able to load yesterday. `__dirname` referenced to the current working dir from my terminal session and not to the `app/` directory of my electron application.
+`app.getAppPath()` fixed this. I assume this change in documentation might help others too.
+",539,False,en,0
+3972,13,1,0,Externals,preco21,2016-01-01 06:58:51,82,4,3,0,"- Update as upstream
+- Add new `using-widevine-cdm-plugin.md` file
+",67,False,en,0
+3962,1,1,0,Externals,ibicdlcod,2015-12-30 10:28:09,1,1,1,0,"If one goes to Visual Studio site now, VS2015 appears to be the sole version unless you scroll down
+",100,True,en,0
+3947,1,2,0,Externals,dongjoon-hyun,2015-12-29 14:39:09,3,2,1,0,"[ci skip]
+",10,True,pl,0
+3946,11,1,0,Externals,preco21,2015-12-29 13:58:07,4,3,2,0,"- Update as upstream
+- Small changes
+",37,False,en,0
+3919,8,1,0,Externals,preco21,2015-12-24 21:07:11,142,6,5,0,"- Update as upstream
+- Small fixes
+",35,False,en,0
+3907,1,2,0,Externals,MichalBures,2015-12-23 22:43:36,0,0,0,0,"I've been trying to compile native modules for Electron with VS 2015 for about an hour before I stumbled upon this [issue](https://github.com/electronjs/electron-rebuild/issues/16#issuecomment-132283621) on electron-rebuild where it's mentioned that Electron needs VS 2013.
+
+I've searched the docs here again and the only somewhat relevant mention about this is on the [Windows Build Instructions](https://github.com/atom/electron/blob/master/docs/development/build-instructions-windows.md) page for building Electron itself. Since this is a quite important information I believe it should be noted in the Native Modules tutorial.
+
+PS: I'm not sure whether the Update 5 is needed or if any version of VS 2013 will suffice so please let me know so I can correct it if necessary.
+",778,True,en,0
+3889,5,1,0,Externals,preco21,2015-12-21 18:33:27,11,3,2,0,"- Update as upstream
+- Improve grammar (small fixes)
+",53,False,en,0
+3863,2,1,0,Externals,preco21,2015-12-18 17:05:21,35,24,7,0,"- Update as upstream
+",21,True,en,0
+3838,2,2,0,Externals,wearhere,2015-12-16 23:08:01,41,3,3,0,"This is a work-in-progress to fix #3837. It currently fixes the 'before-quit' event not being emitted.
+
+I've stopped here for two reasons. The first is that I wish to seek feedback on the approach of having the `autoUpdater` ask the `app` to emit the normal events rather than having the `autoUpdater` emit them itself. Having the `app` emit them reuses code from the normal quit process, but it is a bit weird to have the `autoUpdater` call what were formerly protected methods.
+
+(Then again, if the `autoUpdater` was to assume the responsibility of emitting the events itself, it would need access to the `app`'s event listeners which would also require sharing protected state.)
+
+The other reason I've stopped here is that I'm not sure how to test further shutdown events. If I let the shutdown process proceed to close the windows, I'll need to be able to reopen the testing window.
+
+I also need to prevent the app from _actually_ quitting because, without an update to install, it won't reopen. (Though that is IMO a bug in `autoUpdater`—it should emit an error (#3840), and I've added a spec to that effect. If I fixed that, then the app would not quit. I'm not sure where to fix that though, in Electron or in Squirrel.)
+",1230,True,en,0
+3830,1,1,2,Externals,clebeaupin,2015-12-16 10:10:05,529,12,17,0,"Add 2 new command options to use widevine:
+- widevine-cdm-path: Path to widevine plugin
+- widevine-cdm-version: Version of the widevine plugin
+
+Depends on https://github.com/atom/brightray/pull/178
+",198,False,en,0
+3801,1,2,0,Externals,Sneezry,2015-12-13 10:08:20,5,5,1,0,,0,False,en,0
+3791,5,3,0,Externals,preco21,2015-12-12 12:41:42,264,66,4,0,"- Update as upstream
+",21,True,en,0
+3766,2,3,0,Externals,Erveon,2015-12-10 20:49:18,0,0,0,0,"Made it more clear on how to define BrowserWindow (outside of the main process, specifically)
+",94,True,en,0
+3758,9,8,5,Externals,seanballais,2015-12-10 11:52:05,15,0,2,0,"In response to issue #3712.
+",28,True,en,0
+3738,1,1,0,Externals,karissa,2015-12-09 03:55:14,1,1,1,0,,0,False,en,0
+3707,1,3,0,Externals,JavaScriptDude,2015-12-06 03:36:32,2,0,1,0,"Sample code did not work as-is.
+",32,True,en,0
+3697,1,12,1,Externals,KevinMartin,2015-12-04 20:58:54,22,1,1,0,"Fixes #3694
+",12,True,en,0
+3695,1,0,0,Externals,gabriel,2015-12-04 20:08:12,0,0,0,0,"Uses `https://s3.amazonaws.com/gh-contractor-zcbenz/` instead of `https://gh-contractor-zcbenz.s3.amazonaws.com/` so should work with python versions that don't deal with subdomain certs properly.
+",197,True,en,0
+3671,1,2,0,Externals,AndriiTsok,2015-12-02 21:06:55,0,0,0,0,"Documentation index page and StyleGuide were translated to Ukrainian.
+",70,True,en,0
+3661,1,4,0,Externals,softage0,2015-12-02 11:21:08,8,8,8,0,"Use require('ipc-renderer') instead of require('electron').ipcRenderer in docs
+https://github.com/atom/electron/issues/3577
+",124,False,en,0
+3632,1,3,0,Externals,rerdos,2015-11-30 12:33:27,3,1,1,0,"Had a problem previously and the docs were misleading.
+",55,True,en,0
+3630,1,0,0,Externals,xeronith,2015-11-30 11:11:25,0,0,0,0,"Update from original
+",21,True,en,0
+3617,2,5,0,Externals,maxcnunes,2015-11-29 11:24:31,2,0,1,0,"I spent sometime configuring the auto updater for Mac apps in my application. And just after that I tried to create my apple certificate.
+
+Maybe if it was described somewhere I didn't have spent time on this.
+",209,True,en,0
+3520,1,1,0,Externals,selique,2015-11-20 00:03:41,13,24,1,0,,0,False,en,0
+3517,1,1,0,Externals,sawyerlin,2015-11-19 17:30:08,4,5,1,0,"The old version is correct. 
+Perhaps this part of document is forgotten to be updated.
+",87,False,en,0
+3499,1,1,2,Externals,fscherwi,2015-11-18 21:13:50,8,2,1,0,"Improce the quick start guide in README.md
+",43,True,en,0
+3495,9,1,0,Externals,preco21,2015-11-18 18:55:51,89,106,5,0,"- Update as upstream
+- Add translation
+- Improve grammar
+- Standardize platform labels in `BrowserWindow`
+",106,False,en,0
+3491,1,2,0,Externals,vitorgalvao,2015-11-18 18:07:48,0,0,0,0,"When first trying to give options like `minWidth` and `titleBarStyle` on `new BrowserWindow`, none of them seemed to work. I later realised they had to be written like `min-width` and `title-bar-style`.
+",203,True,en,0
+3461,1,1,0,Externals,nekolab,2015-11-16 17:09:11,4,6,4,0,"Yes it works, I've tested this time~
+",37,True,en,0
+3459,1,1,0,Externals,preco21,2015-11-16 14:48:14,1,1,1,0,"- Fix wrong redirect path in `atom-shell-vs-node-webkit.md`
+",60,True,en,0
+3448,5,4,0,Externals,deopard,2015-11-15 14:34:35,663,3,3,0,,0,False,en,0
+3427,1,2,0,Externals,selique,2015-11-13 13:36:09,14,22,1,0,"I find it so necessary one text validation by a third party, most believe that translating this clear and concise!
+",115,True,en,0
+3411,1,0,0,Externals,skhameneh,2015-11-12 09:42:53,12,0,1,0,"Allow use of flags that must be set before V8 is initialized, such as
+""--harmony_proxies""
+
+Example:
+
+```
+electron --js-flags=""--harmony_proxies --harmony_collections"" .
+```
+",173,False,en,0
+3410,2,0,0,Externals,skhameneh,2015-11-12 09:04:23,11,0,1,0,"Allow use of flags that must be set before V8 is initialized, such as ""--harmony_proxies""
+
+Example
+
+```
+electron --js-flags=""--harmony_proxies --harmony_collections"" .
+```
+",172,True,en,0
+3406,3,2,0,Externals,tmanderson,2015-11-11 16:40:31,20,1,6,0,"Add `app.hide()` method via AppKit's [`NSApp hide:`](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSApplication_Class/#//apple_ref/occ/instm/NSApplication/hide:) method. This allows the application to ""deactivate"" itself while bringing the previously active application back into focus.
+",335,True,en,0
+3396,1,2,0,Externals,arnolem,2015-11-10 22:35:10,2,2,1,0,"The ipc-main and ipc-renderer do not exist on last version.
+I thinks it's replace with ipc module who works better
+",115,False,en,0
+3347,7,6,0,Externals,arsher,2015-11-05 18:04:55,261,31,12,0,"I've been looking into how to create detachable webviews, or better said something that can transfer the content into another webview instance. It might be a bit hacky currently, I'm pretty sure it's not prod quality yet, but I wanted something working to start the conversation.
+
+I've seen #1682 which led me to the conclusion that I'm not alone with the desire to have something like this, hence this PR.
+",407,True,en,0
+3337,1,3,13,Externals,tylergibson,2015-11-04 21:53:36,282,25,1,0,"Fixes #2715 by implementing IFileOperation (used in Windows Vista forward), replacing SHFileOperation.  This allows us to do a filesystem PreDeleteItem check to ensure the file can actually go into the Recycle Bin.  The existing behavior actually deletes files that cannot be recycled.
+
+Before moving to IFileOperation, I attempted to extend the current implementation by adding the three  checks (Type of Drive, Existence of Recycle Bin on that drive, and free space available in the Bin) with: 
+
+```
+INT drive_type = GetDriveType((LPCWSTR)(path_components.at(0) + L""\\"").c_str());
+QueryDosDevice((LPCWSTR)path_components.at(0).c_str(), dos_path_chars, 100);
+rbinfo.cbSize = sizeof(SHQUERYRBINFO);
+SHQueryRecycleBin((LPCWSTR)path.value().c_str(), &rbinfo);
+```
+
+But these operations can be extremely slow, especially the SHQueryRecycleBin, which can take seconds to execute, locking the UI in the mean time.  And there are still corner cases where this can fail.
+
+So I move to reimplement with IFileOperation.  It needs a full implementation of the interface IFileOperationProgressSink to be able to check Pre-Delete for the Recycle Bin.  I authored the class implementation inline in platform_util_win.cc and only implemented the minimum methods required for MoveItemToTrash.
+
+It may make sense to actually refactor the IFileOperationProgressSink class externally and use it more generally for other special case file I/O issues on Windows.  SHFileOperation is still faster in execution, but has many limitations in use.
+
+Behavior is now correct.  Files that cannot be recycled will not be deleted and the function will return false.
+",1636,True,en,0
+3336,2,3,0,Externals,ryanmolden,2015-11-04 20:53:30,18,0,2,0,"(in conjunction with commit 7c41f0e)
+
+Context: In order for full accessibility support on Windows we need to remove the disable-legacy-window flag (commit 7c41f0e) as well as calling OnScreenReaderDetected at the appropriate time.
+
+The appropriate time is when our window gets a WM_GETOBJECT request with an id of OBJID_CLIENT. This is the same way Chromium detects a request for the accessibility object. When we see that we simply toggle Chromium into accessibility mode, if it isn't already.
+",495,True,en,0
+3335,1,2,0,Externals,ryanmolden,2015-11-04 19:53:55,16,0,2,0,"(in conjunction with commit 7c41f0e)
+
+Context: In order for full accessibility support on Windows we need to remove the disable-legacy-window flag (commit 7c41f0e) as well as calling OnScreenReaderDetected at the appropriate time.
+
+The appropriate time is when our window gets a WM_GETOBJECT request with an id of OBJID_CLIENT. This is the same way Chromium detects a request for the accessibility object. When we see that we simply toggle Chromium into accessibility mode, if it isn't already.
+",495,True,en,0
+3324,1,4,0,Externals,mgarciaisaia,2015-11-04 04:15:12,4,4,2,0,"Fixes #3290
+
+Truncate long strings in tooltips on Windows to avoid crashes by overflows.
+
+It would be great if someone can test it before this getting merged.
+
+CC: @twolfson
+",174,True,en,0
+3298,2,0,0,Externals,huskywhale,2015-11-01 20:28:44,2,2,2,0,,0,False,en,0
+3295,31,1,0,Externals,jesusD,2015-11-01 04:10:11,217,4,5,0,"hi, this is translation of build-instructions-linux
+thanks
+",59,False,en,0
+3294,28,0,0,Externals,jesusD,2015-11-01 03:09:44,215,4,5,0,"hi, this is translation of  build-instructions-osx 
+thanks :)
+",62,False,en,0
+3293,18,0,0,Externals,jesusD,2015-11-01 02:26:11,36,2,2,0,"hi, this is translation into Spanish about  build-system-overview  thanks.
+",75,True,en,0
+3287,2,1,0,Externals,Titan-p,2015-10-31 16:54:20,73,77782,789,0,,0,False,en,0
+3285,1,0,0,Externals,Elkrite,2015-10-31 06:04:15,1,1,1,0,,0,False,en,0
+3284,1,0,0,Externals,Elkrite,2015-10-31 06:02:43,1,1,1,0,,0,False,en,0
+3280,15,1,0,Externals,jesusD,2015-10-30 21:30:17,35,1,2,0,"hi, this is translation into spanish about atom-shell-vs-node-webkit
+
+thanks.
+",78,True,en,0
+3274,2,0,0,Externals,quanghoan,2015-10-30 06:36:30,2,2,2,0,,0,False,en,0
+3246,1,0,0,Externals,matiasinsaurralde,2015-10-28 06:05:09,0,0,0,0,"!
+",2,True,en,0
+3218,1,6,0,Externals,tuvistavie,2015-10-26 11:25:36,0,0,0,0,"Hi,
+
+I recently started using Atom and had some issues with the `Alt` key
+toggling menu bar, so I added an option to disable this behavior.
+
+The option can be passed when instanciating a `BrowserWindow`,
+or be changed using the `setToggleMenuBarOnAltPressed`method
+on a `BrowserWindow` instance.
+I also added a `doesToggleMenuBarOnAltPressed` method
+to retrieve the current value of the option.
+The option is disabled by default, so this will not break or change the behavior of
+existing apps.
+### Background
+
+In some apps, such as Atom, the menu bar can be restored in other ways,
+and as it is not something that is done so often (at least for my usage),
+I think this option makes sense.
+
+I will explain my issue in Atom, which is my actual motivation for this option.
+I use [XMonad](http://xmonad.org/), and my shortcut to change window focus is `alt+j`.
+When I press `alt`, [`menu_bar_alt_pressed` becomes true](https://github.com/atom/electron/blob/master/atom/browser/native_window_views.cc#L864).
+Then, when I press `j`, the keydown event is intercepted by XMonad,
+and the focus changes to some other app, let's say my browser.
+As Atom did not receive the `j` keydown event, `menu_bar_alt_pressed` is still true.
+When I then want to go back go Atom, I press `alt+j` again. I usually release the
+`j` button instantly, and the `alt` after, so the `j` keyup is not handled by atom, but
+the `alt` keyup event is, which makes [the condition for toggling the menu bar](https://github.com/atom/electron/blob/master/atom/browser/native_window_views.cc#L867) true.
+So basically each time I change focus to some other app and go back to Atom,
+the menu bar is toggled, which is a little annoying.
+",1692,True,en,0
+3187,1,2,0,Externals,alexandrubau,2015-10-23 08:38:12,0,0,0,0,"Updated docs to better understand how to use electron-rebuild on Windows
+",73,True,en,0
+3180,2,0,0,Externals,kelvien,2015-10-22 20:45:54,2,2,2,0,,0,False,en,0
+3152,2,0,0,Externals,lalet,2015-10-20 03:37:06,2,2,2,0,"Pulling
+",8,True,en,0
+3131,1,1,0,Externals,jadekler,2015-10-19 02:05:36,22,20,1,0,,0,False,en,0
+3119,125,0,0,Externals,ziegfrid,2015-10-16 23:40:26,2247,163,75,0,,0,False,en,0
+3054,4,2,0,Externals,kokdemo,2015-10-09 16:30:29,0,0,0,0,,0,False,en,0
+3003,1,1,0,Externals,hokein,2015-10-06 07:26:58,4,1,1,0,"The PR relies on atom/brightray#152.
+
+Fixes #2855 .
+",52,True,en,0
+2996,81,0,0,Externals,sharkcus,2015-10-05 16:28:14,958,382,68,0,"Checking some things out
+",25,True,en,0
+2983,68,0,0,Externals,GungleJym,2015-10-04 17:01:20,887,378,65,0,,0,False,en,0
+2971,1,0,0,Externals,r0f1s,2015-10-03 00:30:23,6,0,1,0,"Proposed fix for issue #2964
+",29,True,en,0
+2941,1,2,0,Externals,arusakov,2015-09-30 10:46:32,6,3,3,0,"I was guided by the following [options for BrowserWindow constructor](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#new-browserwindowoptions).
+In 0.33 version options for BrowserWindow constructor require ""width"" and ""height"" props. Also ""icon"" property must be NativeImage.
+",301,False,en,0
+2745,1,2,0,Externals,destan,2015-09-09 11:08:03,1,1,1,0,,0,False,en,0
+2729,7,9,0,Externals,nicholasess,2015-09-07 19:48:22,116,1,4,0,,0,False,en,0
+2699,6,0,0,Externals,lockys,2015-09-03 15:49:19,0,0,0,0,"the zh-tw translation of /docs-translations/zh-TW/tutorial/online-offline-events.md
+",84,True,en,0
+2694,3,1,0,Internals,zcbenz,2015-09-02 23:46:29,15,27,2,0,"It should hopefully make our test start quicker.
+",49,True,en,0
+2689,1,2,0,Externals,vHanda,2015-09-02 13:24:37,29,1,2,0,"The session already has a 'will-download' event which informs us about a
+download. This adds an aditional signal called 'download-updated' which
+is called each time the download-state changes.
+
+Additionally, the DownloadItem object now has some additional
+parameters-
+- DisplayName
+- percentComplete
+- currentSpeed
+- state (InProgress, Complete, Cancelled or Interruped)
+## 
+
+I'm not sure if this is the correct approach. Perhaps a better API would be for the DownloadItem to be an EventEmitter, and for it to emit 'updated', and other signals. Specially since we will also need to expose functions such as 'open' and 'openDirectory'. Could you provide some pointers on how I would implement this?
+
+We will also need many other DownloadItem properties to be exposed.
+",767,False,en,0
+2576,4,1,0,Externals,preco21,2015-08-25 01:22:30,0,6,2,0,"Remove little remains(typo) in content-tracing-ko.md and outdated comments about remote buffer in browser-window.md
+",116,True,en,0
+2574,1,0,0,Externals,cmplx,2015-08-24 20:23:15,0,0,0,0,"прарп
+",11,True,bg,0
+2519,1,9,0,Externals,nekuz0r,2015-08-18 13:06:14,8,8,4,0,"`printBackgrounds` was sometimes written with an `s` and sometimes not.
+",72,True,en,0
+2495,1,5,0,Externals,petrfelzmann,2015-08-13 14:58:53,1,1,1,0,,0,False,en,0
+2401,2,3,1,Externals,seanchas116,2015-08-02 11:32:47,91,24,5,0,"In #2384 , I found that `interceptProtocol` for builtin protocols only works after at least one `BrowserWindow` is created.
+
+This PR fixes this, by moving initialization of protocol handlers into `AtomBrowserContext` constructor, instead of `AtomBrowserContext::CreateURLRequestJobFactory` (and adding `atom::FtpProtocolHandler`).
+",331,True,en,0
+2351,4,1,0,Externals,nishanths,2015-07-27 04:52:46,0,0,0,0,"- Add the new `isTemplateImage` method
+- Appropriately rename an internally-used function of the same name, which is used to determine if a image file path matches the template image naming pattern.
+- Update docs
+",213,False,en,0
+2339,2,1,0,Externals,nishanths,2015-07-26 04:18:23,0,0,0,0,,0,False,en,0
+2289,1,3,0,Externals,hokein,2015-07-21 04:08:45,26,10,3,0,"Related to #1418, #2262.
+
+Currently, the `maximize`, `mimizie`,`unmaximize`, `restore`  APIs don't have a consitent behavior on three platforms, this PR make them align with the current Windows platform's(The hidden window will show when calling these APIs).
+",259,True,en,0
+2249,2,0,0,Externals,mbarthelemy,2015-07-16 17:59:35,53,0,5,0,"This code maintains an aspect ratio for an area within a window. It also allows the developer to specify, in pixels, extra space which is not included within the aspect ratio. If you don't specify any extra width or height it will maintain the aspect ratio of the content view.
+
+This was implemented for a video player. Our video player viewing area has an aspect ratio of 16/9 but we also have a 47 pixel control bar at the bottom of the video.
+
+The code was written generically so that you can have extra width, height or both. It will never return a window size that is larger than the one the user specified via their resize action.
+
+CAVEAT: There isn't a Windows implementation. The math used in the windowWillResize:toSize: method of the Mac window should be easily adaptable for use in a Windows implementation.
+",819,True,en,0
+2221,3,1,0,Externals,UsabilityEtc,2015-07-14 20:31:38,0,0,0,0,"Improve the grammar and sentence structure of the text and improve the code comments.
+",86,True,en,0
+2186,1,2,0,Externals,semperos,2015-07-10 18:29:41,1,1,1,0,,0,False,en,0
+2177,3,3,0,Externals,paulcbetts,2015-07-10 00:55:24,22,0,3,0,"Expose the guest instance ID as a unique identifier for a WebView, which since it is both accessible in the host via this method, and in the guest via `process.guestInstanceId`, can be used to route replies to IPC messages to the browser - i.e:
+1. WebView sends async IPC to browser
+2. Browser wants to send a reply back, but who to send to???
+3. WebView included both the guest instance ID as well as its hosting browserWindowId in the message! 
+4. Browser process uses `browserWindowId` to route to renderer
+5. Renderer grabs message, uses `guestInstanceId` to route to calling WebView
+",588,False,en,0
+2114,1,1,0,Externals,esam091,2015-07-03 08:09:21,1,1,1,0,"Fixes the following error
+
+```
+npm.cmd install - - v e r b o s e     #got '- - v e r b o s e' instead of 'verbose'
+npm ERR! 404 Not Found
+
+npm ERR! System Windows_NT 6.1.7601
+npm ERR! command ""C:\\Program Files\\nodejs\\\\node.exe"" ""C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js"" ""install"" ""-"" ""-"" ""v"" ""e"" ""r"" ""b"" ""o"" ""s"" ""e""
+npm ERR! cwd D:\Dev\tmp\electron
+npm ERR! node -v v0.10.38
+npm ERR! npm -v 1.4.28
+npm ERR! code E404
+npm ERR!
+npm ERR! Additional logging details can be found in:
+npm ERR!     D:\Dev\tmp\electron\npm-debug.log
+npm ERR! not ok code 0
+None
+Traceback (most recent call last):
+  File ""D:\Dev\tmp\electron\script\bootstrap.py"", line 182, in <module>
+    sys.exit(main())
+  File ""D:\Dev\tmp\electron\script\bootstrap.py"", line 40, in main
+    update_node_modules('.')
+  File ""D:\Dev\tmp\electron\script\bootstrap.py"", line 120, in update_node_modules
+    execute_stdout(args, env)
+  File ""D:\Dev\tmp\electron\script\lib\util.py"", line 177, in execute_stdout
+    raise e
+subprocess.CalledProcessError: Command '['npm.cmd', 'install', '-', '-', 'v', 'e', 'r', 'b', 'o', 's', 'e']' returned non-zero exit status 1
+```
+",1151,True,en,0
+2044,1,3,0,Externals,jakefb,2015-06-24 08:58:44,1,1,1,0,"I renamed Contents/MacOS/Electron to match the name of my app and when I launched it I got an error saying the app was damaged or incomplete. This corrects the example in the docs so people know to leave the file untouched.
+",224,True,en,0
+2015,3,0,0,Externals,preco21,2015-06-19 17:13:51,0,0,0,0,"Not yet fully completed, but main tutorials and apis translation has been completed (except one file)
+
+I will  be also translate the other files soon!
+",151,True,en,0
+1960,2,5,0,Internals,brianmario,2015-06-12 19:12:44,0,0,0,0,"Some applications may need to be allowed to make more than the hard-coded limit of 6 connections to a remote host. As an initial patch to get things started, this removes the limit entirely. Though before this is merged upstream I think we should add a JS API or something to allow the caller to override limits on a per-host, or even per-call basis.
+
+To do that, I'll need some help. This is my first endeavor in the electron/atom C++ code. (insert-I-have-no idea-what-I'm-doing-dog.gif) :wink:
+
+As for the JS API, what object do you guys think it would live on? Given the ""browser"" process is responsible for networking (I think), maybe it should go on `app`?
+
+For the actual call:
+- we could do something easy like `app.setConnectionLimit(""stream.campfirenow.com"", 100)`. Where maybe passing `-1` would mean unlimited?
+- Or something callback-based that was invoked on a per-remote-call basis that has a `url` string passed to it? That way the caller could return a different limit per-host, per-call lazily runtime.
+
+Though, I don't have a strong preference for either one. What do you think?
+",1097,True,en,0
+1935,1,2,0,Externals,hokein,2015-06-11 07:46:49,61,60,10,0,"Also move the print implementation from window to webContents.
+",63,True,en,0
+1818,1,21,0,Externals,deepak1556,2015-05-29 16:01:27,195,1,8,0,"Fixes #1793 
+",13,True,en,0
+1817,1,0,0,Externals,deepak1556,2015-05-29 13:17:44,12,12,1,0,"Fixes #1803 
+
+this I/O delays the nextTick queue drain otherwise the initial restart of render process would delete `global.process` before `preloadScript` is required.
+",169,True,en,0
+1812,1,1,1,Externals,orzFly,2015-05-29 07:13:26,2,2,1,0,"![image](https://cloud.githubusercontent.com/assets/158528/7878047/15f9155c-0615-11e5-9a82-39af4b9d610b.png)
+
+This patch adds the actual error message to the user-friendly™ dialog, so developers can find out broken node modules in their own apps without being confused.
+",272,True,en,0
+1807,1,25,0,Externals,deepak1556,2015-05-28 16:49:16,95,4,6,0,"Fixes #410 
+
+Have started with an api like
+
+``` js
+protocol.RequestAsyncJob(<jobtype>, function(cb) {
+  cb(<object>)
+})
+```
+- [x] support all existing sync jobs
+- [x] Add Tests
+- [ ] buffer data goes out of context in callback
+",227,True,en,0
+1736,3,8,5,Externals,deepak1556,2015-05-20 09:14:49,21,8,3,0,"Fixes #1360 , not sure how to got about writing test for this. Just did a visual confirmation with devtools, would be nice if anyone else tests too, thanks!
+
+/cc @maxkueng 
+",173,True,en,0
+1728,1,4,0,Externals,deepak1556,2015-05-19 12:49:23,10,0,1,0,"Fixes #525 
+
+failed to find why console view context menus arent populated completely, `inspectorfrontendhost.copytext` is used for any copy action happening in the inspector iframe, so this is a temporary workaround. Thoughts ?
+",229,True,en,0
+1694,1,4,0,Externals,mcorb,2015-05-15 13:40:06,9,9,4,0,"This provides clearer semantics and gets the naming consistent with other flags
+that control appearance. Amendment to #1585.
+",125,False,en,0
+1684,1,4,0,Externals,hokein,2015-05-14 07:47:23,4,0,1,0,"I have migrated all the sample apps from [nw-sample-apps](https://github.com/zcbenz/nw-sample-apps), enable them running on electron. 
+",135,True,en,0
+1667,6,5,0,Externals,philcleveland,2015-05-12 17:14:19,0,0,0,0,"Indicate how to get the basic chrome devtools in an electron application.
+",74,True,en,0
+1620,1,0,0,Externals,myrlund,2015-05-08 09:43:21,93,24,6,0,"Only works on Mac OS, and adds a previously non-existent argument to the key pressed callback indicating whether the keys are currently being pressed.
+",151,True,en,0
+1470,1,2,0,Externals,ghost,2015-04-23 15:36:45,0,0,0,0,,0,False,en,0
+1448,1,1,7,Externals,deepak1556,2015-04-20 10:53:36,19,0,1,0,"Fixes #1390 
+",13,True,en,0
+1416,1,1,0,Externals,deepak1556,2015-04-14 02:22:03,4,0,1,0,"For #1407 
+
+Depends on https://github.com/atom/node/pull/6
+",59,True,en,0
+1371,1,2,3,Externals,deepak1556,2015-04-07 13:09:50,35,1,5,0,"initial work for #1314 based on the process described [here](https://code.google.com/p/chromium/issues/detail?id=466854&q=enterfullscreenmodefortab&colspec=ID%20Pri%20M%20Week%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified) doesnt work yet. 
+
+/cc @zcbenz 
+",272,True,en,0
+1367,1,1,0,Externals,mattcollier,2015-04-06 22:10:35,0,0,0,0,"See: https://github.com/atom/atom-shell/issues/1357
+
+My observation is that the app.quit is triggered by default when all windows are closed.  And according to deepak1556's comment in aforementioned issue, the exception for darwin is no longer relevant.
+",254,True,en,0
+1359,1,3,0,Externals,paulcbetts,2015-04-05 23:13:58,0,0,0,0,"This PR sets us up to only install apm when we're running the test suite. This gets us part of the way to supporting Node 0.12.x and io.js v1.6.3 for building Atom Shell, so that we don't have to pin building Atom Shell to whatever apm is compatible with. 
+
+We still aren't completely compatible though, it appears that we're hitting incompatibilities with `chromium-pickle`:
+
+```
+C:\Users\Paul\code\atom\atom-shell\node_modules\asar\node_modules\chromium-pickle\node_modules\bindings\bindings.js:83
+        throw e
+              ^
+Error: Module did not self-register.
+    at Error (native)
+    at Module.load (module.js:335:32)
+    at Function.Module._load (module.js:290:12)
+    at Module.require (module.js:345:17)
+    at require (module.js:364:17)
+    at bindings (C:\Users\Paul\code\atom\atom-shell\node_modules\asar\node_modules\chromium-pickle\node_modules\bindings
+\bindings.js:76:44)
+    at Object.<anonymous> (C:\Users\Paul\code\atom\atom-shell\node_modules\asar\node_modules\chromium-pickle\lib\main.js
+:1:99)
+    at Module._compile (module.js:410:26)
+    at Object.Module._extensions..js (module.js:428:10)
+    at Module.load (module.js:335:32)
+```
+## TODO:
+- [ ] Fix completely borked code
+",1203,True,en,1
+1326,1,2,0,Externals,deepak1556,2015-03-29 09:58:22,14,0,5,0,"fixes #995 , not sure of the purpose for enabling this unless,  the developer can specify keycodes as options array. any thoughts ? 
+",133,True,en,0
+1302,1,14,0,Externals,deepak1556,2015-03-26 07:32:13,46,0,4,0,"Fixes #1293 , not happy about api for `getActiveDisplay` as this was already possible with current js exposed api's. This has just cut down the number of js->c++ call transitions. I feel `getNumDisplays` is a good to have api.  
+",229,True,en,0
+1296,1,1,0,Externals,deepak1556,2015-03-25 13:28:48,18,3,3,0,"alternate for #1295 
+",21,True,en,0
+1246,2,1,0,Externals,ilyavorobiev,2015-03-14 23:36:00,0,0,0,0,"Added article about Platform Architecture and restructured README
+",66,True,en,0
+1220,1,1,0,Externals,mattcollier,2015-03-08 13:56:52,0,0,0,0,"I installed atom-shell with: npm install atom-shell -g
+
+The binary I have is : ./usr/bin/atom-shell
+
+When would specifying the path ./atom-shell be appropriate?
+",161,True,en,0
+1216,1,1,0,Externals,deepak1556,2015-03-06 20:37:18,2,1,1,0,"fix for #1212 on osx , http://stackoverflow.com/questions/7819922/nsopenpanels-setdirectoryurl-doesnt-work-on-lion . Dont have access to a windows machine to figure out what the cause there might be.
+",200,True,en,0
+1160,2,1,1,Externals,shaleenx,2015-02-19 19:07:22,2,0,2,0,"I am adding a few comments in the python script where I found them to be necessary. I would be adding some more soon.
+Briefly edited the Readme.
+",145,False,en,0
+1147,1,1,0,Externals,akrieger,2015-02-18 06:19:49,2,1,1,0,"The FILE_PATH_LITERAL macro is not safe to use with a variable on Windows.
+It only works with actual string literals.
+https://github.com/atom/atom-shell/commit/4834eed5204502038cd3003bf7b34b957f95e4dd#commitcomment-9755232
+",223,False,en,0
+1089,2,1,0,Externals,dcposch,2015-02-03 12:49:53,4,1,2,0,"This doesn't quite work yet. The goal is to make atom-shell compile on Ubuntu.
+
+See #1074 for details.
+",103,True,en,0
+1048,1,1,0,Externals,park9140,2015-01-23 06:47:28,2,0,2,0,"@zcbenz,  I attempted to update atom to `v0.20.7` of `atom-shell`, and it threw an error trying to get `screen.js` from the common api.  Not sure if this is the correct way to fix this, but it seems to work.
+",208,True,en,0
+1023,1,1,0,Externals,dcposch,2015-01-18 14:37:08,4,1,1,0,"I've gotten the following error message, when the actual problem was something else. Turns out it happens when any module fails to load. 
+
+```
+Error opening app
+The app provided is not a valid atom-shell app, please read the docs on how to write one:
+https://github.com/atom/atom-shell/tree/master/docs
+```
+
+For example, if you take a hello-world atom-shell app and add `require('sqlite3')`, you'll get that cryptic error. The real reason is that atom-shell supports only a subset of the modules in standard node out of the box: native modules like sqlite3 don't always install easily because atom uses a newer version of V8 than standard node.
+
+Small diff, just trying to clarify things!
+",689,True,en,0
+999,1,4,0,Externals,ghost,2015-01-10 23:22:56,0,0,0,0,"Looks like libgcrypt.so is not used anymore, so there is no need to ship it. I cannot point out though when/why this dependency was dropped, so please double-check.
+",165,True,en,0
+958,1,4,0,Externals,hachre,2014-12-26 02:50:16,0,0,0,0,"This makes the example app behave more in line with what users expect from a normal app.
+",89,True,en,0
+895,2,6,1,Externals,erisdev,2014-12-05 17:58:27,0,0,0,0,"`Atom` and `com.github.atom` are already in use by the editor. Let’s
+give the shell its own identity so poor OS X doesn’t get confused.
+
+Closes #686
+",153,False,en,1
+827,1,1,0,Externals,frankhale,2014-11-14 16:09:44,0,0,0,0,"Reference issue: https://github.com/atom/atom-shell/issues/734
+",63,True,en,0
+774,4,5,0,Externals,gstack,2014-11-02 15:34:20,0,0,0,0,"added openDevTools api to the webview tag and documentation. passing cpplint this time..
+",89,True,en,0
+773,2,1,0,Externals,gstack,2014-11-02 15:23:28,0,0,0,0,"added openDevTools api to the webview tag and documentation.
+",61,True,en,0
+679,1,1,0,Externals,Subash,2014-10-02 17:43:47,0,0,0,0,,0,False,en,0
+677,4,0,4,Externals,Subash,2014-10-02 10:01:53,0,0,0,0,,0,False,en,0
+596,4,3,2,Externals,soh1988,2014-08-21 07:15:26,0,0,0,0,"Bug in the current MinSize API where the optional Min Height or Min Width will work but if both Min Height and Min Width is defined, only Min Height will be processed.
+
+Documentation of FlashFrame is missing the compulsory boolean argument to enable flashing or disabling flashing
+",281,True,en,0
+595,2,1,0,Externals,soh1988,2014-08-21 06:38:59,0,0,0,0,"Fixing the Min Size to process either single side or both sides
+",64,True,en,0
+521,1,2,5,Externals,hokein,2014-07-27 15:02:24,13,0,2,0,"@zcbenz, please take a look, thanks!
+",37,True,en,0
+451,2,1,0,Externals,deepak1556,2014-07-01 21:46:09,30,1,2,0,,0,False,en,0
+441,2,6,0,Externals,as3boyan,2014-06-29 16:52:25,6,0,1,0,,0,False,en,0
+342,1,2,0,Externals,entropi,2014-05-21 13:41:26,1,1,1,0,"Remove symlinks from darwin zip so that OS X packages can be worked with on windows build systems.
+",99,True,en,0
+245,1,1,0,Externals,nocksock,2014-05-06 15:54:05,0,0,0,0,,0,False,en,0
+67,2,10,0,Internals,zcbenz,2013-08-27 07:27:34,11,2,4,0,"- [x] Use Chrome 29
+- [x] Update node to v0.11.x
+- [ ] Upload new node headers
+- [ ] Fix functions using old V8 API
+- [ ] Fix native node modules still using old V8 API
+",169,False,en,0

@@ -1,0 +1,2328 @@
+pull_request,number_of_commits,number_of_comments,number_of_reviews,user_type,user_login,merged_at,number_of_additions,number_of_deletions,number_of_files_changed,number_of_days,message,number_of_characters,second_line_is_blank,language,number_of_test_files
+1396,1,0,0,Externals,jaythomas,2017-10-14T14:57:01Z,14,0,1,0,"[editorconfig](http://editorconfig.org/) is a great way to set some file formatting conventions for a project and have your text editor automatically apply them. Though many linters like eslint or standard should detect those with the right rules enabled, this tells the user's editor the right way to do it and saves the hassle of failed tests because of simple indentation issues or Windows-created files with CRLF line endings.",430,False,en,0
+1395,1,0,0,Externals,Eliada,2017-10-11T05:50:52Z,1,1,1,4,"the --compilers flag is deprecated and will be removed in a future version of Mocha
+https://github.com/mochajs/mocha/wiki/compilers-deprecation
+
+Using the --require flag instead",180,False,en,0
+1391,1,0,0,Externals,rodrigoaguilera,2017-09-16T14:53:07Z,2,0,1,0,,0,False,en,0
+1390,2,0,0,Externals,slawekzachcial,2017-09-16T15:26:21Z,60,5,2,6,"Robot 'send', 'reply', 'messageRoom' methods delegate invocations to
+adapter but using as 'this' the robot while they should be using the adapter.
+Robot 'on', 'emit' methods delegate invocations to events but using as
+'this' the robot but they should be using the events.
+
+The original CoffeeScript code from release 2.19.0 uses simple delegation, i.e. [send](https://github.com/hubotio/hubot/blob/c0f6bdf947c5271c2cac5d48730320b129c2e44f/src/robot.coffee#L542), [reply](https://github.com/hubotio/hubot/blob/c0f6bdf947c5271c2cac5d48730320b129c2e44f/src/robot.coffee#L552), [messageRoom](https://github.com/hubotio/hubot/blob/c0f6bdf947c5271c2cac5d48730320b129c2e44f/src/robot.coffee#L562), [on](https://github.com/hubotio/hubot/blob/c0f6bdf947c5271c2cac5d48730320b129c2e44f/src/robot.coffee#L573), [emit](https://github.com/hubotio/hubot/blob/c0f6bdf947c5271c2cac5d48730320b129c2e44f/src/robot.coffee#L583). This PR should address #1386.",943,False,en,1
+1381,2,0,0,Externals,coryallegory,2017-08-05T03:48:24Z,7,6,1,0,"The current documentation has users installing https://github.com/bfcamara/hubot-azure-scripts for azure blob storage support. The lib hasn't been updated in awhile and could be simplified. My refactor requires only a single environment variable for an azure storage connection string, and allows disabling of the azure connectivity when running hubot unit tests outside of the scope of the brain scripts. The latter removes some of the discouraging barriers casual scripters at my workplace have run into when trying to get involved with our inhouse hubot instance.
+
+Also included a troubleshooting tip to do with kudu not downloading all declared dependencies in Azure, which was a very frustrating and ""mysterious"" issue that took awhile to figure out at my workplace.",773,True,en,0
+1372,2,0,0,Externals,lornajane,2017-08-05T03:14:59Z,61,60,2,16,I tried to use the deploy instructions for Bluemix but they're a little outdated so I've updated them now my own hubot is running happily there.  This also adds the missing Bluemix and Azure deployment instructions to the list of deployment info on the index page.,264,False,en,0
+1364,1,1,0,Externals,gr2m,2017-06-29T15:18:13Z,2,2,1,0,closes #1363 ping @technicalpickles,35,False,en,0
+1361,8,3,0,Externals,gr2m,2017-06-28T16:20:47Z,40,597,5,1,"see
+
+- https://github.com/hubotio/evolution/pull/6
+- https://github.com/hubotio/evolution/blob/4/javascript/_drafts/javascript.md#publish-hubot300-with---tagnext
+
+for a release to happen, we have to add another commit which can be done using `--allow-empty`. `hubot@3` comes with a new feature and 3 breaking changes. The commit can look as follows:
+
+```
+feat: `require('hubot/es2015')` exports native ECMAScript 2015 classes
+
+BREAKING CHANGE: node@0.10 and node@0.12 are no longer supported
+BREAKING CHANGE: Deep requires like `require('hubot/src/adapter')` are no longer supported, use `require('hubot').Adapter` instead.
+BREAKING CHANGE: `Middleware.ticker()` has been removed. Use `process.nextTick()` instead.
+```",731,True,en,1
+1360,2,7,0,Externals,gr2m,2017-06-26T22:07:44Z,52,0,2,0,part of https://github.com/hubotio/evolution/pull/4,51,False,en,1
+1359,2,0,2,Externals,gr2m,2017-06-28T15:29:09Z,200,1,2,2,part of https://github.com/hubotio/evolution/pull/4,51,False,en,1
+1358,1,0,2,Externals,gr2m,2017-06-26T22:40:05Z,2,2,1,1,addresses https://github.com/hubotio/evolution/pull/4#discussion_r123839362,75,False,en,0
+1357,2,2,0,Externals,gr2m,2017-06-26T16:27:58Z,20,0,2,1,closes #1355,12,False,en,1
+1353,1,2,0,Internals,technicalpickles,2017-06-23T21:46:30Z,3,0,1,6,"Without this, any message is responded to, including someone entering or
+leaving. Most common case is responding to text, so make sure to check
+for that in the docs, and explain why.
+
+Fixes https://github.com/hubotio/hubot/issues/1055",238,False,en,0
+1352,1,0,2,Externals,gr2m,2017-06-13T14:03:26Z,4,2,1,0,"I run into these problems while converting `hubot-help` from CoffeeScript to JavaScript. This is currently not covered by `hubot` tests. Having an end-to-end test that runs on CI would have caught that. I’ll look into it, but would like to merge this now if possible, as the change is minor",292,False,en,0
+1350,4,1,1,Externals,espy,2017-06-12T17:57:43Z,13,4,4,0,"Hello 👋 
+
+This PR adds Istanbul to measure test coverage and add settings to track coverage over time with https://coveralls.io 
+
+We (@gr2m and me) think this is crucial for adding `semantic-release` and Greenkeeper to Hubot, both of which depend on reliable tests, and ideally 100% coverage. `semantic-release` uses tests to determine whether a commit introduces breaking changes, and Greenkeeper uses tests to determine whether a dependency update breaks Hubot. We’d like to automate away as much of the release process as possible (to make it more convenient, so we can release more often, and to avoid [sentimental versioning](http://sentimentalversioning.org/), and we’d like to use Greenkeeper to be sure that users don’t get frustrated with Hubot because some dependency broke it without us noticing. 
+
+- `npm test` now displays coverage information at the end of each test run
+- The readme now shows build status and coverage info badges
+- Hubot has a status page on coveralls.io (check this page from `hoodiehq/hoodie` https://coveralls.io/github/hoodiehq/hoodie to see what this looks like)
+
+Coveralls.io requires additional configuration:
+
+- [x] An admin/owner of `github/hubot` must sign in to https://coveralls.io with their GitHub account
+- [x] On https://coveralls.io/repos/new , enable `github/hubot`
+- [x] On https://coveralls.io/github/{username}/hubot/settings, disable `leave comments`
+- [x] On the same page, set `coverage decrease threshold for failure` to `0` and save changes
+- [x] Check `coveralls/coveralls` in `Require status checks to pass before merging` on https://github.com/github/hubot/settings/branches/master
+
+Coveralls now runs when Travis runs, and the build should fail when coverage falls below the previous test run’s level. ",1794,True,en,0
+1349,1,0,1,Externals,gr2m,2017-06-13T09:27:02Z,2,12,1,1,part of https://github.com/hubotio/evolution/pull/4,51,False,en,0
+1348,1,2,0,Externals,gr2m,2017-06-07T15:53:59Z,38,39,9,0,"This is in preparation of #1347. Having the declaration of `MockAdapter` inside the Hubot repository makes sense anyway, it is fairly simple and we depend on it in our tests, so we should have full control. The main problem is that [`hubot-mock-adapter` does `require('hubot/src/adapter')`](https://github.com/blalor/hubot-mock-adapter/blob/5cb366c9150693624050bc2b04e39c83470de5e8/index.js#L23) which I don’t think is officially supported, it should be `require('hubot').Adapter` instead. 
+
+If we want to keep a `hubot-mock-adapter` we should bring it up to date (e.g. it refers `src/scripts` in the README.md which doesn’t exist) and move it to the hubotio GitHub organization.
+
+In #1347 we want to convert the tests independent of the source files, and the changes in this PR became necessary for the tests to still pass after converting all `/src/*` files to JavaScript.",882,True,en,7
+1347,7,16,5,Externals,gr2m,2017-06-09T13:46:03Z,4796,3885,44,6,"The [JavaScript proposal for Hubot Evolution](https://github.com/hubotio/evolution/pull/4#issuecomment-305557470) is still ongoing, so everything can change. If you have any questions better to discuss there. 
+
+But at this point I have the source code working in JavaScript and all existing coffee script tests are passing, so I thought I’d be a good time to start sharing progress.
+
+### 🛑 this PR is not yet ready for any feedback on the code
+
+Most of it is still generated from `decaffeinate`. I’ll test the current version with some popular adapters / scripts first to makes sure it all still works
+
+closes – eventually – https://github.com/hubotio/evolution/pull/4
+
+### Breaking Changes
+
+- node@0.10 and node@0.12 are no longer supported
+- `require('hubot/src/adapter')` does no longer work. It was never officially supported, but now it won’t work at all. Use `require('hubot').Adapter` instead
+- `Middleware.ticker()` has been removed. Use `process.nextTick()` instead
+
+### Features
+
+- We now export es2015 `class` declarations of all Hubot classes at `require('hubot/es2015')`. 
+
+### Progress
+
+See [JavaScript Evolution Proposal](https://github.com/hubotio/evolution/pull/4) for details
+
+- [x] Convert source files from CoffeeScript to JavaScript
+     see [evolution/4/javascript-src](https://github.com/github/hubot/compare/evolution/4/javascript-src) branch [![Build Status](https://travis-ci.org/github/hubot.svg?branch=evolution%2F4%2Fjavascript-src)](https://travis-ci.org/github/hubot)
+- [x] Convert test files from CoffeeScript to JavaScript
+      see [evolution/4/javascript-tests](https://github.com/github/hubot/compare/evolution/4/javascript-tests) branch, [![Build Status](https://travis-ci.org/github/hubot.svg?branch=evolution%2F4%2Fjavascript-tests)](https://travis-ci.org/github/hubot)
+- [x] [#](#package-json) update package.json
+- [x] [#](#linting) add script for JavaScript linting
+- [x] [#](#test) Test with popular projects depending on Hubot
+- [x] Update `CHANGELOG.md`
+- [x] review by other maintainers 👀 
+- [x] squash the WIP commits
+- [x] merge 🎉 
+
+All steps will be part of the same PR but split into separate commits so people
+can follow more easily.
+
+#### Convert source files from CoffeeScript to JavaScript
+
+Convert all source files from CoffeeScript to JavaScript with a tool like [decaffeinate](https://github.com/decaffeinate/decaffeinate), see also [github/hubot#1138](https://github.com/github/hubot/issues/1138).
+
+Make sure the existing tests (still written in CoffeeScript) run against the new JavaScript.
+
+Now go through each file and improve the code readability by hand as needed. From my experiences with converting Hoodie from CoffeeScript to JavaScript quite a lot of manual work will be required.
+
+#### Convert test files from CoffeeScript to JavaScript
+
+Same as the previous steps only for the tests files this time.
+
+When finished, create a separate branch with the tests written in JavaScript but the source code still in CoffeeScript to assure integrity.
+
+<a name=""package-json""></a>
+#### Update package.json
+
+Remove all CoffeeScript related dependencies and tooling. Update [engines](https://docs.npmjs.com/files/package.json#engines)
+
+Make sure that Hubot scripts can still be written in CoffeeScript. We want to break as few existing scripts as possible and many of them are written in CoffeeScript. We treat it as legacy support and will drop support for scripts written in CoffeeScript in future.
+
+<a name=""linting""></a>
+#### Add script for JavaScript linting
+
+The only tool I would like to introduce as part of this proposal is a linting tool which will be run as part of `npm test`.
+
+I suggest [standard](https://standardjs.com/). We’ve been using it in all our projects at Hoodie and Neighbourhoodie since 2+ years and never looked back. It's a zero-configuration JavaScript linter.
+
+<a name=""test""></a>
+#### Test with popular projects depending on Hubot
+
+- [x] [slack](https://github.com/slackapi/hubot-slack)
+- [x] [hipchat](https://github.com/hipchat/hubot-hipchat)
+- [x] [irc](https://github.com/nandub/hubot-irc)
+
+Instructions to test an existing adapter with this PR:
+
+1. Check out the `evolution/4/javascript` branch of this pull request
+
+   ```
+   git clone git@github.com:github/hubot.git
+   cd hubot
+   git checkout evolution/4/javascript
+   npm install
+   npm link
+   ```
+
+2. Now link it into your test app using an example adapter
+
+   Using the example of slack here:
+
+   ```
+   npm install -g yo generator-hubot
+   mkdir my-awesome-hubot && cd my-awesome-hubot
+   yo hubot --adapter=slack
+   npm link hubot
+   ```
+
+3. Now start hubot
+
+   ```
+   NODE_PATH=`pwd`/node_modules HUBOT_SLACK_TOKEN=<your token here> ./bin/hubot --adapter slack
+   ```
+
+   replace `<your token here>` with your own bots token from slack",4912,True,en,14
+1345,1,0,1,Externals,gr2m,2017-05-31T13:16:07Z,28,28,1,1,"Following the current getting started guide, the name of the hubot becomes `myhubot`. Following the instructions I got stuck at the prompt `hubot> hubot help` which responded with nothing. Once I understood the problem it was clear to me, but for a first timer this might be confusing. Ideally the prompt would return with a helpful notice to `hubot help`, but for the time being, I drafted an update to the getting started docs with the goal to make things more clear",468,False,en,0
+1344,1,1,0,Internals,bkeepers,2017-05-30T02:26:25Z,0,16,2,3,"Per discussion in https://github.com/github/hubot/pull/1340#discussion_r118395796, these files seem to be unused relics.",120,False,en,0
+1343,4,0,3,Internals,bkeepers,2017-05-24T22:49:35Z,20,18,2,0,"Going forward, all discussions about new features or changes to APIs will happen on the [Hubot evolution](https://github.com/hubotio/evolution) repo. Over the next week or so, we'll likely be closing a lot of the issues and PRs in this repository and pointing people toward the evolution repository as the place to discuss changes.
+
+There will likely be some growing pains as we adjust to this new process, so feedback is always welcome!
+
+cc https://github.com/hubotio/evolution/pull/1",489,True,en,0
+1340,21,0,3,Internals,bkeepers,2017-05-23T23:06:39Z,27,55,8,0,This fixes some of the suggestions in #978.,43,False,en,0
+1337,1,0,0,Internals,bkeepers,2017-05-20T16:35:23Z,1,1,1,0,Fixes https://github.com/github/hubot/pull/1142,47,False,en,0
+1336,2,2,0,Internals,bkeepers,2017-05-20T19:34:26Z,8,7,1,0,"It looks like the Travis builds got deactivated at some point. I turned them back on, and while I'm at it, am updating the versions of node that it tests against.
+
+Changes:
+
+- ~~Drop `0.10` (`0.12` is still supported)~~
+- Add `6`, `7`, and `node` for latest stable release",277,True,en,0
+1335,4,8,0,Internals,bkeepers,2017-05-30T02:50:43Z,29,0,2,10,"This adds config for the @probot plugin that [closes stale issues and PRs](https://github.com/probot/stale). There are currently [75 issues/PRs that will be marked stale](https://github.com/github/hubot/search?utf8=%E2%9C%93&q=updated%3A%3C2017-02-18+is%3Aopen&type=Issues).
+
+I know @mose has been working through open issues & PRs, but how does everyone feel if we install this now and let the bot do most of the work so we're only left with things that are still affecting people?
+
+- [x] Get 👍  on the [config](https://github.com/github/hubot/blob/stale/.github/stale.yml)
+- [x] Decide when to ship it
+- [x] :shipit: 
+- [x] [Install the integration](https://github.com/integration/probot-stale)",706,True,en,0
+1334,3,3,0,Internals,LindseyB,2017-05-18T17:50:51Z,49,3,3,0,"I noticed that we have everything in this such as a contributing file and a license and a readme that have all been shown to help with collaboration on public repos, but we are sadly missing a CoC and the referenced CoC in the contributing file is no longer recommended. 
+
+I'm proposing the inclusion of the Contributor Covenant CoC. ❤️ 
+
+If this is acceptable I will update the contributing to also reference the new CoC. ",431,True,en,0
+1332,3,1,8,Externals,mose,2017-05-19T02:45:35Z,25,26,1,2,"To end the confusion:
+
+- fix the last `msg` present in robot commands
+- replace `res` by `response` for both router commands and http calls
+
+cf https://github.com/github/hubot/issues/1285 https://github.com/github/hubot/issues/1129 ",237,True,en,0
+1329,3,1,0,Externals,jbosse,2017-05-13T18:50:15Z,3,0,1,0,This solution can be found on SO but it might be nice to have it here.,70,False,en,0
+1328,1,1,0,Internals,technicalpickles,2017-05-13T20:06:37Z,1,0,1,0,"It seemed like a good idea at the time, but the generator at https://github.com/github/generator-hubot is a bit of a maintenance headache. Previously, it was just part of the hubot package and just dropped files on disks without a 'real' generator.
+
+https://github.com/github/generator-hubot/issues has some of the current issue, but I have also seen in the past lots of issues with just installing `yeoman`, since it has a ton of dependencies.
+
+I'm not picky about where on the roadmap it is, but it should go somewhere.
+
+cc @bkeepers @mose",547,True,en,0
+1326,1,0,4,Internals,bkeepers,2017-05-13T20:05:46Z,4,4,2,1,"This adds links to our shiny new Slack account to the README.
+
+Closes #1322 ",78,True,en,0
+1323,2,0,1,Internals,bkeepers,2017-05-12T15:26:06Z,2,1,1,0,"We're starting with a core team of 4 people, 2 from GitHub and 2 from the community.
+
+- @technicalpickles - long-time maintainer and GitHub Engineer
+- @bkeepers - Hubot product lead at GitHub
+- @mose - Community maintainer, long-time Hubot user, and adapter/plugin maintainer
+- @gr2m - Contributor experience maven and open source pro
+
+This group will be doing most of the work of returning the project to a maintained status, documenting policies and procedures, and modernizing the Hubot community over the next few weeks.",531,True,en,0
+1321,2,3,0,Internals,bkeepers,2017-05-11T16:10:39Z,35,0,1,0,"At GitHub, we use Hubot a lot. We use it to deploy GitHub.com, provision new infrastructure, give people recognition for good work, get a list of the food trucks by office in San Francisco, and so much more. It’s an important part of our workflow and our culture.
+
+For the past couple years, we’ve considered Hubot “stable”. We have a ton of infrastructure built on top of it and it does what we need. But now we want to take it to the next level.
+
+We’re ready to start working on Hubot v3, which aims to be a bot framework optimized for developers and developer workflows, with great integration in the most popular chat clients and developer tools, and an active community that is sharing scripts and best practices.
+
+This roadmap represents some of priorities for us over the next couple months. Issues or pull requests will be opened to discuss each of these items in detail as they progress.
+
+We'd love feedback on it. Let us know if there's anything major that you think is missing.
+
+cc @technicalpickles @gr2m",1036,True,en,0
+1320,2,1,0,Internals,bkeepers,2017-05-10T23:59:37Z,3,38,1,0,"This cuts the list of adapters down to just the most popular services, and then links to a [GitHub topic search for `hubot-adapter`](https://github.com/search?q=topic%3Ahubot-adapter&type=Repositories) for the full list.
+
+I'll open an issue on all the adapters to ask them to add the topic to their repository.",312,True,en,0
+1317,1,1,0,Externals,Sirius-A,2017-05-08T12:43:21Z,1,1,1,0,I guess that you want to keep the copyright in 2017 as well :grinning:.,71,False,en,0
+1312,1,0,0,Internals,bkeepers,2017-04-30T16:13:40Z,1,1,1,0,Fixes https://github.com/github/hubot/issues/1211,49,False,en,0
+1309,4,0,0,Internals,benbalter,2017-05-01T13:06:32Z,79,69,15,4,"With the goal of making the documentation readable on both GitHub.com and GitHub Pages, this pull request updates the Hubot documentation to use relative, rather than absolute links to link to one markdown file from another (e.g., from `/docs/index.md`, `scripts.md` or `./scripts.md` instead of `/docs/scripts.md).
+
+Additionally, I added Markdown titles to each document to improve readability. There should be no substantive changes.
+",439,True,en,0
+1290,2,1,0,Externals,maxkoryukov,2017-05-08T01:32:30Z,9,7,1,100,"The numeration in the **Gotchas** section was broken, because of misformatted code-samples. ",92,False,en,0
+1289,2,0,0,Externals,makii42,2017-05-24T03:22:45Z,1,2,3,116,"... and removes @robot.server.close() from afterEach hooks.
+
+While testing my hubot scripts' express routes, I noticed that a robot created in a before-hook with enabled http does not shut down the http server on `robot.shutdown()`. 
+
+I know that there are discussions to pull out the express server as a module/script, but in the meantime, this would fix the _issue_, if you want to call it one.
+
+I also removed the explicit `@robot.server.close()` calls in 2 test files, as calling `close()` multiple times on an http server seems to throw an error in node v0.10.",571,True,en,2
+1286,1,2,0,Externals,mose,2017-05-11T03:32:41Z,4,4,1,111,".. and removing the link to webchat will avoid misleading visitors. In the past 6 months, people just jump in, expect to be able to test a bot, and don't stay. But there is no bot on that irc channel, as it's more a social place for developers ...
+
+I hope this change in the README could improve the quality of our irc channel :)",331,True,en,0
+1272,1,1,0,Externals,Hbrinj,2017-04-30T23:45:54Z,1,1,1,147,Signed-off-by: Houman Brinjcargorabi <hbrinjcar@gmail.com>,58,False,sl,0
+1255,3,0,2,Externals,ksatirli,2017-04-30T23:48:14Z,1,1,1,184,"Hi!
+
+One of the code examples is missing a `->` and thus will not pass linting checks (or actually work).
+",106,True,en,0
+1240,1,1,0,Externals,notpeter,2017-04-30T23:50:14Z,6,2,1,219,,0,False,en,0
+1214,1,0,0,Externals,tas50,2017-05-01T00:21:24Z,3,2,1,289,"Opscode -> Chef
+Add runit as a reliable init system
+",52,False,en,0
+1209,1,1,0,Externals,denisvm,2017-05-23T22:52:23Z,2,1,1,327,"Change the default file mode from `0o666` (u=rw,g=rw,o=rw) to `0o600` (u=rw,go=), which will deny access to everyone else other than the owner of the file.
+This is used only when creating the file, so the user can change it afterwards if really want to make it public.
+",269,False,en,0
+1189,1,1,0,Externals,ouadie-lahdioui,2016-05-14T19:15:56Z,1,1,1,0,"The main object of this pull request is to remove a duplicated world, instead of ""You can can use ..."" it should be ""You can use ...""
+",134,True,en,0
+1185,1,0,0,Internals,technicalpickles,2016-05-06T23:12:35Z,14,1,2,0,"**Implemented enhancements:**
+- Print warning for loading deprecated hubot-scripts.json [#970](https://github.com/github/hubot/pull/970) ([bkeepers](https://github.com/bkeepers) and [technicalpickles](https://github.com/technicalpickles)
+
+**Merged pull requests:**
+- Add link to Facebook Messenger Platform adapter [#1166](https://github.com/github/hubot/pull/1166) @MrSaints
+- Add Hubot-Wechat to the adapter-list. [#1147](https://github.com/github/hubot/pull/1147) @KasperDeng
+- Fix broken links in docs [#1147](https://github.com/github/hubot/pull/1148) @akameco
+",566,False,en,0
+1166,1,1,0,Externals,MrSaints,2016-05-06T22:53:35Z,1,0,1,24,"This is an adapter for Facebook's new Messenger Platform, and its Send / Receive API.
+",86,True,en,0
+1161,4,6,2,Externals,twellspring,2017-05-01T00:06:01Z,26,0,1,397,"Adding documentation for robot.messageRoom per #1085 
+
+Note:  I was only able to test this using the hubot-slack integration
+",125,True,en,0
+1151,2,0,5,Externals,pchaigno,2017-05-01T00:32:08Z,11,0,1,406,"As discussed in #1143, this pull request documents `hubot.brain`, and, in particular, the content of `hubot.brain.users`.
+
+I'll be happy to update it based on comments; especially if the wording can be made clearer :smiley:
+",224,True,en,0
+1150,1,1,0,Externals,gasolin,2017-05-01T00:30:29Z,1,8,1,406,"The test for 'topic' is replicated
+",35,True,en,1
+1149,1,2,0,Externals,loafoe,2016-03-21T15:19:56Z,1,0,1,1,"This Mattermost Hubot adapter uses a websocket connection and acts as a real user on your team. 
+It allows Hubot to be invited to public _and_ private channels. It also supported direct messages.
+",196,False,en,0
+1148,1,1,0,Externals,akameco,2016-05-06T22:56:52Z,2,2,2,49,"Fix broken links in docs.
+",26,True,nl,0
+1147,1,1,0,Externals,KasperDeng,2016-05-06T22:55:40Z,1,0,1,49,"I created a new adapter for hubot for the chinese popular IM app weixin (another name is wechat) which is created by Tencent.
+
+The hubot-weixin-adapter is running very well, it serves us in lots of scenarios and makes lots of fun for us.
+In order to get more idea/enhancement and being widely used in the world, we decided to contribute the source code.
+The github repo is https://github.com/KasperDeng/Hubot-WeChat
+
+Could you help update the [adapters.md](https://github.com/github/hubot/blob/master/docs/adapters.md) for the [page](https://hubot.github.com/docs/adapters/), to add this new hubot-weixin into the adapter list and link to our github repo? Thanks in advance.
+
+The main contributors for this adapter are
+- bumblebee team 
+  - [Jeff Zhu](https://github.com/kfchu)
+  - [Yinsong Ma](https://github.com/eyinsma)
+  - [Kasper Deng](https://github.com/kasperdeng)
+- [Shouxi Huang](https://github.com/hsx1612727380)
+",923,True,en,0
+1135,1,1,0,Externals,MonicaG,2016-02-25T22:59:30Z,1,1,1,2,"…Hubot Scripts' section
+",26,True,cs,0
+1133,1,1,0,Internals,technicalpickles,2016-02-25T23:00:29Z,10,10,1,8,"Awhile back in hubot's history, adapters were changed to take an
+'envelope' instead of a user or room object. The adapter class was
+updated but not the robot functions that delegate to the adapter.
+
+I noticed this when someone was adding a script using it, and I was checking the usage.
+",287,False,en,0
+1130,1,2,0,Externals,pra85,2016-02-26T19:50:30Z,1,1,1,21,"Found a spelling mistake - 
+`pronounciation` > `pronunciation`
+
+Refer to http://english.stackexchange.com/questions/5732/why-is-the-spelling-of-pronounce-and-pronunciation-different
+",182,False,en,0
+1123,1,4,0,Externals,xt0rted,2016-02-26T00:08:12Z,2,2,1,32,"Fixed the quotes in the deploy script step, and the name of the azure blob storage brain as per [hubot-azure-scripts](https://github.com/bfcamara/hubot-azure-scripts/blob/2105b4cb3dc331157e19c90e6dabf2247e6553a6/brain/storage-blob-brain.coffee)
+",245,True,en,0
+1122,1,1,0,Externals,shaunkawano,2016-01-20T13:50:01Z,1,1,1,0,"Use `create` instead of deprecated `add` addons command
+",56,True,en,0
+1121,2,0,0,Internals,technicalpickles,2016-01-20T18:49:22Z,43,1,2,0," I wanted to do some smoke testing before a final release, but other ran out of time tonight.
+
+[Full Changelog](https://github.com/github/hubot/compare/v2.17.0...v2.18.0)
+
+**Implemented enhancements:**
+- Only coerce ids that are all digits into integers [#1052](https://github.com/github/hubot/pull/1052) ([technicalpickles](https://github.com/technicalpickles))
+
+**Closed issues:**
+- Allow for non-integer user id in the shell adapter. [#1117](https://github.com/github/hubot/issues/1117)
+- Markdown syntax in docs/adapters.md preventing update of hubot.github.com [#1100](https://github.com/github/hubot/issues/1100)
+- Possible Error in Docs [#1096](https://github.com/github/hubot/issues/1096)
+- Propose adding Hubot-Mattermost to list of Hubot adapters [#1089](https://github.com/github/hubot/issues/1089)
+- bug(hubot@2.17.0): adapters don't run script [#1086](https://github.com/github/hubot/issues/1086)
+- Depressing Pug Picture [#1084](https://github.com/github/hubot/issues/1084)
+- Hubot - robot.http get method returns null body & res.  Suspecting hubot timing out [#1080](https://github.com/github/hubot/issues/1080)
+- Steam + Hubot [#1076](https://github.com/github/hubot/issues/1076)
+- Hubot won't start on Heroku because of node modules [#1071](https://github.com/github/hubot/issues/1071)
+- Documentation 404 [#1064](https://github.com/github/hubot/issues/1064)
+- Can't make HTTP requests [#1060](https://github.com/github/hubot/issues/1060)
+- Define and document testing patterns for scripts [#985](https://github.com/github/hubot/issues/985)
+
+**Merged pull requests:**
+- Mattermost adapter [#1120](https://github.com/github/hubot/pull/1120) ([technicalpickles](https://github.com/technicalpickles))
+- Upgrade express to v3.21.2 [#1119](https://github.com/github/hubot/pull/1119) ([sgerrand](https://github.com/sgerrand))
+- Fixed link to getting started [#1116](https://github.com/github/hubot/pull/1116) ([jackmawer](https://github.com/jackmawer))
+- Fix http and https documentation [#1114](https://github.com/github/hubot/pull/1114) ([technicalpickles](https://github.com/technicalpickles))
+- [shell] don't color hubot responses green, to be more visible on light backgrounds [#1111](https://github.com/github/hubot/pull/1111) ([technicalpickles](https://g
+  ithub.com/technicalpickles))
+- Determine adapterPath in robot.coffee, rather than bin/hubot [#1109](https://github.com/github/hubot/pull/1109) ([technicalpickles](https://github.com/technicalpickl
+  es))
+- Updated copyright to 2016 [#1103](https://github.com/github/hubot/pull/1103) ([aqnouch](https://github.com/aqnouch))
+- Update docs to reflect external scripts brain location [#1101](https://github.com/github/hubot/pull/1101) ([cycomachead](https://github.com/cycomachead))
+- Added Twilio IP Messaging adapter to the list. [#1099](https://github.com/github/hubot/pull/1099) ([philnash](https://github.com/philnash))
+- Add Skyweb to a list of adapters [#1097](https://github.com/github/hubot/pull/1097) ([EllisV](https://github.com/EllisV))
+- Instructions for deploying hubot to IBM Bluemix [#1095](https://github.com/github/hubot/pull/1095) ([kauffecup](https://github.com/kauffecup))
+- Adding documentation for testing Hubot scripts [#1094](https://github.com/github/hubot/pull/1094) ([mdelagrange](https://github.com/mdelagrange))
+- Proxy instructions: typo + foolproof [#1092](https://github.com/github/hubot/pull/1092) ([jbick](https://github.com/jbick))
+- Optionally use setImmediate instead of nextTick in middleware [#1081](https://github.com/github/hubot/pull/1081) ([bhuga](https://github.com/bhuga))
+",3591,True,en,0
+1120,2,0,0,Internals,technicalpickles,2016-01-20T03:47:10Z,2,1,1,0,"An alphabetized version of https://github.com/github/hubot/pull/1090 plus some cleanup.
+",88,True,en,0
+1119,2,3,0,Externals,sgerrand,2016-01-20T03:56:27Z,3,3,1,1,":information_desk_person: Updates the version of express to mitigate security vulnerabilities with version 3.18.1 of the `express` npm package:
+### For version 3.18.1
+
+```
+$ nsp check
+(+) 4 vulnerabilities found
+┌───────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               │ Regular Expression Denial of Service                                                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Name          │ ms                                                                                                                               │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Installed     │ 0.7.0                                                                                                                            │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Vulnerable    │ <=0.7.0                                                                                                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Patched       │ >0.7.0                                                                                                                           │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Path          │ hubot@2.17.0 > express@3.18.1 > debug@2.1.3 > ms@0.7.0                                                                           │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ More Info     │ https://nodesecurity.io/advisories/46                                                                                            │
+└───────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               │ Root Path Disclosure                                                                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Name          │ send                                                                                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Installed     │ 0.10.1                                                                                                                           │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Vulnerable    │ <0.11.1                                                                                                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Patched       │ >=0.11.1                                                                                                                         │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Path          │ hubot@2.17.0 > express@3.18.1 > send@0.10.1                                                                                      │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ More Info     │ https://nodesecurity.io/advisories/56                                                                                            │
+└───────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               │ Regular Expression Denial of Service                                                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Name          │ ms                                                                                                                               │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Installed     │ 0.6.2                                                                                                                            │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Vulnerable    │ <=0.7.0                                                                                                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Patched       │ >0.7.0                                                                                                                           │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Path          │ hubot@2.17.0 > express@3.18.1 > send@0.10.1 > ms@0.6.2                                                                           │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ More Info     │ https://nodesecurity.io/advisories/46                                                                                            │
+└───────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌───────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               │ Cross-Site Scripting                                                                                                             │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Name          │ serve-index                                                                                                                      │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Installed     │ 1.5.3                                                                                                                            │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Vulnerable    │ <1.6.3                                                                                                                           │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Patched       │ >=1.6.3                                                                                                                          │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Path          │ hubot@2.17.0 > express@3.18.1 > connect@2.27.1 > serve-index@1.5.3                                                               │
+├───────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ More Info     │ https://nodesecurity.io/advisories/34                                                                                            │
+└───────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+### For version 3.21.2
+
+```
+$ nsp check
+
+```
+",18841,False,km,0
+1116,1,1,0,Externals,jackmawer,2016-01-20T03:36:39Z,1,1,1,7,"Simple issue here, no code changes and only a slight link change :)
+",68,True,en,0
+1114,1,0,0,Internals,technicalpickles,2016-01-09T00:11:33Z,1,1,1,0,"fixes https://github.com/github/hubot/issues/1096
+",50,True,en,0
+1111,1,2,0,Internals,technicalpickles,2016-01-20T03:37:04Z,1,1,1,11,"This is a possible fix for https://github.com/github/hubot/issues/1102
+
+cc @glensc
+",83,True,en,0
+1109,1,2,1,Internals,technicalpickles,2016-01-20T03:38:06Z,7,7,2,11,"Previously, adapterPath was determined in bin/hubot, and passed to index.coffee,
+ and eventually passed ot the constructor in robot.coffee. This is used by Robot
+to determine where to load builtin adapters from.
+
+It also makes it hard to progmatically construct a robot without running bin/hubot,
+since you'd need to find a way to figure out the path that the hubot module is installed.
+
+This changes it so Robot will determine the adapterPath since it's relative to where
+it live. The constructor still takes it as an option so it remains backward compatible
+ to anything that might be specifying it.
+
+This is work towards https://github.com/github/hubot/issues/858
+",667,False,en,0
+1106,3,3,4,Externals,gotchahn,2017-05-24T03:17:54Z,10,6,2,504,"For avoiding `413 Request Entity too large` in some responses.
+fixes #1105 
+",76,False,en,0
+1103,1,0,0,Externals,aqnouch,2016-01-08T23:34:57Z,1,1,1,7,,0,False,en,0
+1101,1,1,0,Externals,cycomachead,2016-01-08T23:45:50Z,3,3,1,21,,0,False,en,0
+1099,1,2,0,Externals,philnash,2016-01-08T23:48:41Z,2,1,1,22,,0,False,en,0
+1097,1,1,0,Externals,EllisV,2016-01-09T00:08:50Z,1,0,1,27,"Hello,
+
+I would like to add a [Skyweb Adapter](https://github.com/EllisV/hubot-skyweb) which uses Skyweb library (communicates with Skype via HTTP) to a list of adapters.
+",171,True,en,0
+1095,2,2,0,Externals,kauffecup,2016-01-20T03:38:23Z,112,0,2,40,"Bluemix is IBM's PaaS built on top of the open-source project Cloud Foundry. Unlike Heroku, the free tier supports 24/7 uptime meaning you don't have to set up anything like the hubot-heroku-keepalive script, making for a better hubot experience.
+
+This PR contains the docs for how to deploy and host your hubot on Bluemix
+",323,True,en,0
+1094,2,3,0,Externals,mdelagrange,2016-01-08T23:55:12Z,80,0,1,35,"Fixes github/hubot#985.
+",24,True,en,0
+1092,1,1,0,Externals,jbick,2016-01-09T00:14:15Z,5,1,1,44,"I had some hard time figuring out how to use hubot behind a corporate proxy. This might make it easier for some.
+",113,True,en,0
+1083,3,1,0,Internals,bhuga,2015-11-13T18:54:58Z,21,1,2,0,"`package.json` bump and `CHANGELOG` entries for 2.17 with response middleware.
+
+I'd love to merge #1081 too, so letting this sit for :eyes:.
+",141,True,en,0
+1081,3,7,0,Internals,bhuga,2016-01-20T03:45:01Z,5,2,3,69,"When upgrading from node 0.8 to 0.10, we were failing with errors like this:
+
+```
+... snip ...
+(node) warning: Recursive process.nextTick detected. This will break in the next version of node. Please use setImmediate for recursive deferral.
+(node) warning: Recursive process.nextTick detected. This will break in the next version of node. Please use setImmediate for recursive deferral.
+(node) warning: Recursive process.nextTick detected. This will break in the next version of node. Please use setImmediate for recursive deferral.
+(node) warning: Recursive process.nextTick detected. This will break in the next version of node. Please use setImmediate for recursive deferral.
+(node) warning: Recursive process.nextTick detected. This will break in the next version of node. Please use setImmediate for recursive deferral.
+(node) warning: Recursive process.nextTick detected. This will break in the next version of node. Please use setImmediate for recursive deferral.
+
+node.js:0
+// Copyright Joyent, Inc. and other Node contributors.
+^
+RangeError: Maximum call stack size exceeded
+```
+
+This uses `setImmediate` instead of `nextTick` if available, allowing our hubot to boot.
+
+cc @technicalpickles 
+",1201,True,en,0
+1077,3,2,0,Externals,scboucher,2015-11-13T02:16:43Z,4,1,2,10,"I added stable to travis as  it is currently pointing to node v5. 
+I added dev dependencies to support npm v3 (sinon and chai were require but not found.) I also updated the libs. There is one test pending.
+",207,False,en,0
+1074,1,5,1,Externals,msabramo,2015-10-27T23:14:26Z,1,1,1,0,"This makes debugging easier because you can more easily identify which
+listener is being executed. This changes the debug output from -- e.g.:
+
+```
+[Tue Oct 27 2015 07:35:47 GMT-0700 (PDT)] DEBUG Message 'DEVOPS-916' matched regex //(.*)$/i/
+[Tue Oct 27 2015 07:23:59 GMT-0700 (PDT)] DEBUG Executing listener callback for Message 'DEVOPS-916'
+```
+
+to the more helpful:
+
+```
+[Tue Oct 27 2015 07:35:47 GMT-0700 (PDT)] DEBUG Message 'DEVOPS-916' matched regex //(.*)$/i/; @options = { id: 'hubot-mute.catch_all' }
+[Tue Oct 27 2015 07:28:10 GMT-0700 (PDT)] DEBUG Executing listener callback for Message 'DEVOPS-916'; @options = { id: 'hubot-mute.catch_all' }
+```
+",659,False,en,0
+1069,2,9,0,Internals,technicalpickles,2015-11-12T20:35:09Z,1,1,1,22,"This should fix https://github.com/slackhq/hubot-slack/issues/210 over in hubot-slack. I'm not sure if there's any other implications of this, like if other adapters have workarounds for this or not.
+",200,True,en,0
+1068,5,5,1,Externals,scboucher,2015-10-22T20:31:53Z,5,6,1,9,"See issue #1050  
+",18,True,en,0
+1052,1,4,0,Internals,technicalpickles,2016-01-20T03:46:37Z,4,1,1,126,"This lets you set a HUBOT_SHELL_USER_ID=U0123456, as if to pretend to
+have a Slack user id.
+
+Without this change, `parseInt` ends up returning undefined for strings like `U0123456`.
+",182,False,en,0
+1049,1,3,0,Externals,doque,2015-09-15T20:25:23Z,1,1,1,0,,0,False,en,0
+1042,1,1,0,Externals,xuoe,2015-08-31T13:45:17Z,3,3,2,0,,0,False,en,0
+1041,3,1,0,Externals,davidkassa,2015-10-09T17:22:40Z,23,7,2,40,,0,False,en,0
+1039,1,0,0,Externals,danielcompton,2015-08-28T13:41:31Z,1,1,1,0,"The Slack adapter has been moved to https://github.com/slackhq/hubot-slack
+ and is redirecting, but this link is still going to the old repo location.
+",151,False,en,0
+1038,2,1,0,Internals,bhuga,2015-08-26T05:43:25Z,8,3,1,0,"Based on feedback from @michaelansel in https://github.com/github/hubot/pull/1019
+",82,True,en,0
+1037,1,2,0,Externals,michaelansel,2015-08-26T01:18:00Z,8,5,1,0,"Test cases should fail fast and loud instead of by hitting a timeout
+",69,True,en,1
+1035,2,1,0,Internals,technicalpickles,2015-08-24T16:53:29Z,15,1,2,0,"**Merged pull requests:**
+- Update docs on keepalive support [#1033](https://github.com/github/hubot/pull/1033) @bkeepers
+- Cleanup tests [#1032](https://github.com/github/hubot/pull/1032) @michaelansel
+- Add coffee-errors to test scaffolding [#1020](https://github.com/github/hubot/pull/1020) @bhuga
+- Receive middleware [#1019](https://github.com/github/hubot/pull/1019) @bhuga
+- Pass alias in Robot constructor. Fixes issue #1002. [#1003](https://github.com/github/hubot/pull/1003) @sdimkov
+- Add Robot.listen [#986](https://github.com/github/hubot/pull/986) @michaelansel
+",576,False,en,0
+1033,1,0,0,Internals,bkeepers,2015-08-24T14:01:01Z,2,13,1,2,"This updates the heroku docs to be consistent with the changes in https://github.com/hubot-scripts/hubot-heroku-keepalive/pull/13. I moved this to the bottom since it's not essential for getting hubot running the first time.
+
+/cc @github/open-source-hubot-maintainers 
+",269,True,en,0
+1032,4,0,0,Externals,michaelansel,2015-08-24T14:05:15Z,56,74,3,9,"Tests were getting a little messy, so I did a pass of refactoring and style cleanup. Plenty more work to do, but progress is still progress. Each commit is pretty standalone; review might be easier looking at each commit individually rather than the full diff.
+",261,True,en,3
+1030,1,6,0,Externals,michaelansel,2015-08-14T16:57:54Z,8,1,2,0,"- Document another middleware pattern https://github.com/github/hubot/pull/1017 @kristenmills 
+- Make Robot.respondPattern a public method https://github.com/github/hubot/pull/1011 @sdimkov 
+- Make ""done"" argument optional for middleware https://github.com/github/hubot/pull/1028 @michaelansel
+
+All changes: https://github.com/github/hubot/compare/v2.14.0...master
+
+@github/open-source-hubot-maintainers 
+",405,False,en,0
+1028,1,2,2,Externals,michaelansel,2015-08-13T22:44:58Z,37,7,4,0,"Default to using the most recent 'done' callback if not explicitly specified.
+
+Allows `next()` instead of `next done`.
+
+Minor version bump
+",139,True,en,1
+1021,12,19,6,Internals,bhuga,2015-11-12T20:29:15Z,159,13,4,98,"Hot on the heels of #1019, response middleware gives you the chance to edit outgoing messages.
+
+It looks like this:
+
+``` coffeescript
+# Replace markdown links with slack's <url|text> format.
+module.exports = (robot) ->
+  robot.responseMiddleware (context, next, done) ->
+    regex = /\[([^\[\]]*?)\]\((https?:\/\/.*?)\)/g
+
+    context.string = context.string.replace(regex, ""<$2|$1>"")
+    next(done)
+```
+",404,True,en,1
+1020,1,3,0,Internals,bhuga,2015-08-14T21:07:26Z,2,1,2,9,"Line numbers from `script/test` are correct now.
+",49,True,en,0
+1019,14,10,53,Internals,bhuga,2015-08-24T16:05:25Z,246,29,6,19,"Builds off of #803 for middleware before all listeners. https://github.com/michaelansel/hubot/commit/b5bf215e44f20cf1c0c6080f4f2e19271f0e8242 was a bit too simple, but only just.
+
+I need to test this a bit tomorrow but the tests look good.
+
+cc @michaelansel @technicalpickles 
+",277,True,en,2
+1017,2,1,0,Externals,kristenmills,2015-08-04T00:30:29Z,8,1,1,3,"@michaelansel had mentioned that after #803 merged, I should write up something for patterns.md on command blacklisting on a per room basis which I had been working on. 
+",170,True,en,0
+1016,1,12,0,Externals,michaelansel,2015-07-31T19:44:34Z,8,1,2,0,"- Lots of documentation tweaks and new adapters #968 #971 #991 #993 #999 #1004 #1006 #1007 @MyvarHD @technicalpickles @jennifersmith @sdimkov @arcturial @jexe @geoffreyanderson
+- Add a code of conduct #1005 @bkeepers 
+- Add Listener Middleware #803 @michaelansel
+
+All changes: https://github.com/github/hubot/compare/v2.13.2...release-v2.14.0
+
+@github/open-source-hubot-maintainers 
+",383,False,en,0
+1012,2,6,2,Externals,alininja,2015-10-09T19:50:55Z,1,0,1,77,"Hi,
+
+Thanks for such an amazing project.  :)
+
+I was testing out a hubot installation that uses the let's chat adapter.  So I'm not sure if this change only applies to the let's chat adapter or if it is applicable to all adapters.  That also means, I'm not sure if this is the correct place to update the docs.
+
+Anyways, I couldn't get hubot to ""hear"" my curl request using just the chat room name.  Instead I needed to pass the chat room token to it.
+
+Sorry, if this document change is way off.
+
+Thanks again!
+",510,True,en,0
+1011,1,1,0,Externals,sdimkov,2015-08-12T20:25:42Z,1,1,1,21,"Marks robot#respondPattern as public. See comments in https://github.com/github/hubot/pull/975 for details.
+",108,True,en,0
+1007,2,2,0,Externals,MyvarHD,2015-07-13T22:20:17Z,1,1,1,2,,0,False,en,0
+1006,2,1,0,Externals,jennifersmith,2015-07-10T20:16:37Z,5,5,5,1,"Fixed a few broken links that I believe should point to docs/index.md
+
+Note that I have not tested my changes as per [guidelines for contributing](CONTRIBUTING.md) as I just changed the text of an error message. Happy to do so if that is a problem ! Or you could just merge the other changes and I will be less lazy.
+
+Thanks
+
+Jen
+",330,True,en,0
+1005,1,1,0,Internals,bkeepers,2015-07-20T04:38:19Z,3,0,1,11,"We are intending to adopt the soon-to-be-announced [Open Code of Conduct](http://todogroup.org/opencodeofconduct) for all @github projects. This adds it to the contributing guidelines. Let me know if you have any questions or concerns.
+",236,True,en,0
+1004,2,3,1,Externals,sdimkov,2015-07-17T20:33:17Z,4,4,1,11,,0,False,en,0
+1003,2,7,0,Externals,sdimkov,2015-08-24T15:03:08Z,5,7,3,50,"This PR enables passing alias to robot's constructor. It fixes #1002. It also does not disturb in any way any existing 3rd party code as it doesn't change the behavior of robot's constructor without the extra param being passed.
+
+But why?
+Because both Robot name and alias should be provided during creation of the robot. In the current design they can not be changed later and are hard-coded into every listener's regex. Therefore modifying alias or name after the robot is created is wrong and could cause problems.
+",518,True,en,0
+999,1,1,0,Externals,sdimkov,2015-07-02T02:37:09Z,1,0,1,0,,0,False,en,0
+993,1,6,0,Externals,arcturial,2015-07-06T16:45:49Z,1,0,1,10,"I included a link to a library I developed that allows interacting with [Telegram](https://telegram.org/) using the [Telegram Bot API](https://core.telegram.org/bots/api).
+
+The library used to connect to Telegram currently supports all the available calls.
+",257,True,en,0
+991,1,1,0,Externals,jexe,2015-06-24T22:26:22Z,1,0,1,0,"Adding per request - resolves #983
+",35,True,en,0
+986,6,12,17,Externals,michaelansel,2015-08-24T14:56:09Z,114,33,4,67,"I got annoyed with #871 and decided to rip out the refactor by itself.
+
+Allow the creation of Listeners with custom match logic
+Refactor to consolidate array manipulation logic
+
+Known issue: Robot.hear still creates TextListeners. Eventually, I'd like to get that moved over to just a standard Listener with special match logic, but need to decide what to do with the potential interface changes.
+
+**This introduces `Robot.listen` as a new public method**
+",456,True,en,1
+984,8,6,23,Externals,uugengiven,2015-08-24T15:21:25Z,63,55,3,69,"This is documentation for deploying Hubot on windows and onto azure. I'm not 100% sure I created the link to the azure documentation correctly.
+",144,True,en,0
+982,1,2,0,Internals,bkeepers,2015-06-20T13:36:29Z,1,4,1,4,"Closes #979 
+",13,True,en,0
+981,1,5,0,Externals,michaelansel,2015-06-12T20:50:01Z,8,2,2,0,"- Minor documentation updates #955 #974 #973 @praseodym @bhuga @Sing-Li 
+- Add Robot.respondPattern private to improve testability https://github.com/github/hubot/pull/975 @michaelansel
+- Ignore .node-version so it isn't included in releases https://github.com/github/hubot/pull/980 @jasonkarns 
+
+cc @github/open-source-hubot-maintainers
+
+Changes: https://github.com/github/hubot/compare/v2.13.1...release-v2.13.2
+",414,False,en,0
+980,1,1,0,Externals,jasonkarns,2015-06-12T01:38:23Z,1,0,1,0,"There is no .npmignore so npm will fallback to .gitignore to determine
+which files to omit from the package.
+",109,False,en,0
+978,19,16,2,Externals,jasonkarns,2017-05-23T23:06:42Z,31,56,8,712,"This isn't really a merge-ready PR but mostly to illustrate what straight npm-scripts can do with much less configuration. I also find it more discoverable than a directory of shell scripts or make targets because an npm project _always_ has a package.json, and therefore npm-scripts are there by default. 
+- scripts/bootstrap still remains, though it is largely unnecessary (all it does now is source .env files, which probably ought to be it's own npm utility and thus easily done directly in npm-scripts)
+- bootstrap is run automatically before `test` and `start` scripts (via `pretest` and `prestart`)
+- `start` is the old script/server
+- `test` is the mocha test suite (script/test and make test)
+- `clean` removes the lib directory (coffee-compiled JS); was the old make remove-js target
+- `test:smoke` runs the smoke-test (was script/smoke-test)
+- `release` is the old script/release. It's broken into three steps: prerelease (which does the npm-update and smoke-test); then 'release' via npm-version (bump/tag/commit); and finally postrelease (npm-publish and git-push). If any step fails, the subsequent steps are aborted.
+- `compile` is the old generate-js make target
+- `compile:watch` is the old make dev target (could easily be renamed but I think this is clearer)
+- `package` is the old make package target
+
+Other notes:
+- npm-scripts provide tab completion (`npm run com<TAB>` -> `npm run compile`)
+- `npm run` prints a list of all configured scripts for easy usage/help, showing what's available
+- npm-scripts automatically prepend `node_modules/.bin` to `$PATH` so PATH manipulation is unnecessary
+- npm-scripts support package.json introspection via environment variables that map directly to the package.json structure (e.g. `$npm_package_version`)
+- npm-scripts support user/custom configuration with global and local `.npmrc` files that are quite useful. (i.e. configuring test reporters, for instance. so for example, mocha default reporter could be `spec`, but overridden on CI to `tap` while Rando Dev could configure theirs to be `dot`)
+",2062,False,en,0
+975,2,7,2,Externals,michaelansel,2015-06-10T22:49:26Z,64,90,2,0,"Pull the pattern building logic out so we can focus on testing just the resulting regex
+
+This converts the tests added in #967 over to proper unit tests.
+
+@sdimkov Can you eyeball these tests and confirm they still protect against regressions in #927? They appear to work correctly when I revert the merge, but extra :eyes: are always good.
+",341,True,en,1
+974,1,1,0,Internals,bhuga,2015-06-10T01:06:39Z,19,18,1,0,"Pretty unwieldy in there.
+",26,True,en,0
+973,1,1,0,Externals,Sing-Li,2015-06-09T21:56:25Z,1,0,1,0,,0,False,en,0
+971,4,13,6,Externals,geoffreyanderson,2015-06-22T21:10:49Z,27,14,1,13,,0,False,en,0
+970,6,9,1,Internals,bkeepers,2016-05-06T22:59:01Z,34,1,1,333,"Instead of going through and manually adding deprecations for individual scripts (/cc https://github.com/github/hubot-scripts/issues/1641), what if core prints a warning whenever it loads the deprecated scripts?
+
+This will print the following warning after successfully loading scripts from `hubot-scripts.json:
+
+```
+Loading scripts from hubot-scripts.json is deprecated and will be removed in 3.0
+(https://github.com/github/hubot-scripts/issues/1113). See https://hubot.github.com/docs/#scripts
+to find a replacement for these scripts: [ 'alot' ]
+```
+",552,True,en,0
+969,2,0,3,Internals,technicalpickles,2015-06-09T02:29:11Z,9,1,2,0,"- Fix documentation when running `hubot -c` to suggest correct usage of generator  cc @ta1kt0me  https://github.com/github/hubot/pull/938
+- Fix respond listeners matching when robot alias is a substring of robot alias cc @sdimkov   https://github.com/github/hubot/pull/927 https://github.com/github/hubot/pull/967
+- Update bin/hubot to log a warning if called with non-existent options cc @petedmarsh https://github.com/github/hubot/pull/931
+
+cc @github/open-source-hubot-maintainers 
+",485,False,en,0
+967,1,1,0,Externals,sdimkov,2015-06-08T15:53:12Z,96,0,1,2,"Covers functionality of robot.respond. Provides regression check for bug described in #927
+
+Please note that 1 of the 5 new tests fails in the current master. That is because there is bug that it highlights. Once #927 is applied all tests start passing again.
+
+@technicalpickles @michaelansel 
+",294,True,en,1
+966,1,2,0,Internals,gjtorikian,2015-06-05T20:43:07Z,20,20,7,0,"Step one of a two step process to deal with https://github.com/github/hubot/issues/916.
+
+Part two takes place on our website!
+",126,True,en,0
+964,2,0,0,Internals,technicalpickles,2015-06-05T19:39:54Z,13,1,2,0,"Featuring :sparkles: 
+- https://github.com/github/hubot/pull/956 cc @bkeepers 
+- https://github.com/github/hubot/pull/918 cc @ChrisLundquist 
+- https://github.com/github/hubot/pull/926 cc @michaelansel 
+- https://github.com/github/hubot/pull/929 cc @sdimkov 
+- https://github.com/github/hubot/pull/935 cc @jcbantuelle 
+- https://github.com/github/hubot/pull/947 cc @pauliwang
+- https://github.com/github/hubot/pull/942 cc @adamgross42
+- https://github.com/github/hubot/pull/944 cc @adamgross42 
+- https://github.com/github/hubot/pull/951 cc @pdehaan 
+- https://github.com/github/hubot/pull/959 cc @bkeepers 
+- https://github.com/github/hubot/pull/945 cc @adamgross42
+- https://github.com/github/hubot/pull/961 cc @bkeepers 
+- https://github.com/github/hubot/pull/962 cc @bkeepers 
+- https://github.com/github/hubot/pull/903 cc @michaelansel 
+- https://github.com/github/hubot/pull/884 cc @michaelansel 
+",903,False,xh,0
+962,1,1,0,Internals,bkeepers,2015-06-05T17:42:41Z,7,14,1,0,"Just a minor doc update to make the ouptut of `hubot help` match the latest version since some scripts have been removed.
+",122,True,en,0
+961,1,1,0,Internals,bkeepers,2015-06-04T20:25:43Z,1,2,1,0,"`@robot` is not defined until `super` is called.
+",49,True,en,0
+959,1,1,0,Internals,bkeepers,2015-06-04T01:44:48Z,1,1,1,0,"Link changed in https://github.com/github/hubot/pull/881
+",57,True,en,0
+956,14,2,13,Internals,bkeepers,2015-06-05T19:28:20Z,27,71,3,2,"This is the beginning of documenting NPM as the preferred way to find scripts. This is my first hubot rodeo, so I'd love :eyes: and suggestions.
+
+Fixes: #901 
+
+/cc https://github.com/hubot-scripts/packages/issues/60
+",216,True,en,0
+955,1,9,4,Externals,praseodym,2015-06-10T22:14:44Z,27,2,2,9,"Many Linux distros are moving to systemd, and since it's pretty easy to configure, I thought I'd be nice to add an example to docs.
+",132,True,en,0
+951,1,2,0,Externals,pdehaan,2015-06-01T18:13:37Z,1,6,1,8,"specifying the type and URL is deprecated:
+
+https://docs.npmjs.com/files/package.json#license
+http://npm1k.org/
+",112,True,en,0
+947,1,0,0,Externals,pauliwang,2015-05-26T16:33:27Z,1,1,1,5,"Adding missing verb
+",20,True,nl,0
+945,1,1,0,Externals,adamgross42,2015-06-04T15:16:51Z,2,2,1,17,,0,False,en,0
+944,1,0,0,Externals,adamgross42,2015-05-26T17:18:14Z,1,1,1,8,"`/guide.html` gives an error.
+",30,True,en,0
+942,1,0,0,Externals,adamgross42,2015-05-26T17:17:57Z,1,1,1,9,"Since both of these links end up at https://github.com/github/hubot-scripts, let's change the second one to point to https://github.com/hubot-scripts since those aren't linked right now, and that's where the newer scripts are.
+",227,True,en,0
+938,1,1,2,Externals,ta1kt0me,2015-06-08T15:50:00Z,1,0,1,30,"According to master's hubot/docs/index.md
+
+> % mkdir myhubot
+> % cd myhubot
+> % yo hubot
+",89,True,en,0
+935,1,3,0,Externals,jcbantuelle,2015-05-14T19:16:18Z,1,0,1,6,"When sending post data via JSON, not all servers will properly parse this by default. Explicitly providing the Content-Type header is more robust.
+",147,True,en,0
+931,1,1,0,Externals,petedmarsh,2015-06-08T15:55:01Z,3,0,1,39,"Previously the bin/hubot script would silently ignore options it was passed that it didn't know about. So the following would start hubot:
+
+```
+hubot --adaptor something
+```
+
+but wouldn't load the specified adapter as _--adaptor_ not _--adapter_ was passed as an option. There was no feedback to indicate that the option was unknown so a small mistake like this could lead to some frustrating debugging.
+
+This changes bin/hubot to log a warning to the console if an unknown option is specified.
+
+This could be more strict and stop hubot from starting at all if an unknown option has been passed, but that has the potential to break existing installations.
+",656,True,en,0
+929,1,1,0,Externals,sdimkov,2015-04-28T14:37:09Z,1,1,1,0,,0,False,en,0
+927,1,6,0,Externals,sdimkov,2015-06-08T15:52:56Z,2,1,1,42,"This pull request fixes a rare bug with respond regex.
+
+When hubot is started with an alias that is a substring of the robot's name weird things happen. Messages addressing the robot via his name can get matched by alias and the remaining chars from the name are being appended to the pattern. That breaks some hubot scripts.
+
+For example the plugin hubot-auth has the following respond regex:
+`robot.respond /@?(.+) ha(s|ve) ([""'\w: -_]+) role/i, (msg) ->`
+So if we start hubot like this:
+ `./bin/hubot --name william --alias will`
+and try to give John a developer role
+
+```
+william> william john has developer role
+Shell: iam john does not exist
+william>
+```
+
+we will get surprised that Hubot can't find John because it looks for ""iam John"" where ""iam"" is a left-over from the robot name.
+",791,True,en,0
+926,1,1,0,Externals,michaelansel,2015-04-27T17:40:56Z,2,0,1,4,,0,False,en,0
+918,1,4,0,Externals,ChrisLundquist,2015-04-10T21:02:25Z,1,1,1,0,,0,False,en,0
+915,1,0,0,Internals,technicalpickles,2015-04-03T21:47:35Z,8,1,2,0,"Featuring:
+- Update documentation to use `res` instead of `msg` cc https://github.com/github/hubot/pull/888 @geoffreyanderson
+- Bump scoped-http-client from 0.10.0 to 0.10.3 cc https://github.com/github/hubot/pull/908 @keithduncan 
+- Eliminate ""connect deprecated multipart"" and ""connect deprecated limit:"" warnings  cc https://github.com/github/hubot/pull/899 https://github.com/github/hubot/issues/914 @Taytay 
+",413,False,en,0
+914,2,3,0,Internals,technicalpickles,2015-04-03T21:31:43Z,6,4,2,0,"This addresses some of my comments in https://github.com/github/hubot/pull/899 , primarily about maintaining backwards compatability.
+
+This uses the connect-multiparty middleware, and sets a default to 100mb, like connect.multipart used to. I also preserved the order of middleware that connect.bodyParser implied.
+
+cc @Taytay @cbelsole
+",337,True,en,0
+908,1,1,0,Internals,keithduncan,2015-04-03T21:34:49Z,1,1,1,9,"/cc @technicalpickles for review
+",33,True,en,0
+906,1,0,0,Internals,technicalpickles,2015-03-23T19:42:47Z,1,1,1,0,"Should be msg.reply not robot.respond. First spotted this in https://github.com/github/generator-hubot/pull/36/files#r26430011
+
+cc @geoffreyanderson 
+",150,True,en,0
+905,1,0,0,Internals,technicalpickles,2015-03-23T19:30:27Z,1,0,1,0,"Closes https://github.com/github/hubot/issues/896
+",50,True,en,0
+903,3,5,4,Externals,michaelansel,2015-06-05T19:08:45Z,467,1,2,74,"Another batch of tests covering:
+- Robot: listener registration (complete)
+- Robot: script loading (incomplete, just `loadFile`)
+- Brain: everything (complete)
+",160,False,en,2
+899,1,8,1,Externals,Taytay,2015-04-03T21:02:52Z,7,1,1,16,"This replaces the deprecated express.bodyParser() with express.urlencoded() and express.json()
+
+This gets rid of the two warnings reported in #828:
+
+```
+connect deprecated multipart: use parser (multiparty, busboy, formidable) npm module instead node_modules/hubot/node_modules/express/node_modules/connect/lib/middleware/bodyParser.js:56:20
+connect deprecated limit: Restrict request size at location of read node_modules/hubot/node_modules/express/node_modules/connect/lib/middleware/multipart.js:86:15
+```
+
+(That issue was closed, but IMO the problem remains: These warnings are red herrings that serve to scare new users when something isn't working.)
+
+express.bodyParser() is deprecated in favor of only using the parts you need.
+I've replaced it with only the parsing bits that I believe Hubot is using: url encoded and json.
+If Hubot does in fact need to parse multipart uploads, this patch will not work.
+",913,True,en,0
+898,2,2,0,Externals,100ideas,2015-03-23T15:56:18Z,10,1,1,5,"Updated scripting.md chatsecrets HTTP Listener example to try express.js body-parser middleware first before falling back on JSON.parse.
+
+Added `curl` example showing how to POST to the chatsecrets HTTP Listener example.
+
+more info: https://github.com/github/hubot/issues/894
+",276,True,en,0
+889,1,0,0,Externals,mcmahoniel,2015-03-18T15:13:31Z,1,1,1,3,"Spelling correction.
+",21,True,pt,0
+888,2,7,0,Externals,geoffreyanderson,2015-04-03T21:36:12Z,71,71,3,20,,0,False,en,0
+887,1,0,0,Internals,technicalpickles,2015-03-13T21:02:03Z,6,1,2,0,"Featuring https://github.com/github/hubot/pull/886
+",51,True,en,0
+886,1,0,0,Internals,technicalpickles,2015-03-13T20:56:53Z,1,0,1,0,"I tested the new shell adapter on node 0.8, and found navigating back in the history was including a newline. This trims the line.
+",131,True,en,0
+885,2,0,0,Internals,technicalpickles,2015-03-13T20:29:24Z,6,1,2,0,"Featuring https://github.com/github/hubot/pull/877
+",51,True,en,0
+884,6,3,0,Externals,michaelansel,2015-06-05T19:17:11Z,59,2,4,83,"Primary purpose is to support global proxy settings in corporate environments
+
+Closes #287 and #731 
+",101,True,en,1
+883,11,6,8,Internals,leefaus,2015-03-19T18:10:17Z,87,4,2,5,"- [ ] Finish Documentation
+- [ ] Link to Bunny Adapter (hubot-bunny) when completed
+",84,False,en,0
+882,3,0,2,Internals,technicalpickles,2015-03-13T17:49:12Z,17,17,7,0,,0,False,en,0
+881,7,3,5,Internals,technicalpickles,2015-03-13T00:43:07Z,43,12,11,0,"We recently updated hubot.github.com, but the docs there were duplicated from this docs/ directory.
+
+This makes things work on hubot.github.com and be linkable, but they won't be linkable when viewing on github.com.
+
+cc @gjtorikian who I was talking to this about
+",264,True,en,0
+879,1,0,0,Internals,technicalpickles,2015-03-12T02:36:43Z,5,0,1,0,"It's just an index listing out the different deploy methods.
+",61,True,en,0
+877,14,2,12,Internals,technicalpickles,2015-03-13T19:48:47Z,81,47,3,4,"https://github.com/github/hubot/pull/800 introduced a persistent history for the shell adapter. The main reason for this was to make it a bit easier to iterate in development, but it has caused other problems, particularly it's 
+
+As @robert-rally pointed out about readline-history:
+
+> It's a bad monkey-patch that assumes readLine.history is always initialized. Spoiler alert: it isn't.
+
+This should fix https://github.com/github/hubot/issues/826 and https://github.com/github/hubot/issues/845 . It replaces using readline and readline-history with [cline](https://github.com/kucoe/cline), because it has a lot better interface. In particular, it does have a hook to managing a history. I just had to write some code to load it initially, and to truncate it at the end.
+
+I also replaced the hard-coded terminal color output with [chalk](https://github.com/sindresorhus/chalk), so it's a lot easier to know what it's even doing.
+
+cc @benbalter @keithduncan @viking @robert-rally who have run into problems in one way or another
+",1028,True,en,0
+876,1,1,0,Internals,technicalpickles,2015-03-07T00:34:47Z,6,1,2,0,"Includes https://github.com/github/hubot/pull/839
+
+cc @todd 
+",61,True,en,0
+870,3,0,1,Internals,technicalpickles,2015-02-20T18:40:01Z,2,3,2,0,"This combines the ideas of https://github.com/github/hubot/pull/860 and https://github.com/github/hubot/pull/861 . I also wanted to reduce the number of places that would need to be updated yearly, so I removed mention of copyright in README.md and moved it to LICENSE.md.
+",273,True,en,0
+869,1,0,0,Externals,afeld,2015-02-17T15:27:29Z,5,1,1,0,"/cc https://github.com/github/hubot/pull/867#issuecomment-74604923
+",67,True,en,0
+867,2,5,0,Internals,technicalpickles,2015-02-17T16:51:05Z,7,1,2,0,"Includes:
+- https://github.com/github/hubot/pull/848
+- https://github.com/github/hubot/pull/841
+
+cc @aroben @aaronstaves @afeld @michaelansel
+",142,False,en,0
+865,1,0,0,Externals,hhaidar,2015-02-17T01:13:45Z,1,0,1,1,"Hubot Adapter for [Let's Chat](https://sdelements.github.io/lets-chat/)
+",72,True,en,0
+864,1,0,0,Externals,michaelansel,2015-02-20T16:13:39Z,2,0,1,5,"Documentation update for #622 
+",31,True,en,0
+857,2,5,1,Externals,ablwr,2015-02-11T21:19:30Z,3,3,1,10,"Updated the current pronoun references to a new hubot to be neutral for gender inclusivity. Github's Hubot may identify as male due to his programming, but new Hubots have no gender associated and, I propose, should remain neutral unless programmed otherwise by their respective authors.
+",288,True,en,0
+856,1,0,0,Internals,technicalpickles,2015-01-30T23:20:58Z,7,7,1,0,"Make sure generator documentation specifies '--adapter=something', rather than '--adapter something'.
+
+This should help aleviate https://github.com/github/hubot/issues/838 at least from a documentation point of view.
+",217,True,en,0
+849,1,0,0,Externals,anroots,2015-01-23T18:04:18Z,1,0,1,1,"List hubot-fleep adapter in the list of 3rd party adapters
+",59,True,en,0
+848,1,2,0,Internals,aroben,2015-02-17T01:11:50Z,3,2,1,25,"I noticed this when running tests for a Hubot instance that created a lot of `Robot` instances. Eventually Node warned that there were more than 10 listeners for the `uncaughtException` event.
+
+/cc @technicalpickles 
+",217,True,en,0
+842,1,2,0,Externals,xrd,2015-01-05T17:20:14Z,2,2,1,6,,0,False,en,0
+840,2,1,0,Internals,technicalpickles,2014-12-22T22:23:23Z,11,2,2,0,"Featuring:
+- [Update require('hubot') to also export Message in addition to its subclasses](https://github.com/github/hubot/pull/837) - cc @kballard https://github.com/slackhq/hubot-slack/pull/133 
+- [Add options argument to robot.http](https://github.com/github/hubot/pull/836) cc @rgbkrk @johntdyer @MacKeeper  https://github.com/github/hubot/pull/612
+- [Handle a script not exporting a function](https://github.com/github/hubot/pull/835) c @lajlev @MrSaints #829
+",466,False,en,0
+839,3,4,3,Externals,todd,2015-03-07T00:26:06Z,4,2,2,74,"As discussed in #728, this PR adds support for an `EXPRESS_PORT` variable to set the port for Express to listen on while also retaining support for the current `PORT` variable. `EXPRESS_PORT` will be favored over `PORT`. My only outstanding question is whether we should also add `EXPRESS_BIND_ADDRESS` - this hasn't been an issue I've run into, but it might be nice for the sake of consistency.
+
+cc: @technicalpickles
+",419,True,en,0
+837,1,0,0,Internals,technicalpickles,2014-12-22T21:05:27Z,2,1,1,0,"This implements the feature request in https://github.com/github/hubot/issues/834 :
+
+> Hubot exports all of the Message subclasses, but it doesn't export Message itself. It should be exported to allow adapters to create new message types that scripts could look for (e.g. a message that represents some event Hubot doesn't model).
+
+cc @kballard https://github.com/slackhq/hubot-slack/pull/133
+",393,True,en,0
+836,6,1,0,Internals,technicalpickles,2014-12-22T17:06:00Z,26,7,4,0,"This was originally started by @rgbkrk in https://github.com/github/hubot/pull/612
+
+> This adds the options argument that is part of the create call/constructor from the scoped http client.
+",190,True,en,0
+835,2,0,0,Internals,technicalpickles,2014-12-22T16:35:21Z,8,2,1,2,"Previously, if you omitted `modules.export = (robot) ->`, or assigned it to anything that's not a function, you'd get an error as described in https://github.com/github/hubot/issues/829 
+
+```
+2014-12-10T10:43:38.554340+00:00 app[web.1]: [Wed Dec 10 2014 10:43:38 GMT+0000 (UTC)] ERROR Unable to load /app/scripts/frokost: TypeError: object is not a function
+2014-12-10T10:43:38.554347+00:00 app[web.1]:   at Robot.loadFile (/app/node_modules/hubot/src/robot.coffee:217:9, <js>:163:24)
+2014-12-10T10:43:38.554349+00:00 app[web.1]:   at Robot.load (/app/node_modules/hubot/src/robot.coffee:233:9, <js>:181:30)
+2014-12-10T10:43:38.554353+00:00 app[web.1]:   at HipChat.emit (events.js:92:17)
+2014-12-10T10:43:38.554355+00:00 app[web.1]:   at Connector.<anonymous> (/app/node_modules/hubot-hipchat/src/hipchat.js:135:13)
+2014-12-10T10:43:38.554356+00:00 app[web.1]:   at Connector.emit (events.js:117:20)
+```
+
+This updates hubot to check the `typeof` the required script, and only call it if it's a function. Otherwise, log a warning and continue on.
+
+cc @lajlev @MrSaints as participants on https://github.com/github/hubot/issues/829 
+",1132,True,en,0
+832,1,0,0,Externals,brianshumate,2014-12-19T23:02:07Z,12,0,1,3,"Added notes about the options available from github/generator-hubot#14 to the README.
+
+Cheers!
+",95,True,en,0
+831,1,7,0,Externals,kballard,2014-12-22T21:48:50Z,1,6,1,6,"Update the sample code for ""Creating A Script Package"" to use
+`robot.load`. Previously it was duplicating the `exists`/`readdir` logic
+that `robot.load` already has, except it was doing the exists check
+asynchronously, which changes script load order and also means the
+script won't have loaded in time when using the `--config-check` flag.
+",341,False,en,0
+825,1,0,0,Internals,technicalpickles,2014-12-05T23:07:30Z,7,1,2,0,"Including:
+- https://github.com/github/hubot/pull/824
+- https://github.com/github/hubot/pull/816
+- https://github.com/github/hubot/pull/817
+- https://github.com/github/hubot/pull/814
+- https://github.com/github/hubot/pull/818
+- https://github.com/github/hubot/pull/820
+- https://github.com/github/hubot/pull/819
+",312,False,xh,0
+824,3,3,0,Internals,keithduncan,2014-12-05T21:09:22Z,8,1,2,1,"#730 reboot
+",12,True,en,0
+820,1,2,0,Externals,stkent,2014-11-20T20:06:40Z,1,1,1,0,,0,False,en,0
+819,1,3,0,Externals,akiomik,2014-11-25T22:58:26Z,1,0,1,6,,0,False,en,0
+818,1,2,0,Externals,JrGoodle,2014-11-17T15:34:03Z,1,1,1,4,"converted lingering reference to bender to myhubot
+",51,True,en,0
+817,1,0,0,Externals,TheIronMarx,2014-11-07T17:30:16Z,1,1,1,0,,0,False,en,0
+816,1,0,0,Externals,benodom,2014-11-06T18:56:58Z,1,1,1,0,,0,False,en,0
+814,4,0,0,Internals,technicalpickles,2014-11-07T23:56:45Z,29,6,1,6,"This includes the contributing update from https://github.com/github/hubot/pull/606 about the yeoman generator, as well as other things I've been thinking about:
+- how to give contributors insight into what things maintainers are thinking about
+- how maintainers should be releasing code
+",288,False,en,0
+810,1,0,0,Internals,technicalpickles,2014-10-29T15:38:16Z,9,1,2,0,"Includes:
+- Make sure`robot.pingIntervalId` is kept after setting up Heroku ping  interval cc https://github.com/github/hubot/pull/795 @DexterV
+- Allow `robot.respond` to work when there is preceding whitespace cc https://github.com/github/hubot/pull/794 @ahayworth 
+- Update `robot.parseHelp` to be synchronous, so it's easier to test cc https://github.com/github/hubot/pull/762 @bouzuya 
+- Reduce Heroku ping interval from 20 minutes to 5 minutes to keep hubot from going unavailable cc https://github.com/github/hubot/pull/809
+",530,False,en,0
+809,1,0,0,Internals,technicalpickles,2014-10-29T15:24:44Z,1,1,1,0,"This should address https://github.com/github/hubot/issues/779
+
+The end goal is going to be having people use https://github.com/hubot-scripts/hubot-heroku-keepalive  , but this should get the fix out to as many people as possible.
+",232,True,en,0
+808,1,2,0,Internals,technicalpickles,2014-10-29T14:23:05Z,7,1,2,0,"Primarily includes https://github.com/github/hubot/pull/806 for addressing a security vulnerability in express's dependency's dependency.
+",138,True,en,0
+806,1,4,0,Externals,tombell,2014-10-29T14:09:33Z,1,1,1,1,"Update Express to the latest 3.x version due to this http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-7191
+
+This should suffice until Express is fully removed.
+",168,True,en,0
+805,1,2,0,Externals,MrSaints,2014-10-27T17:58:45Z,1,1,1,0,"It's not a high priority problem, it's just a _typo_ in the documentation.
+
+`--check-config` doesn't seem to exist. It is `--config-check` according to the source.
+",164,True,en,0
+803,54,61,51,Externals,michaelansel,2015-07-30T22:11:33Z,1103,93,10,278,"Builds on #801 (57b722022807b9a5befaafcab2442ad3a03d455b) to allow injecting arbitrary code between the Listener match and execute steps. Like in Express, middleware can interrupt the response process, preventing the Listener callback from ever being executed. Middleware can perform operations both on the way towards the Listener callback (before callback execution) and on the way away from the Listener callback (after callback execution/middleware interrupt).
+
+As a side effect, listeners are now executed asynchronously. Behavior around message.done should remain the same (process until message.done is true).
+
+Example usage (imposes authorization policy on all scripts): https://github.com/michaelansel/hubot-rbac/blob/master/src/rbac.coffee
+
+API Change:
+- `Robot.receive` and `Listener.call` are now asynchronous. Any external code depending on knowing when all Listeners have been tested (in `receive`) or when the Listener callback has finished executing (in `call`) will need to be updated to use the new callback parameter. Code that doesn't care about timing should continue to work without modification.
+",1119,True,en,3
+802,1,0,0,Internals,technicalpickles,2014-10-23T19:47:27Z,9,9,1,0,"Noticed this in https://github.com/github/generator-hubot/pull/5 originally.
+",77,True,en,0
+801,9,13,11,Externals,michaelansel,2015-06-05T19:27:14Z,77,10,3,225,"As the first part of enabling #768, we need a way to label each Listener with a scoped name. By itself, this first PR is fairly useless (no way to access the ID), but I want to work on this in bite-sized chunks.
+
+I've updated the documentation to show that you can (and should) specify an ID for all Listeners. Once this gets merged and the RBAC module is created, I'll do a pass over hubot-scripts and file a bunch of PRs for adding Listener IDs and default Permissions.
+",472,True,en,0
+800,26,2,0,Internals,technicalpickles,2014-12-05T22:29:20Z,49,35,2,43,"The shell adapter already uses readline, so it gets some text editing niceties, including a history. It doesn't seem to save or load the history though between hubot runs, which can be super annoying when iterating in development. This PR tries to fix that.
+- includes [readline-history](https://www.npmjs.org/package/readline-history)
+  - it's WTFPL, which is super permissive
+  - code doesn't seem to be on GitHub, just npm?
+- saves history to $(pwd)/.hubot_history
+- default to 1024 history items, configurable by HUBOT_SHELL_HISTSIZE
+- preserve position of prompt, so you always get a new prompt after messages are sent (useful for async)
+
+The filename and environment variable are inspired by bash.
+
+Probably should update doc/adapters/shell.md before merging this too.
+",775,False,en,0
+797,2,0,0,Internals,technicalpickles,2014-10-21T00:14:09Z,2,2,1,0,"When you `--create mybot`, we can use the value given when making hubot, ie:
+
+```
+mkdir mybot
+yo hubot
+```
+
+Also, need to install yo before calling it.
+",152,True,en,0
+796,1,0,0,Internals,technicalpickles,2014-10-20T11:43:21Z,6,1,2,0,"Just includes https://github.com/github/hubot/pull/764 .
+
+Went with minor release, as it's 'new' functionality, but retains the `--create` flag still, albeit warning to replace it. 
+",182,True,en,0
+795,1,2,0,Externals,rantrix,2014-10-29T14:36:08Z,1,1,1,10,"setupExpress() assigns @pingIntervalId but then it is being reset to null
+right after.
+",87,False,en,0
+794,1,4,0,Externals,ahayworth,2014-10-29T14:48:20Z,2,2,1,12,"Sometimes when copying and pasting hubot commands, one might unintentionally
+introduce whitespace before the hubot's name. This commit allows the robot
+to respond even if the name is prefixed by an arbitrary amount of whitespace.
+
+We ran into this problem at Meraki when copying and pasting commands that were sent out of an automated email. We've tested this locally in our hubot instance, and it seems to work fine.
+",418,False,en,0
+793,2,0,0,Internals,technicalpickles,2014-10-16T21:20:15Z,6,1,2,0,"Includes https://github.com/github/hubot/pull/660 and https://github.com/github/hubot/pull/791
+",95,True,en,0
+791,2,1,0,Internals,aroben,2014-10-16T21:01:17Z,15,4,3,0,"User uses its ID as its name by default. In Campfire, user IDs are Numbers, so if we aren't careful we can end up with `User#name` being a Number too. This can trip up code that is expecting a String.
+
+/cc @technicalpickles @bhuga @keithduncan 
+",245,True,en,2
+788,1,1,1,Externals,kevinsimper,2015-02-13T23:00:24Z,2,0,1,125,"Pull request as a solution to #785
+",35,True,en,0
+784,1,0,0,Externals,sethjackson,2014-10-08T14:06:05Z,1,0,1,0,"Add help for the recently added adapter command.
+",49,True,en,0
+776,1,0,0,Internals,technicalpickles,2014-09-25T00:50:26Z,6,1,2,0,"Only really includes https://github.com/github/hubot/pull/748, but still worth releasing by itself.
+",100,True,en,0
+769,1,2,0,Externals,unok,2014-09-25T00:17:10Z,3,3,1,6,"Change string encoding function from escape to encodeURIComponent.
+Because the encode function could not multibyte string for URI.
+",131,False,en,0
+764,8,29,0,Internals,technicalpickles,2014-10-20T11:38:00Z,30,889,24,39,"This deprecates the default generator using `hubot --create` in favor of https://github.com/technicalpickles/generator-hubot
+
+I originally set out to fork @patcon's https://github.com/technicalpickles/generator-hubot and https://github.com/patcon/generator-hubot-script, but ended working through the various yeoman tutorials, and the styles ended up quite different. Between that and wanting to add a bit more functionality to the bot generator, and using namesapces, I ended up with  https://github.com/technicalpickles/generator-hubot 
+
+In particular, I've removed basically all the generated scripts in favor of external ones. That has been a serious maintenance burden burden and point of friction for new users. I've moved those all to external scripts on the hubot-scripts org.
+
+I intend to move that generator either to the github org or hubot-scripts org, haven't decided which. A minor thing I think I'd like to see is instead of `yo hubot:script`, make it explicit about `yo hubot:external_script` versus a `yo hubot:local_script` for generating a package versus a script inside the hubot directory you are in.
+
+I also hadn't decided how to handle the heroko support. I had talked to @tombell at some point about including a script like `hubot-heroku-keepalive` that would be look for a HEROKU_URL like your heroku remote, create a HTTP endpoint, and handle setting up a `setInterval` to ping that endpoint ever whatever seconds. That's kindof a nice-to-have though.
+
+Thoughts?
+
+cc @jjasghar @therealklanni @alindeman @ymendel 
+",1539,True,en,0
+762,1,2,0,Externals,bouzuya,2014-10-29T15:03:52Z,30,31,1,50,"Fixed #759 
+",12,True,en,0
+756,1,0,0,Externals,packetmonkey,2014-09-03T20:48:59Z,0,1,1,0,"Simple one line doc fix to remove the command removed in v2.7.0
+",64,True,en,0
+754,1,0,0,Externals,tspascoal,2014-08-29T18:06:07Z,1,0,1,0,"Added to the list of 3rd party adapters the Visual Studio Online adapter
+",73,True,en,0
+750,1,1,0,Externals,charlie-hadden,2014-08-22T13:31:45Z,2,2,1,0,"Currently image URLs passed to mustachify.me aren't encoded, causing server errors on some requests.
+",101,True,en,0
+749,1,0,0,Internals,technicalpickles,2014-08-22T04:32:04Z,1,0,1,0,"cc https://github.com/github/hubot/issues/733
+",46,True,en,0
+748,10,4,0,Internals,technicalpickles,2014-09-25T00:42:53Z,1,3,2,33,"I don't have a particular issue handy, but I have seen reports of hubot scripts not working but also not logging anything useful. I never was able to reproduce hubot not logging messages, but I finally figured out why.
+
+hubot adds a `process.on 'uncaughtException'` handler, and calls `invokeErrorHandlers`. This goes through all the error handlers configured with `robot.error` and invokes them in turn.
+
+The production hubot I normally test against has it's own error handler, so I wasn't able to spot it there. And it turns out the shell adapter has it's own `process.on 'uncaughtException'` handler, so whenever I did testing, it was getting displayed using that, rather than the builtin one :sweat: 
+
+This seems to work so far with the shell adapter, but definitely need to test with campfire and other adapters to confirm, which is a bit more work.
+
+As part of this, I added a `scripts/boomtown.coffee` for testing. If you do `bin/hubot`, it'll load the scripts you get with new bots (ie `src/scripts`, and also these new ones. I intend this `scripts` directory to be for testing hubot itself.
+",1100,True,en,0
+747,3,0,0,Internals,technicalpickles,2014-08-22T01:36:29Z,7,1,2,0,"Getting ready for a release including https://github.com/github/hubot/pull/746
+
+Since this only affects newly created bots, I figure it's fine to do as a patch release.
+",169,True,en,0
+746,3,6,0,Internals,technicalpickles,2014-08-22T01:25:08Z,0,121,1,0,"This is another take on https://github.com/github/hubot/pull/656 . It removes auth.coffee from `src/scripts`, so it won't be included in newly generated bots. Instead, it adds `hubot-auth` to `package.json` and `external-scripts.json`.
+
+Tested this briefly, and seems to work as expected.
+
+My only concern at the moment has to do with `package.json` entry. This should be flexible, but we might need to be updating the minimal version as hubot-auth, which wouldn't be great. It might be better to do something like `npm install hubot-auth --save`, so it'll grab the latest version and lock it at a particular minor version (ie `~1.1.2`). That might take a bit more doing than we want to in `creator.coffee` though.
+",715,True,en,0
+745,1,0,0,Externals,jjasghar,2014-08-19T15:02:46Z,2,1,1,0,"Added the new community org link.
+",34,True,en,0
+743,1,0,0,Externals,huafu,2014-08-18T15:33:30Z,1,0,1,6,"As mentioned by @technicalpickles in #740 here is the addition of `Gitter` adapter to the list
+",95,True,en,0
+737,1,1,0,Externals,rsanheim,2014-08-07T18:29:41Z,1,1,1,0,"Clarify how important `pugme` is.
+
+/cc @github/hubot 
+",54,True,en,0
+736,1,0,0,Internals,technicalpickles,2014-07-24T15:16:19Z,10,1,2,0,"Includes:
+- #696 cc @canadianveggie
+- #697 cc @thiagogabriel
+- #708 cc @softarn
+- #712 cc @ngs 
+- #720 cc @parkr
+",113,False,it,0
+732,2,2,0,Internals,technicalpickles,2014-07-24T14:30:03Z,35,26,3,8,"Implementation of https://github.com/github/hubot/issues/713. The main thing is that it changes some async FS operations to be sync, and then when `--config-check` is set, just loads the scripts and then exits, rather than starting the bot with `bot.run()`.
+",258,True,en,0
+720,7,4,6,Internals,parkr,2014-07-24T15:07:12Z,55,0,4,34,"Fixes #719.
+",12,True,en,0
+712,1,0,0,Externals,ngs,2014-06-12T21:36:01Z,2,2,1,1,"Hi,
+
+I fixed `hubot help` command replaces prefix twice if the Robot has custom name.
+
+In case `HUBOT_NAME=MyHubot`:
+
+```
+MyMyHubot help - Displays all of the help commands that MyHubot knows about.
+```
+
+I fixed it to
+
+```
+MyHubot help - Displays all of the help commands that MyHubot knows about.
+```
+",302,True,en,0
+708,1,7,5,Externals,softarn,2014-06-10T18:28:27Z,8,2,1,7,"Removed the #.png which was put in the ending of image urls. 
+Used to get urls like: http://www.dating-tips-that-coach-women.com/image-files/men-test-women.jpg#.png
+Now we get: http://www.dating-tips-that-coach-women.com/image-files/men-test-women.jpg
+",252,False,en,0
+703,1,0,0,Externals,tricknotes,2014-05-19T21:36:31Z,1,1,1,2,"This change is at v2.7.5 not v.2.7.4.
+",38,True,en,0
+702,1,0,0,Internals,technicalpickles,2014-05-15T13:43:24Z,2,2,1,0,"Testing this, saw that sometimes `@robot` was nil, which would raise a bunch of exceptions
+",91,True,en,0
+701,2,0,0,Internals,technicalpickles,2014-05-15T13:28:04Z,6,1,2,0,"In order to get https://github.com/github/hubot/pull/699 out the door.
+",71,True,en,0
+699,2,1,0,Internals,technicalpickles,2014-05-15T13:18:32Z,2,0,1,0,"Not specifying a User-Agent is usually in poor form. It's also a good way to get rate limited hard. Let's be nice :sparkling_heart: 
+",133,True,en,0
+697,1,2,0,Externals,thiagogabriel,2014-05-19T14:41:43Z,3,0,1,8,"I lost some time trying to figure out why npm packages was not working. I found the solution on src/templates/README.md.
+",121,True,en,0
+696,1,0,0,Externals,canadianveggie,2014-05-19T13:36:03Z,6,0,1,10,"Ex:
+DEBUG Message '[object Object]' matched regex //^[@]?Hubot[:,]?\s_(?:PING$)/i/
+becomes:
+DEBUG Message 'hubot ping' matched regex //^[@]?Hubot[:,]?\s_(?:PING$)/i/
+",166,False,xh,0
+695,1,4,0,Externals,dblandin,2014-05-19T13:29:17Z,4,2,1,11,"I recently tried to setup a webhook integration with a Hubot script and discovered (after some debugging) that a default response is not sent back to the client within an HTTP listener.
+
+Would be nice to add a little documentation on how to send back a response and a link to further reading in the NodeJS docs.
+",312,True,en,0
+689,1,2,0,Internals,technicalpickles,2014-04-20T22:32:00Z,3,3,1,0,"I was reading over the docs as I was setting up a new bot, and noticed that the redistogo's nano plan doesn't include persistence. All of Redis Cloud's plans (including free) include persistence, so that should be the go to so the brain persistence actually works.
+",265,True,en,0
+678,5,6,3,Externals,ajkerr,2017-05-20T16:11:23Z,32,0,1,1144,"Added documentation based on results of discussion in #673.
+",60,True,en,0
+677,1,1,0,Externals,miyagawa,2014-04-01T21:48:10Z,1,0,1,0,"reopening #674. I added a basic instruction to run the bot.
+",60,True,en,0
+671,1,0,0,Externals,Restuta,2014-03-24T19:16:54Z,1,0,1,4,,0,False,en,0
+667,1,9,0,Externals,jbr,2014-04-15T17:55:57Z,1,1,1,30,"`require.extensions` will include '.js' and '.coffee', but also potentially could include other extensions if they've been registered with `require`.
+",150,True,en,0
+663,1,6,0,Externals,atmos,2014-03-05T06:43:11Z,10,1,4,0,"This let's you inform other systems what chat network the message was initiated from.
+",86,True,en,0
+661,1,3,0,Externals,lusis,2014-03-10T15:40:11Z,3,2,1,6,"When integrating one of my own scripts with roles, I noticed that whenever I queried who was an admin or who had a given role, the 'admin' role would be added to the roles again and again. This mean that my user had the roles ""admin,admin,admin.admin"". This seems to fix it.
+",275,True,en,0
+660,2,3,1,Externals,ymendel,2014-10-16T21:01:06Z,1,1,1,230,"Turns out sometimes the username is a number, maybe. At least it's something that doesn't have a `toLowerCase()` method.
+",121,True,en,0
+654,1,1,2,Externals,adamvduke,2014-02-17T19:08:44Z,1,1,1,0,,0,False,en,0
+642,1,0,0,Externals,thogg4,2014-01-31T17:28:42Z,12,0,1,1,,0,False,en,0
+641,1,0,0,Externals,khellang,2014-01-28T16:46:45Z,1,1,1,0,,0,False,en,0
+640,1,1,0,Externals,tricknotes,2014-01-24T17:01:49Z,11,11,3,3,"`heroku config:add` works but it is previous version's.
+- https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application
+
+So I rewrite `config:add` with `config:set`.
+",204,False,en,0
+637,2,1,0,Externals,tricknotes,2014-01-20T18:48:30Z,2,0,1,3,"I want to use multibyte characters in command description.
+
+Before:
+![2014-01-17 14 08 52](https://f.cloud.github.com/assets/290782/1937886/a4b27e86-7f35-11e3-9801-6ff4e9828b54.png)
+
+After:
+![2014-01-17 14 09 16](https://f.cloud.github.com/assets/290782/1937887/a7a04e34-7f35-11e3-9696-07d8388a51a2.png)
+
+The latter isn't garbled characters.
+",342,True,en,0
+636,1,1,0,Externals,searls,2014-01-15T15:35:42Z,1,0,1,0,"This field is appropriate for generated projects that shouldn't (by default) be intended to be published to the npm registry via `npm publish`. Setting this flag will prevent accidental publication.
+",199,True,en,0
+635,1,0,0,Externals,tricknotes,2014-01-15T22:58:49Z,1,1,1,1,"`LICENSE.md` is not found.
+",27,True,en,0
+634,1,0,0,Externals,tricknotes,2014-01-14T15:17:31Z,1,1,1,0,"The url without protocol links to the following:
+- https://github.com/github/hubot/blob/master/docs/nodejs.org/
+
+But this url is NOT FOUND :disappointed:
+",154,False,en,0
+633,1,0,0,Externals,spajus,2014-01-13T17:08:06Z,1,1,1,1,"Shamefully small change, but all the scripts I've seen have `Description:`, not `Description`, so I presume colon should be there.
+",131,True,en,0
+632,1,1,0,Externals,spajus,2014-01-10T16:21:39Z,2,2,1,0,"there is no `msg.respond`, only `msg.reply`
+",44,True,en,0
+631,1,0,0,Externals,vinbarnes,2014-01-08T18:18:41Z,1,1,1,0,,0,False,en,0
+629,1,0,0,Externals,xhan,2014-01-01T19:21:53Z,1,0,1,0,"adapter for QQ added. 
+FYI  QQ is a instant messaging service widely used in china provided by Tencent.  
+",106,False,en,0
+628,3,4,0,Externals,joshuarubin,2014-01-10T16:09:20Z,5,0,1,9,"I just got sick of seeing the powered by Express header...
+",59,True,en,0
+627,2,1,0,Internals,technicalpickles,2013-12-31T23:00:43Z,2,1,1,0,"Error handlers get passed the received error and a `msg` object. They can check if `msg` is defined, and `msg.reply` to the user with whta happened and where to get more info.
+
+The problem is that hubot script writers need to explicitly catch and emit the error, along with the `msg`, which ends up being a bit boilerplatey. There's not much hubot core can do (yet) for asynchronous code, but we already `try/catch` when invoking listners, and emit 'error'. This PR updates that logic to also build a `msg` (which is actually a Repsonse) along with it, so any synchronous code in the listeners will have the extra context of the `msg`.
+",636,True,en,0
+625,1,0,0,Internals,technicalpickles,2013-12-31T18:13:26Z,0,22,1,0,"... since the backend google thing has been taken down.
+
+cc https://github.com/github/hubot/issues/608
+",103,True,en,0
+624,5,0,0,Internals,technicalpickles,2013-12-31T18:00:51Z,79,4,2,0,"Previously, hubot would crash for uncaught exceptions. There is `try/catch` logic around invoking listeners, but this only catches errors from synchronous code, anything asynchronous would be uncaught.
+
+This PR includes:
+- API for specifying error handlers in hubot scripts
+- An 'error' event type that can be emitted, and is consumed by any error handlers
+- A `process.on 'uncaughtException'` handler to emit errors through these error handlers
+- Documentation for the above
+
+It's worth noting that the [uncaughtExeption handler documentation](http://nodejs.org/api/process.html#process_event_uncaughtexception) says:
+
+> Note that uncaughtException is a very crude mechanism for exception handling and may be removed in the future.
+> 
+> Don't use it, use domains instead. If you do use it, restart your application after every unhandled exception!
+> 
+> Do not use it as the node.js equivalent of On Error Resume Next. An unhandled exception means your application - and by extension node.js itself - is in an undefined state. Blindly resuming means anything could happen.
+> 
+> Think of resuming as pulling the power cord when you are upgrading your system. Nine out of ten times nothing happens - but the 10th time, your system is bust.
+> 
+> You have been warned.
+
+So, it's pretty scary for sure. We've been using it internally our our own hubot for 6 months or so without any problems yet. Ideally, we'd use domains, but they are considered [unstable according to the docs](http://nodejs.org/api/domain.html) and also would mean we'd have to bump the node.js requirement. Certainly possible, but would require a major version bump.
+",1634,True,en,0
+620,1,0,0,Externals,davereid,2013-12-20T16:13:02Z,10,4,1,0,"If I have a user that is just an admin, then the following happens:
+
+hubot what role does Dave Reid have?
+Dave Reid has the following roles:  and is also an admin.
+
+I propose the following fix to just list all the roles in a comma separated list (including 'admin') without the special handling for 'and is also an admin'. Also contains a fix if the admin environment variable is defined, but is empty.
+",403,True,en,0
+618,1,2,0,Externals,akiomik,2013-12-16T04:17:24Z,1,1,1,0,,0,False,en,0
+617,1,0,0,Externals,aendrew,2013-12-12T14:57:54Z,1,1,1,0,"Simply removed an ""s"" from the explanation of the /badger/ regex. I kept looking at it thinking ""There's no WAY that regex will match ANY of those strings!"". Apologies for such a small change, but it really was driving me nuts there.
+",234,True,en,0
+609,2,6,0,Externals,smerrill,2013-12-17T15:23:27Z,1,1,1,26,"OpenShift is a popular open-source PaaS platform with node.js support. Hubot works great on it, except that all apps are required to listen on a specific port for security reasons. With this pull request in place, Hubot's HTTP server will work on OpenShift.
+",258,True,en,0
+601,1,1,0,Internals,technicalpickles,2013-10-29T21:26:53Z,1,1,1,4,"Came across this while moving our hubot to a different OS & node version. There was load-order dependent script, ie `scripts/1-twitter.coffee` was named to load first, then everything else. Scripts depending on that were failing because it hadn't been loaded yet.
+
+This sorts files before loading them, in order to be consistent across whatever.
+
+cc @jfryman 
+",360,True,en,0
+600,1,0,0,Externals,wingrunr21,2013-10-29T21:34:06Z,1,1,1,7,"As discussed in #596
+",21,True,en,0
+599,1,4,0,Externals,cannikin,2013-12-31T18:30:17Z,1,1,1,75,"mustachify.me has six different mustaches these days!
+
+![0](https://f.cloud.github.com/assets/300/1348074/4986a20a-36bd-11e3-80c7-f8d245c42da2.jpeg)
+
+![1](https://f.cloud.github.com/assets/300/1348076/4d7cf364-36bd-11e3-87d3-52495d9d0d85.jpeg)
+
+![2](https://f.cloud.github.com/assets/300/1348077/5001d0c8-36bd-11e3-8267-3781fd74fd54.jpeg)
+
+![3](https://f.cloud.github.com/assets/300/1348078/517b1a68-36bd-11e3-8eb4-172f658887b5.jpeg)
+
+![4](https://f.cloud.github.com/assets/300/1348081/536392e2-36bd-11e3-8a62-64576642b666.jpeg)
+
+![5](https://f.cloud.github.com/assets/300/1348082/550587f4-36bd-11e3-8459-0278c12ac27f.jpeg)
+",624,True,en,0
+592,1,1,0,Internals,mgriffin,2013-10-04T18:48:01Z,3,3,1,0,"It should be peek, not peak.
+There was an extra word after ""pod bay""
+",69,False,en,0
+590,1,0,0,Externals,pawelrychlik,2013-09-26T23:20:34Z,3,3,1,0,,0,False,en,0
+585,2,0,0,Internals,simonsj,2013-09-17T20:12:18Z,9,8,1,0,"- make the error messages emitted from the Campfire adapter all unique, so that they're easier to trace down
+- add logging of the body text for the case of HTTPS status codes > 401; the additional reason information can be really helpful
+",238,False,en,0
+583,1,0,0,Externals,spajus,2013-09-11T23:22:09Z,1,0,1,0,"There are several hubot scripts that have `Authors:` block with two or more people instead of `Author:`
+
+```
+src/scripts/deploy.coffee
+20:# Authors:
+
+src/scripts/do-it.coffee
+173:Authors do it by rote.
+
+src/scripts/flip.coffee
+12:# Authors:
+
+src/scripts/frick.coffee
+13:# Authors:
+
+src/scripts/github-commits.coffee
+18:# Authors:
+
+src/scripts/github-pull-request-notifier.coffee
+23:# Authors:
+
+src/scripts/jenkins-notifier.coffee
+22:# Authors:
+
+src/scripts/mindkiller.coffee
+14:# Authors:
+
+src/scripts/one_four_twentyfour.coffee
+18:# Authors:
+
+src/scripts/pagerduty.coffee
+43:# Authors:
+
+src/scripts/room-info.coffee
+13:# Authors:
+```
+
+When any of these scripts are included, `hubot help` prints author names as commands.
+",722,True,en,0
+582,1,0,0,Externals,vanetix,2013-09-10T21:35:50Z,3,3,1,0,"Previously spaces were replaced when using a hubot alias, now spaces are retained from the initial script documentation. For example `marvindie - End HubotBot process` is now corrected to `marvin die - End HubotBot process`.
+",225,True,en,0
+579,1,1,0,Externals,balbeko,2013-08-25T10:30:43Z,51,2,1,0,"Reopening a PR #565
+",20,True,en,0
+578,1,0,0,Externals,thiagopnts,2013-08-24T22:26:16Z,4,0,1,0,,0,False,en,0
+576,2,1,0,Externals,commadelimited,2013-08-16T14:13:55Z,2,2,2,0,"Two small spelling corrections:
+- Change 'peak' to 'peek'
+- Change 'train you users' to 'train your users'
+",107,False,en,0
+575,7,9,13,Externals,balbeko,2013-08-15T23:04:45Z,17,2,1,0,"Here is quick fix for #573, but this thing should be probably redesigned. 
+Not sure that there is an easy way to do that and not to break any of current community scripts rely on `robot.router`
+",194,False,en,0
+572,1,1,0,Externals,pseudomuto,2013-08-15T14:17:42Z,9,9,1,0,"Small revisions to the file for typos and grammar. Changed the final commit line to use 'git commit' rather than 'git ci' to be consistent with the first example
+",162,True,en,0
+570,120,0,0,Externals,tombell,2013-08-13T17:33:29Z,1005,270,23,0,"Merge `master` branch into `vthree-think` so we're able to update the documentation which will need updating for v3.
+",117,True,en,0
+569,4,0,0,Externals,jhubert,2013-08-13T17:35:43Z,73,6,3,0,"Per github/hubot#549, this creates a patterns.md file with some initial patterns to get it started.
+",100,True,en,0
+566,2,0,2,Externals,jhubert,2013-08-10T23:18:06Z,7,0,1,0,"This allows scripts to list out all users with a specific role by calling robot.auth.usersWithRole.
+
+I'm using this for a group notification script as well as for a shared twitter account script.
+",196,True,en,0
+563,1,0,0,Externals,tombell,2013-08-09T19:08:13Z,2,2,1,0,,0,False,en,0
+562,5,2,0,Externals,tombell,2013-08-12T17:57:30Z,53,34,5,2,"This turns brains into first class citizens in Hubot, not just a script. Hubot will call `robot.run()` when the brain emits a `ready` event. This event should be fired when data has been loaded into the brain and ready to be used.
+
+A brain is basically an `npm` package named `hubot-brain-{something}` and has the old brain script as the entry point. So should be super simple to extract them out of `hubot-scripts`.
+",417,True,en,1
+560,1,4,0,Externals,nwest,2013-08-09T19:05:21Z,1,1,1,1,"Looks like the repo has been deleted.
+
+~~I found [neilcauldwell/hubot-twilio](https://github.com/neilcauldwell/hubot-twilio) but it doesn't look very active. I can swap out the links and rebase the commit if that's preferable.~~ :bowtie:
+
+The link now matches the repo found on NPM.
+",283,True,en,0
+559,1,3,0,Externals,tombell,2013-08-08T14:19:24Z,1,23,1,0,"This is more idiomatic for node applications and simplifies the `Robot` class.
+",79,True,en,0
+558,1,1,0,Externals,nwest,2013-08-07T19:07:33Z,5,5,1,0,"Two links still point to the wiki when they should point to the adapters doc.
+",78,True,en,0
+557,4,5,0,Externals,tombell,2013-08-09T16:34:35Z,24,0,1,2,"Allows users to add `robot.on 'error', (err) -> something()` to a script and maybe report uncaught exceptions somewhere. These are **uncaught** exceptions, this won't report any errors that have been handled internally.
+",220,True,en,0
+555,1,1,0,Externals,felixdv,2013-08-06T17:46:38Z,1,1,1,3,,0,False,en,0
+554,1,0,0,Externals,tombell,2013-07-31T17:20:28Z,5,5,1,1,"Fixes #552
+",11,True,en,0
+553,2,0,0,Externals,tombell,2013-07-29T17:59:55Z,2,2,2,1,"This will make Travis build any branch where the name starts with `vthree-rethink` which will allow branches off the main `vthree-rethink` branch to be tested before being merged back into `vthree-rethink`.
+",207,True,en,0
+548,1,1,0,Externals,preflightsiren,2013-08-16T18:43:39Z,33,1,1,21,"first attempt at fleshing those docs out.
+",42,True,en,0
+547,1,1,0,Externals,knomedia,2013-07-26T02:47:15Z,1,1,1,0,"Seems like the docs report the wrong environment variable to set to get Hubot to ping itself and keep your heroku dyno from going idle. Docs current report it as `HUBOT_HEROKU_URL`, looks like `robot.coffee` is using `HEROKU_URL` See: https://github.com/github/hubot/blob/master/src/robot.coffee#L240 for reference.
+",316,True,en,0
+546,2,14,0,Externals,halkeye,2013-08-10T12:03:55Z,29,1,5,15,"I've noticed that the bot is not able to send action commands. Lots of services support it (skype, hipchat and irc come to mind)
+
+This will let scripters write scripts that can send out actions, while adapter owners can choose to support it or not.
+",249,True,en,0
+545,1,1,0,Externals,needcaffeine,2013-07-25T03:56:43Z,1,1,1,0,,0,False,en,0
+543,1,1,0,Externals,balbeko,2013-07-24T03:04:36Z,16,3,2,0,".gitignore template renamed to gitignore, and after copying to destination folder it get renamed back
+",102,True,en,0
+540,1,0,0,Externals,bartolsthoorn,2013-07-22T14:24:04Z,1,1,1,0,"Really minor thing, but caught me
+",34,True,en,0
+539,21,3,0,Internals,technicalpickles,2013-07-21T19:22:22Z,376,358,21,0,"I started this branch to experiment with chai, mocha, and sinon (arghhh, developers naming things), and it's proven pretty good so far. I'll be continuing this work in the vthree rethink, and once the big things are covered, will do a review to see if there's any good patterns to embrace and bad patterns to stop using.
+",321,True,en,14
+538,1,0,0,Externals,tombell,2013-07-21T16:01:35Z,3,0,1,0,"This ignores `master` as that's still our old tests on Travis-CI.
+",66,True,en,0
+536,1,1,0,Externals,bartolsthoorn,2013-07-21T01:18:50Z,1,1,1,0,"^
+",2,True,en,0
+535,4,0,0,Externals,tombell,2013-07-21T14:58:56Z,13,18,5,0,":rocket: 
+",10,True,en,2
+533,1,0,0,Internals,technicalpickles,2013-07-19T20:20:48Z,12,1,2,0,"It's about that time.
+",22,True,en,0
+532,1,2,0,Internals,technicalpickles,2013-07-19T20:08:48Z,10,7,1,0,"Previously, if you specifed an alias like '/', it wouldn't be reflected in `/help`'s
+output, instead just showing the robot name.
+",130,False,en,0
+524,1,0,0,Externals,rileytg,2013-06-26T21:31:17Z,1,1,1,0,,0,False,en,0
+520,2,0,0,Externals,timclipsham,2013-06-22T12:39:48Z,6,2,1,0,"The YouTube Hubot script crashes when calling `msg.random` if the query returns no results.
+
+I handled this case and also changed the http call to use `robot.http` rather than the deprecated `msg.http`. The message sent back to the chat room is the same as what YouTube shows when no results return.
+",300,True,en,0
+515,4,1,0,Internals,bhuga,2013-06-12T23:57:09Z,44,7,2,0,"This pull lets you see whether a message was private when sent and respond in a locked room via Campfire.
+#### Viewing message visibility:
+
+```
+robot.respond /PING$/, (msg) ->
+  if msg.message.private
+    msg.send ""PONG""
+  else
+    msg.send ""Sorry, I only respond to pings in locked rooms.""
+```
+
+`private` will be `true` for locked rooms, `false` for unlocked rooms, and `undefined` for rooms where no lock message has been seen since restart.
+#### Setting responses as private:
+
+```
+robot.respond /PING$/, (msg) ->
+  msg.locked ""PONG privately""
+```
+
+If the room is locked before the trigger, hubot will just answer. If not, he'll lock it, answer, and  unlock it.
+
+As a side effect of how I implemented all of this, you can now do callbacks after send:
+
+```
+robot.respond /PING$/, (msg) ->
+  msg.send ""hello"", ->
+    console.log ""This is printed after sending hello""
+```
+
+I'm not sure of the use case for that, but I don't see what it hurts.
+",942,False,en,0
+512,2,7,2,Externals,brentc,2013-06-10T20:27:03Z,17,5,2,0,"Also adds a public method for disabling the auto-saving mechanism.
+
+Allows *-brain scripts to stop auto-saving until they've got their
+stuff in-order.
+
+Should resolve #510
+",172,True,en,0
+509,1,0,0,Externals,mizzy,2013-06-10T14:04:55Z,1,1,1,0,,0,False,en,0
+508,1,1,0,Externals,tfausak,2013-06-08T22:34:31Z,6,1,1,0,"Fixes #427.
+",12,True,en,0
+505,1,0,0,Externals,jacksonhull,2013-06-06T08:32:27Z,1,1,1,0,"in the UK, it is mathS, not math
+",33,True,en,0
+503,1,0,0,Internals,aroben,2013-05-22T14:57:04Z,2,2,2,0,"Looks like this has been broken since 07c16db72b79c409c3db3775c2b45cf066b51585, which added a `room` parameter to `Adapter::send`. dc27aca6fcbd0d5b8d7fdc47f2feeb6638d3a028 changed that to an `envelope` parameter, but didn't quite fix the bug.
+",243,True,en,0
+500,1,0,0,Externals,maxgoedjen,2013-05-14T13:28:49Z,0,3,1,0,"Makes hubot complain about doc format.
+",39,True,en,0
+497,1,5,0,Externals,aaronj1335,2013-05-08T16:18:02Z,1,0,1,0,"scripts added via npm weren't getting their help parsed. this adds a
+call to parse the help docs using node's `require.resolve` to figure out
+the path.
+",152,False,en,0
+496,2,1,0,Externals,ronaldevers,2013-05-07T11:54:13Z,5,6,1,1,"If you `hubot --create` from a github/hubot clone you get an ENOENT from creator.coffee:20 leaving you without a new hubot. The problem is the mkdirDashP function. That thing doesn't actually do -p and its asyncronicity is causing problems with the three mkdirDashP calls in creator.coffee around line 57. My guess is the second mkdirDashP runs into ENOENT because the first one hasn't been completed yet.
+
+These commits fix the problem and the name of the function.
+",467,True,en,0
+491,2,1,4,Internals,brntbeer,2013-05-01T14:55:04Z,12,3,1,0,"Noticed that 996b517 was reverted in fc5505f75 since it was broken. 
+
+This should actually fix it and make it easier to create deployable hubots to help take over the world.
+
+<3
+
+/cc @ajacksified 
+",197,True,en,0
+490,1,4,0,Internals,aroben,2013-04-29T15:29:39Z,1,0,1,0,"The github.com API now requires this (see http://developer.github.com/v3/#user-agent-required), and it seems like a good thing to do in any case.
+",146,True,en,0
+489,1,0,0,Externals,shiwano,2013-05-01T14:55:50Z,3,2,1,3,"Hello team.
+
+I have found `robot.respond` bug which is occurred by unescaped `robot.name`.
+
+http://www.ietf.org/rfc/rfc1459.txt
+IRC nickname is allowed to use any regex reserved characters, so `robot.name` should be escaped. I want to make an IRC bot whom I named `[^o^]`, but I can't it for this bug. :disappointed_relieved:
+
+Could you review it? Thanks.
+",356,True,en,0
+483,1,0,0,Externals,dianakhuang,2013-04-23T18:32:07Z,1,0,1,0,"Currently, CatchAllMessages do not have the user or room set correctly. This fix just calls the correct parent constructor to ensure that this happens.
+",152,True,en,0
+482,1,0,0,Externals,kch,2013-04-23T10:50:10Z,2,2,2,0,,0,False,en,0
+481,1,0,0,Externals,rafaelfranca,2013-04-22T09:01:20Z,1,1,1,0,,0,False,en,0
+479,1,0,0,Externals,rafaelfranca,2013-04-18T12:23:25Z,1,1,1,0,"In the script it is called `HUBOT_AUTH_ADMIN`
+",46,True,en,0
+475,2,0,0,Externals,tombell,2013-04-11T10:13:21Z,140,0,2,0,,0,False,en,0
+472,1,0,0,Externals,JetFault,2013-04-09T07:36:47Z,1,1,1,0,"Ukranian -> Ukrainian
+",22,True,pl,0
+466,2,0,0,Externals,apolishch,2013-04-05T19:26:25Z,12,0,2,1,"TypeError: Uncaught, unspecified ""error"" event.
+  at TypeError (<anonymous>:null:null)
+  at Session.EventEmitter.emit (events.js:74:15)
+  at Request._callback (/Users/abe/github/hubot/hubot-2.2.0/node_modules/hubot-flowdock/node_modules/flowdock/lib/flowdock.js:86:17)
+  at Request.self.callback (/Users/abe/github/hubot/hubot-2.2.0/node_modules/hubot-flowdock/node_modules/flowdock/node_modules/request/main.js:122:22)
+  at Request.EventEmitter.emit (events.js:98:17)
+  at Request.<anonymous> (/Users/abe/github/hubot/hubot-2.2.0/node_modules/hubot-flowdock/node_modules/flowdock/node_modules/request/main.js:661:16)
+  at Request.EventEmitter.emit (events.js:117:20)
+  at IncomingMessage.<anonymous> (/Users/abe/github/hubot/hubot-2.2.0/node_modules/hubot-flowdock/node_modules/flowdock/node_modules/request/main.js:623:14)
+  at IncomingMessage.EventEmitter.emit (events.js:117:20)
+  at _stream_readable.js:870:14
+  at process._tickCallback (node.js:415:13)
+",959,False,tl,0
+462,1,0,0,Externals,pcarrier,2013-04-03T11:31:27Z,9,2,1,0,,0,False,en,0
+460,1,0,0,Externals,bhardin,2013-03-29T23:48:54Z,1,1,1,0,"Better matching.
+
+https://github.com/hipchat/hubot-hipchat/pull/88
+",67,True,en,0
+459,1,2,0,Externals,ZachBeta,2013-03-29T19:04:38Z,7,2,1,0,"First attempt at using node and hubot.
+
+Documenting my own understanding setting up in README.md as I figure it out.
+",117,True,en,0
+458,1,0,0,Externals,ZachBeta,2013-03-29T17:49:47Z,3,1,1,0,"linked to npm library
+",22,True,en,0
+457,1,0,0,Externals,creatorrr,2013-03-29T06:13:46Z,1,0,1,0,"brain.remove was supposed to return @ for chaining.
+",52,True,en,0
+455,1,0,0,Externals,creatorrr,2013-03-28T09:01:55Z,7,0,1,0,"As an afterthought to pull request #447.
+",41,True,en,0
+454,1,0,0,Externals,kyleslattery,2013-03-27T21:37:02Z,1,1,1,0,"Rather than just search for GIFs, search for imgtype=""animated"".
+",65,True,en,0
+452,1,0,0,Externals,creatorrr,2013-03-25T21:19:01Z,0,10,1,0,"For changes made in pull request #451
+",38,True,en,0
+451,1,0,0,Externals,creatorrr,2013-03-25T17:50:07Z,1,5,1,0,"As decided on the discussion with @atmos and @kashyapp at https://github.com/github/hubot/pull/446
+",100,True,en,0
+450,1,0,0,Externals,busbyjon,2013-03-25T16:16:23Z,1,1,1,0,"the final comma on this line was stopping npm parse the file when
+running npm install
+",86,False,en,0
+449,1,0,0,Externals,kashyapp,2013-03-25T06:50:02Z,1,1,1,0,"My previous change pushed in a bug to the http route of help.coffee. Was doing string interpolation with single quotes.
+",120,True,en,0
+447,5,3,4,Externals,creatorrr,2013-03-25T12:58:06Z,86,1,2,1,"_Added two new methods to robot.brain_
+- `get(key)` finds and returns value by key from internal store.
+- `set(key, value)` or `set({key: value})` adds key-value pair to the internal store.
+",190,False,en,0
+446,3,11,8,Externals,creatorrr,2013-03-24T02:55:36Z,37,33,3,0,"- Replaced connect with express 3.1.0
+- Added socket.io to enable websockets on the HTTP listener.
+",99,False,en,0
+445,2,1,0,Externals,kashyapp,2013-03-23T10:57:24Z,6,6,2,0,,0,False,en,0
+436,4,0,0,Externals,tombell,2013-03-14T14:16:07Z,112,76,4,0,"Some code spring cleaning.
+",27,True,en,0
+435,1,0,0,Externals,francois2metz,2013-03-14T14:18:39Z,1,0,1,0,"Because req.query is useful.
+",29,True,en,0
+432,5,1,0,Internals,technicalpickles,2013-03-10T22:03:03Z,7,2,2,0,"I reviewed `bin/hubot` and `src/robot.coffee` for cases where we catch errors, and only logged it. There were several that I would consider critical, like if there's an error, hubot should be exitted, as it wouldn't be fully working as configured.
+
+The motivation for this was  an issue last week where I had scripts in `hubot-scripts.json`, but somehow my install of hubot-scripts was missing a bunch of scripts were simply missing. Most notably was redis-brain.coffee, which meant it looked like hubot's brain wasn't persisting between restarts... which it wasn't, since it was using the default in memory brain.
+
+I know that particular issue was probably a fluke, but I'm hoping to make it more clear when there's hubot-breaking issues at startup like it. Off hand, it'd be particularly useful for new users adding their scripts (which would exit with error on syntax error), or if they make an error in `hubot-scripts` (which would exit with error on json syntax error, or if the script doesn't exist), etc.
+
+This should be a pretty safe set of changes, but if there's any users that have errors like this now exits on, they are obviously going to have failures at startup, but that is probably for the best. I think that puts this as a minor version bump, rather than a patch version.
+",1290,True,en,0
+429,86,33,25,Internals,technicalpickles,2013-07-19T15:57:26Z,920,250,12,131,"We're looking to create some up to date documentation and put it into `docs/` inside the repository. The use of the repo wiki will be deprecated as 'too many cooks spoilt the broth' by editing it a lot with their own ways of doing things.
+
+I want to base the docs off the stuff I started writing for my hubot book (https://github.com/tombell/lhthw I may finish writing it this year, maybe).
+
+I also want to update the README to reflect what `hubot` as a package is, and mainly direct people who wish to hack on the core library rather than 'set up' hubot (directions to the docs will be given).
+
+Some initial points:
+
+Heroku will be officially supported way of deploying hubot, because there are many different ways to 'deploy' hubot to UNIX(-like) operating systems. We can document how to get to a point where you can run `bin/hubot <opts>` on UNIX, but documenting all the ways to handle this like upstart/init scripts etc is outside the scope of the docs for hubot.
+
+Some tasks to get going:
+- [x] start initial docs/ directory, copying wiki page
+- [x] document creating new hubot
+- [x] link to known third party adapters in `docs/adapters.md`
+- [x] flesh out CONTRIBUTING.md
+- [x] document deploying to heroku
+- [x] document deploy to unix (very basic, assume user has installed node, npm, etc, and only cover getting hubot running
+- [x] document common things you'd want to do in a script (hear vs respond, random, http, router)
+- [x] update src/template/README.md with any info that was in original README.md that would be useful
+- [x] update specific wiki to point at new docs after this been merged
+",1608,True,en,0
+426,1,0,0,Externals,stevenklise,2013-03-01T22:10:32Z,2,2,1,0,"Since Github has dropped support for downloads the link in Readme.md now points to the repository and not an example/template hubot.
+
+I've updated some language after the link to point new users to the proper directory for a runnable hubot.
+",241,True,en,0
+424,2,6,7,Externals,cupakromer,2013-03-08T23:08:56Z,28,0,4,9,"As a Campfire user, in order to play a sound, you type ""/play sound"". Attempting to tell Hubot to ""/play sound"" with `msg.send` does nothing but echo the words. In order to play the sound you need to issue a special sound message. This is in the `Campfire` adapter, but in order to use it, you need to traverse the entire `robot` structure. Additionally, since the `Shell` does not have a `bot`, this condition needs to be checked to prevent errors when testing locally:
+
+``` coffee
+module.exports = (robot) ->
+  robot.respond /play( me)? (.*)/i, (msg) ->
+    msg.send ""I'm going to play #{msg.match[2]} for you""
+    msg.robot.adapter.bot?.Room(msg.user.room).sound msg.match[2]
+```
+
+This doesn't provide a clean (or intuitive) method for interacting with Campfire. This patch adds the `play` method to the `Campfire` adapter (and to `Shell` so that the scripts can be tested locally). It also patches on to the `Response` message to allow for users to have an intuitive interface:
+
+``` coffee
+module.exports = (robot) ->
+  robot.respond /play( me)? (.*)/i, (msg) ->
+    msg.send ""I'm going to play #{msg.match[2]} for you""
+    msg.play msg.match[2]
+```
+
+It was decided to not attempt to patch this directly into `send` switching on the leading string ""/play"" as that felt a little too magical.
+
+Also, no changes to `README.md` were made as this feels more adapter specific and should go on the wiki pages if accepted.
+",1419,True,en,0
+422,1,0,0,Externals,philippbeckmann,2013-02-26T18:54:25Z,4,0,2,0,"Added bin\hubot.cmd to prepare and launch a hosted-hubot on windows.
+",69,True,en,0
+421,1,0,0,Externals,omares,2013-02-26T18:57:12Z,2,0,1,0,"In the version of hubot 2.4.7 the listner class expects the utils.inspect method to be available. See [L22 of inspect.coffee](https://github.com/github/hubot/blob/master/src/listener.coffee#L22).
+
+```
+@robot.logger.debug ""Message '#{message}' matched regex /#{inspect @regex}/"" if @regex
+```
+
+Unfortunately the require on the util package is missing, so running hubot using the shell adapter throws following error.
+
+```
+bin/hubot -a shell
+Hubot> hubot help
+Hubot> [Tue Feb 26 2013 17:42:29 GMT+0100 (CET)] ERROR Unable to call the listener: ReferenceError: inspect is not defined
+ReferenceError: inspect is not defined
+    at TextListener.Listener.call (/Users/otamares/development/hubot/src/listener.coffee:20:82)
+    at Robot.receive (/Users/otamares/development/hubot/src/robot.coffee:105:33)
+    at Shell.Adapter.receive (/Users/otamares/development/hubot/src/adapter.coffee:37:25)
+    at Interface.Shell.run (/Users/otamares/development/hubot/src/adapters/shell.coffee:74:22)
+    at Interface.EventEmitter.emit (events.js:96:17)
+    at Interface._onLine (readline.js:200:10)
+    at Interface._line (readline.js:518:8)
+    at Interface._ttyWrite (readline.js:736:14)
+    at ReadStream.onkeypress (readline.js:97:10)
+    at ReadStream.EventEmitter.emit (events.js:126:20)
+```
+
+Adding the appropriate require fixes the error
+
+```
+inspect = require('util').inspect;
+```
+",1372,True,en,0
+419,1,2,0,Externals,justincampbell,2013-02-22T18:56:07Z,1,1,1,0,"Was getting `Cannot read property 'data' of undefined`, because `@brain` is no longer being set in the constructor.
+",116,True,en,0
+414,1,1,0,Externals,OleMchls,2013-02-16T01:23:28Z,7,7,1,0,"this enables hubot to run in environments where cli switches wont work (like nodejitsu)
+
+Will document installation on nodejitsu later :)
+
+Best,
+",145,True,en,0
+408,2,0,0,Externals,pgib,2013-02-08T15:19:50Z,29,5,4,0,"Currently, a Robot (named Hubot, for example) will only respond to messages that begin with Hubot. But Tooter and Ferceberk conventions have people in the habit of using @ convention within Campfire (and other) chats, and even clients like Flint support this usage for name completion. This simple updates makes the Robot @-friendly. And who doesn't like a friendly robot?
+",373,True,en,3
+406,1,0,0,Externals,ctborg,2013-02-04T20:33:39Z,1,1,1,0,,0,False,en,0
+403,1,0,0,Externals,haf,2013-01-31T20:52:41Z,3,3,1,0,"`grep -r robot.user .`
+",23,True,en,0
+402,1,1,0,Externals,tombell,2013-01-22T18:25:17Z,10,5,3,0,"Received messages can now have a message ID to identify the message, useful for
+the Campfire adapter.
+
+Closes #401 
+
+``` coffeescript
+module.exports = (robot) ->
+  robot.hear /wat/, (msg) ->
+    robot.send ""Message ID: #{msg.message.id}""
+```
+",242,False,en,0
+394,1,2,0,Externals,omega,2013-01-17T10:26:17Z,26,1,6,0,"Setting this to a string will allow the built in connect server to serve static files
+from that directory.
+
+I cannot for the life of me understand why my test gives the warning about documentation when robot_test does not..
+",224,False,en,3
+393,3,2,2,Externals,x1a0,2013-01-17T09:05:45Z,1,0,1,0,"- When message instances are initiated, a 16-bytes random ID is given.
+- In Response, message_id is also put in envelope so adapter could read that to know which message it is replying on.
+
+In this way, a HTTP adapter could work. Please see this issue created by me: https://github.com/github/hubot/issues/389
+",310,False,en,0
+390,1,0,0,Externals,x1a0,2013-01-15T12:30:30Z,1,1,1,0,"I think it's a tiny mistake :)
+",31,True,en,0
+388,3,4,0,Externals,tombell,2013-01-11T23:42:20Z,25,21,5,0,"This is a completely dirty hack because Node doesn't have built in deep object cloning, and I didn't want to add another dependency to hubot just for this.
+
+Basically because the `user` on `@message` was a reference, whenever it got updated by a new incoming message, and therefore changes every pending send/reply.
+
+Open to cleaner solutions.
+",344,True,en,0
+387,6,0,0,Externals,tombell,2013-01-11T21:47:29Z,77,2,6,0,"Adds functionality to require scripts from `npm` packages specified in `external-scripts.json`
+
+I pushed an example scripts package to https://github.com/tombell/external-hubot-script-pkg
+",188,True,en,0
+385,31,3,0,Externals,tombell,2013-01-11T20:06:24Z,87,335,10,0,"These are some minor fixes that shouldn't affect any current functionality.
+",76,True,en,0
+383,1,0,0,Internals,aroben,2013-01-09T22:53:47Z,1,1,1,0,"There's no need to use `POST` when fetching a room from Campfire, and doing so risks running up against Campfire's `POST` rate limit (50 `POST`s in 5 seconds).
+",160,True,en,0
+381,1,0,0,Externals,numbcoder,2013-01-09T23:19:51Z,7,3,3,11,"Node v0.8+ support and compatible node v0.6
+
+All tests has passed
+",66,True,en,0
+380,1,2,0,Externals,strugee,2012-12-27T06:55:27Z,1,1,1,0,"What the title says. Not to be a Grammar Nazi, but the sentence was confusing (at least when I read it).
+",105,True,en,0
+376,1,1,0,Externals,kavu,2013-01-09T23:26:34Z,1,1,1,25,"Just a bump of the coffee-script dependency version. I've extracted it from #375.
+",82,True,en,0
+370,1,1,0,Externals,danehammer,2013-01-10T21:36:56Z,2,2,1,41,"if I did something like ""hubot image me ablederfl33wo"", I would get an error like:
+
+/opt/hubot/scripts/google-images.coffee:47
+      images = images.responseData.results;
+                                                                ^
+TypeError: Cannot read property 'results' of null
+    at imageMe (/opt/hubot/scripts/google-images.coffee:47:35)
+    at IncomingMessage.ScopedClient.request (/opt/hubot/node_modules/hubot/node_modules/scoped-http-client/lib/index.js:61:20)
+    at IncomingMessage.EventEmitter.emit (events.js:126:20)
+    at IncomingMessage._emitEnd (http.js:366:10)
+    at HTTPParser.parserOnMessageComplete [as onMessageComplete](http.js:149:23)
+    at Socket.socketOnEnd [as onend](http.js:1356:12)
+    at TCP.onread (net.js:418:26)
+",789,True,fr,0
+361,1,1,0,Externals,voidlily,2012-10-27T04:26:08Z,3,3,1,2,"Inside square brackets, unescaped hyphens are position dependent. They act like hyphens normally when at the beginning or end of a square bracket expression. Otherwise it's used to signify a character range.
+
+http://stackoverflow.com/questions/4068629/how-to-match-hyphens-with-regular-expression/4068725#4068725
+
+Before: http://rubular.com/r/G1b3VgW4s4
+
+After: http://rubular.com/r/yB8f1RYulj
+",394,True,en,0
+355,1,3,0,Externals,cjbottaro,2013-01-10T22:55:35Z,12,0,1,92,"Hello,
+
+I added an option to specify extra scripts dirs to load.  It's useful for us because we have a lot of scripts that are specific to our company and reside in our git repo.  It would be nice to run Hubot and just point it at this dir, that way we can upgrade Hubot versions easily without having to copy over all our scripts, etc.
+
+Thanks.
+",346,True,en,0
+344,8,22,4,Externals,OleMchls,2013-02-16T17:15:47Z,73,4,3,172,"Events might get triggered by scripts.
+
+For example: You have a script, which can trigger and event that some one committed to a repo. This script can be used by anyone, but the reaction should be different by every company. So it's possible to trigger a build, or just post a message in chat.
+
+As a plus with the same event triggered by different scripts, so it wouldn't make a difference if you commit into github or just another (maybe SVN) repo. But other scripts can rely on that 'commit-received' command and act the same way.
+",533,True,en,0
+341,1,3,0,Externals,marsam,2012-09-08T20:27:32Z,1,1,1,15,,0,False,en,0
+336,1,1,0,Externals,elmoeleven,2012-08-23T05:46:28Z,2,2,1,2,"simply changed '&&' to 'and' to make it more coffee-fied
+",57,True,en,0
+335,1,0,0,Externals,Seldaek,2012-09-08T19:25:32Z,4,2,1,21,"imgtype=face tries to return results that contain human faces making it easier for mustachify to do its job.
+",109,True,en,0
+334,2,1,0,Internals,keithduncan,2013-01-10T22:41:15Z,6,7,2,146,"Change constructed file paths to be __dirname relative, so that bin/hubot can be run from anywhere without first having to change directory to the working copy
+",160,True,en,0
+330,1,0,0,Externals,ferlores,2012-08-03T17:53:31Z,5,0,1,0,"Useful if you have the bot on the cloud and it gets banned from IRC. You need to know the IP from where it connects in order to ask for an unban.  
+",148,True,en,0
+328,1,1,0,Externals,sopel,2012-08-02T20:11:26Z,12,0,1,0,"This updates the supported languages to the ones listed in the [Language reference](https://developers.google.com/translate/v2/using_rest#language-params) as of 20120801.
+
+Specifically it adds:
+- Azerbaijani (az)
+- Basque (eu)
+- Bengali (bn)
+- Esperanto (eo
+- Georgian (ka)
+- Gujarati (gu)
+- Haitian Creole (ht)
+- Kannada (kn)
+- Latin (la)
+- Tamil (ta)
+- Telugu (te)
+- Urdu (ur)
+",381,True,en,0
+327,1,1,0,Externals,futuraprime,2012-07-31T05:31:24Z,4,1,1,0,,0,False,en,0
+322,1,1,0,Externals,ferlores,2012-07-27T12:19:20Z,1,1,1,0,,0,False,en,0
+317,1,0,0,Externals,ferlores,2012-07-14T21:55:32Z,1,1,1,0,"The command work if the user name has a trailing space, usefull if using it with IRC
+",85,True,en,0
+313,2,1,0,Externals,tombell,2012-07-17T17:20:37Z,55,4,2,7,"Adding an HTTP route for browsing `hubot help` via a page. This can help with services that kick users for flooding (e.g. IRC).
+
+Needs prettying up if anyone has any ideas.
+",173,True,en,0
+310,1,0,0,Externals,ejfinneran,2012-07-04T01:35:50Z,10,5,2,6,"This fixes an issue identified in #275 where if Hubot joined multiple rooms, userForId
+would return the user object with the room attribute from the first
+message as persisted by Redis so the each subsequent message would always get sent to the room from the first message.
+
+Since the adapter only cares about the room the user belongs to, we can
+just construct an object that provides that information rather than
+polluting robot.brain with a fake user object via userForId
+
+Tested this with XMPP, Campfire and IRC adapters.
+",526,False,en,1
+309,1,3,0,Externals,elliotttf,2012-06-26T00:42:31Z,1,1,1,0,,0,False,en,0
+304,1,0,0,Externals,travisjeffery,2012-06-07T20:26:07Z,1,1,1,0,"I'm guessing you're using semantic versioning so I've just done a patch bump.
+",78,True,en,0
+302,1,0,3,Externals,travisjeffery,2012-06-07T20:11:01Z,9,4,2,1,"Hey,
+
+Currently `animate me` returns poor results since the current query just prepends ""animated"" and relies on that returning animated pics/gifs but succeeds probably less than half the time.
+
+I've fixed this by explicitly querying for gif filetypes and the results are much better and funner!
+
+Thanks!
+
+Travis
+",313,True,en,0
+299,1,0,0,Internals,technicalpickles,2012-05-31T02:52:50Z,1,1,1,0,"My pull request for eacfeaaddda2ba89bbf8cb521620b44ac95ed2b7 updated
+load to use logger.info. This does the same for loadHubotScripts :)
+",137,False,en,0
+298,1,3,0,Internals,technicalpickles,2012-05-31T02:53:17Z,1,1,1,0,"It was `Unable to load #{path}`, but `path` is a directory, not the
+full path to the file. It should be `full` to get directory & filename.
+",140,False,en,0
+296,1,0,0,Externals,tombell,2012-05-30T17:48:05Z,3,3,1,0,"You should now document `robot.respond` commands with hubot at the beginning. This will get replaced in the help output so the correct name of the running robot is displayed.
+### Example
+
+``` coffeescript
+
+# hubot good morning - responds with a good morning greeting
+# poopin - responds with a poopin'
+
+module.exports = (robot) ->
+
+  robot.respond /good morning/i, (msg) ->
+    msg.reply 'Good morning'
+
+  robot.hear /poopin/i, (msg) ->
+    msg.send 'Poopin'
+```
+
+Run the hubot instance with `bin/hubot -n poopbot` and doing `poopbot help` would respond with the following.
+
+```
+...
+poopbot good morning - responds with a good morning greeting
+poopin - responds with a poopin'
+...
+```
+
+This solves the whaa whaa about using `hubot` in the help header comments. Just remember the comments should be `hubot` to document respond commands. :)
+",839,False,en,0
+294,8,0,0,Externals,tombell,2012-05-26T21:24:07Z,311,286,15,0,"Huge clean up and refactor.
+
+There maybe some breaking changes for any scripts/adapters which modify/use the objects which were under the `Robot` name space.
+",158,True,en,3
+291,1,0,0,Internals,technicalpickles,2012-05-17T00:40:43Z,1,1,1,0,"Robot.load does `@logger.info when` loading scripts from directories. It's
+not really that useful of information unless you doing debugging, hence
+`@logger.debug` makes sense.
+",176,False,en,0
+290,1,3,0,Internals,technicalpickles,2012-05-23T19:55:34Z,8,8,2,7,"Prior to, errors encountered only logged the type and message, but
+didn't include a stack trace. This can be very frustrating when
+debugging, particularly when just starting to use hubot.
+
+Stack traces are our friends :)
+
+And since we're in the neighborhood, also update to use a
+consistent variable for the error object.
+",322,False,en,0
+285,1,0,0,Internals,technicalpickles,2012-05-13T21:31:51Z,20,26,10,0,"Most help commands look like this:
+
+```
+mustache me <url>   - Adds a mustache to the specified URL.
+```
+
+A new user to Hubot might know enough to ask him for 'help', but once
+they get this, they would likely just type 'mustache me ...' without
+addressing Hubot.
+
+This would not work, since it uses 'respond', not hear, but you wouldn't
+know that from this help, without reading the source.
+
+help.coffee has even had support for replacing the 'Hubot' in the help with
+running robot's name since 57f5f098d1414663f85f93af7f20f9cae1b90018.
+
+This commit updates all the default scripts to include a 'hubot' prefix
+when it makes sense.
+
+In addition, it updates the formatting of the help:
+- only use one line (second line would be cut off)
+- don't pad - to match other help (sorting wouldn't guarantee them
+  to be grouped together)
+",827,True,en,0
+283,4,0,0,Externals,elliotttf,2012-05-10T18:23:22Z,1,1,1,0,"This relates to #282, when the bot encounters a new user for the first time (or a user with a changed nick) no options are passed in and thus the check on line 280 was failing.
+",177,True,en,0
+282,2,1,0,Externals,elliotttf,2012-05-10T16:19:08Z,5,0,1,0,"I experienced this issue with hubot-irc, but here's steps to reproduce the problem:
+- Join the bot to two or more rooms
+- Invoke messageRoom
+- Obserer that the message is sent to the correct room
+- Invoke messageRoom again with a different room
+- Observe that the message is sent to the first room, not the second.
+
+This is happening because the undefined user object in brain.data.users got set with the first room, then this version is returned without checking that the rooms actually match.
+
+There are probably other ways of dealing with this (i.e. [https://github.com/github/hubot/issues/234#issuecomment-3809099]), but I'd like to at least open the discussion on this.
+",675,False,en,0
+278,1,0,0,Externals,jimeh,2012-04-20T08:28:17Z,4,4,2,0,"I'm not fully sure how important it is to have `https` rather `http` in the repo URL, as the [NPM Registry](http://search.npmjs.org/#/hubot) the repo URL is listed as `git://github.com/github/hubot.git`. But can't hurt right? :)
+
+Additionally, I also brought a little bit more consistency to the general formatting of the package.json files.
+",342,True,en,0
+276,1,3,0,Externals,iangreenleaf,2012-04-17T19:09:51Z,1,1,1,0,"Bugfix release.
+",16,True,en,0
+274,1,0,0,Externals,jimeh,2012-04-15T11:39:18Z,1,1,1,0,"When using the `CONNECT_USER` and `CONNECT_PASSWORD` environment variables, the following error was being raised:
+
+```
+ReferenceError: path is not defined
+```
+",159,True,en,0
+273,3,0,0,Externals,jimeh,2012-04-15T11:39:00Z,4,4,1,0,"- When the `HEROKU_URL` environment variable was not set the keep alive code would still run trying to connect to: `undefined//hubot/ping`
+- Keep-alive request path started with a slash, combined with the trailing slash check, this would create a keep-alive request to: `http://appname.herokuapp.com//hubot/ping`
+
+I've tested these changes to ensure they work, and my own IRC bot is currently running off of the `heroku-url-fix` branch.
+
+/cc @tombell
+",451,False,en,0
+272,1,0,0,Externals,jimeh,2012-04-14T21:34:01Z,1,1,1,0,"CoffeeScript version was upgraded from 1.2.0 to 1.3.1 in 8269f5a, this fixes a SyntaxError caused by 1.3.x's new strict checks.
+
+More info: https://github.com/jashkenas/coffee-script/issues/1547
+",195,True,en,0
+270,4,1,3,Externals,tombell,2012-04-14T01:43:51Z,13,12,3,2,"Basically, you can't make a localhost request to your application on Heroku, and it would be nice if they had a config var already with the hostname in, but no luck.
+
+   $ heroku config:add HEROKU_HOSTNAME=myapp.herokuapp.com
+
+https://devcenter.heroku.com/articles/dyno-idling
+",277,True,en,0
+261,1,0,0,Internals,jonmagic,2012-03-24T22:45:47Z,1,1,1,0,,0,False,en,0
+257,2,0,0,Externals,christierney,2012-03-20T23:48:36Z,4,4,1,1,"Fixes a bug where a message of the type ""@hubot is that cool?"" would result in a response of ""I don't know anything about .""
+
+This came up because we have another script that responds to questions like ""is [something something]?"" with yes-or-no answers.
+",254,True,en,0
+253,1,0,0,Externals,kylev,2012-03-05T23:01:39Z,1,1,1,0,"We've had a couple of minor problems using hubot in the office since some non-safe images can still get through on moderate (usually bikini-type pictures).  These are a bit hostile to a welcoming office environment, so I'd love safe search to be the default out of the box.  People can modify it if they want to, but this is probably a reasonable default.
+",356,True,en,0
+247,1,0,0,Externals,franc,2012-02-20T20:27:34Z,4,2,1,0,"when running Hubot under a different name, it is nice to have the help output not mention Hubot by name
+",104,True,en,0
+243,1,0,0,Internals,sbryant,2012-02-13T04:53:35Z,0,4,1,0,"The connected event pull req was merged a bit prematurely. This removes the last vestiges of the option.
+",105,True,en,0
+242,1,0,0,Externals,thomaschaaf,2012-02-12T21:59:40Z,1,0,1,0,"The shell version of hubot does not have the variable self set. Thus it throws the following error:
+
+```
+# bin/hubot -a shell -n a
+ReferenceError: self is not defined
+  at Shell.run (/opt/hubot/src/adapters/shell.coffee:68:7)
+  at Robot.run (/opt/hubot/src/robot.coffee:297:27)
+  at Object.<anonymous> (/opt/hubot/bin/hubot:111:11)
+  at Object.<anonymous> (/opt/hubot/bin/hubot:114:4)
+  at Module._compile (module.js:441:26)
+  at Object.run (/usr/lib/node_modules/coffee-script/lib/coffee-script/coffee-s
+  at /usr/lib/node_modules/coffee-script/lib/coffee-script/command.js:135:29
+  at /usr/lib/node_modules/coffee-script/lib/coffee-script/command.js:110:18
+  at [object Object].<anonymous> (fs.js:115:5)
+  at [object Object].emit (events.js:64:17)
+```
+",754,True,en,0
+241,1,0,0,Externals,jonklo,2012-02-10T19:06:18Z,1,1,1,0,,0,False,en,0
+237,2,4,0,Externals,tombell,2012-02-10T19:06:33Z,18,10,2,3,"Ping ping ping. Should hopefully keep the process from idling on Heroku.
+",73,True,en,0
+229,2,0,0,Externals,ejfinneran,2012-01-28T00:35:55Z,21,13,5,0,"This fixes a bug in the catch-all listener (Pull request #228) which caused it to fire even if a previous listener had handled the message.
+
+This also fixes the test suite in general since it was broken when an extra argument was added to the Robot constructor.
+",262,True,en,4
+228,1,0,0,Externals,titanous,2012-01-25T16:52:09Z,39,7,4,0,"Requested by @neilcauldwell
+
+Adds a new `robot.catchall` listener that only triggers when no other listeners match.
+
+Note: It seems like the hubot build is currently broken, and I didn't have time to fix it, but this patch was passing before master broke.
+",256,True,en,3
+224,1,0,0,Internals,kevinsawicki,2012-01-10T01:25:59Z,1,0,1,0,"This is required for certain language translations such as `Наконец-то, я`
+### Previous response
+
+```
+Hubot> hubot translate Наконец-то, я
+Hubot> ""Наконец-то, я"" is Spanish for ""� � � � � d � � � �μ� �- �, � � �""
+```
+### New Response
+
+```
+Hubot> hubot translate Наконец-то, я
+Hubot> ""Наконец-то, я"" is Russian for ""Finally , I am""
+```
+",416,False,ru,0
+220,5,25,0,Internals,sbryant,2012-02-12T15:52:27Z,23,15,4,41,"Adapters don't have a chance to customize the robot before scripts start loading.
+This  can cause problems if the adapter determines the robot's name.
+
+The robot now waits until the adapter emits a `connected` event before loading any hubot scripts.
+",250,False,en,0
+219,17,1,0,Externals,atmos,2012-01-12T14:58:12Z,141,28,9,18,"Simple examples:
+- curl -i http://localhost:8080/hubot/info
+- curl -i http://localhost:8080/hubot/time
+- curl -i http://localhost:8080/hubot/version
+- curl -X POST -i http://localhost:8080/hubot/ping
+
+Pull Request: master
+",222,False,pt,0
+218,3,4,0,Externals,atmos,2011-12-24T05:13:36Z,37,10,4,0,"- Message now has a @done attribute you can check
+- Message and Response both have a finish() method to stop execution
+- Addresses #200
+
+Pull Request: master
+",158,False,en,0
+217,1,0,0,Externals,schisamo,2011-12-22T22:27:36Z,3,3,1,0,"In HipChat if you prefix a username with an '@' symbol it directs a notification at that user.  It's fun to notify a user of their pending role change using this mechanism.
+
+This change makes that @ symbol optional.
+",216,True,en,0
+211,1,0,0,Externals,smgt,2011-12-15T19:53:38Z,3,2,1,0,"If you try for example `hubot mustache me Hugo Öringe gorkamorka` hubot dies since the result is empty from google. This pull request will check if the result is empty and do nothing if that is true.
+",201,True,en,0
+210,2,11,0,Externals,sapegin,2011-12-15T20:47:22Z,10,7,1,0,"The Gtalk adapter from Hubot repo didn’t work for me.
+",56,True,en,0
+208,1,4,0,Externals,ejfinneran,2011-12-14T17:41:07Z,20,3,3,0,"This method is handy for sending a message to a room that is triggered by something other than a received message like HTTP requests.
+
+I tested this with hubot-xmpp and it worked fine but if this won't work with other adapters let me know.
+",240,True,en,2
+206,1,0,0,Externals,markstory,2011-12-08T19:19:16Z,1,1,1,0,"Currently the tests are passing by accident.  The callbacks in a test files `tests` array are never actually called as the `.cb` property is on the adapter, not the bot itself.
+
+An alternative to this is to use `@robot.cb?` in `Danger#send()`
+",243,True,en,1
+204,2,0,0,Externals,horaceko,2011-12-07T08:14:49Z,15,2,1,0,"Making use of the new support for topics in the parent Adapter class (added in #79). This also necessitated adding a method in the adapter to perform HTTP PUT.
+",160,True,en,0
+199,1,0,0,Externals,DavidWittman,2011-12-01T08:36:33Z,1,2,2,0,"There exist three different types of mustache at mustachify.me, numbered 0-2. These changes will psuedorandomly select a mustache to apply to the image.
+",153,True,en,0
+198,1,3,0,Externals,trumbitta,2011-11-30T16:36:29Z,4,1,1,0,"Had a connection refused error, googled, and found github/hubot/#42
+
+Installing redis-server solved the issue.
+",111,True,en,0
+195,1,0,0,Externals,alexwhitman,2011-11-27T15:08:55Z,5,0,2,0,"Allows for a more graceful shutdown
+",36,True,en,0
+192,2,0,0,Externals,tombell,2011-11-24T16:15:16Z,30,19,1,0,"Updated the `shell.coffee` adapter to look and feel like a proper REPL. If anyone has experience doing the auto complete stuff with the `readline` module, could be possible to auto complete hubot commands.
+",206,True,en,0
+191,1,0,0,Externals,ejfinneran,2011-11-24T02:04:51Z,15,0,2,0,"This is useful for XMPP where groupchat users only have an ID and not a
+name.  Highlighted in issue #186.
+",106,False,en,1
+190,5,0,0,Externals,iangreenleaf,2011-11-24T02:04:26Z,24,1,3,0,"I thought the robot should recognize a few more forms of requests to recite the three laws. I wrote some tests, too. Hope you like!
+",132,True,en,2
+188,1,1,0,Externals,tombell,2011-11-22T22:47:16Z,26,18,4,0,"I'm looking at improving the logging be it `stdout` or to a file. Currently there are random `console.log` calls spotted all over the place. Hopefully having a specific ""Logger"" in the `Robot` can help unify this output. Still work in progress.
+",245,True,en,0
+184,1,0,0,Externals,igorgue,2011-11-20T20:58:46Z,1,1,1,0,"Before an alias called ""megatron"" couldn't be mentioned with a "":"" or "","" (e.g.: ""MEGATRON: the rules"") just without it. This change makes the alias work just like the ""Hubot"".
+",177,True,en,0
+183,1,0,0,Externals,occ,2011-11-17T03:42:32Z,1,1,1,0,"Some irc services (like anope) doesn't have the dot in ""Password accepted"" notice. 
+Removed the dot
+",100,False,en,0
+182,1,0,0,Externals,ivey,2011-11-17T02:41:55Z,3,0,1,0,"Chat messages from the bot will come from chatroom@server/username not username@server, so hubot responds to himself.
+",118,True,en,0
+179,1,0,0,Externals,pescuma,2011-11-16T20:30:17Z,13,16,1,0,,0,False,en,0
+178,1,0,0,Externals,russelldavis,2011-11-16T08:42:38Z,1,1,1,0,"Can't use hubot with the hipchat adapter without this change. I'm guessing the other adapters that still inherit from Robot are broken as well.
+",144,True,en,0
+177,1,0,0,Externals,berg,2011-11-14T01:15:49Z,2,4,1,0,"""fully qualified"" hipchat replies look like this: @""Fooby Barbot""
+This means replies/mentions will go to the right person if you've got more than one user with the same first name.
+",181,False,en,0
+176,1,3,0,Externals,malditogeek,2011-11-13T20:31:44Z,4,0,1,0,"Necessary for those cases when the host/port can't be inferred by the JID. (Google apps for business in my case.)
+",114,True,en,0
+175,5,0,0,Externals,madzak,2011-11-13T19:38:42Z,3,2,1,0,"Some custom IRC servers may use port 6697 as a regular port rather than secure. The code will now support an environment variable which can turn off ssl connection regardless of port. The default behavior is still in tact.
+
+Some custom nickserv's might not use the string 'now identified' but use 'now recognized'. The code will now look for something more common which appears to be 'Password accepted.'
+",405,True,en,0
+174,7,9,0,Externals,tombell,2011-11-17T03:59:52Z,65,18,16,4,"Finally able to remove adapters from the core, they're left in `src/adapters/third-party` as reference until they're implemented into their own packages by people.
+
+`loadAdapter` will load `campfire` or `shell` locally or will attempt to `require` external adapters with `hubot-#{adapter}`. There are multiple ways to go with this, for example leaving as it and people name their adapters using the convention or requiring `#{adapter}` where the `-a` option specifies the full adapter package name `-a hubot-irc`.
+
+Adapters will need to `export.use = (robot) -> ...` where this returns a new instance of the adapter. If anyone has input on this or ways to make it even more simpler speak up.
+",692,True,en,0
+173,1,1,0,Externals,cldwalker,2011-11-12T11:53:02Z,6,2,1,1,"As we're using more commands, calling help spams a chatroom, especially in irc. Allowing help to search minimizes that spam. Also comes in handy when u want to pull up commands by a certain argument type: `hubot: help <img>` .
+",227,True,en,0
+170,1,0,0,Externals,tacoe,2011-11-10T14:13:52Z,1,1,1,0,"just a classname change
+",24,True,en,0
+168,1,1,0,Externals,pescuma,2011-11-09T19:09:28Z,73,26,1,0,"This patch makes the gtalk adapter create users and send Robot.EnterMessage / Robot.LeaveMessage on login/logoff.
+
+One question: what is the expected behaviour when a user logs off: remove it from the users list or not?
+",220,True,en,0
+167,1,0,0,Externals,mrtazz,2011-11-09T16:27:53Z,3,3,1,0,"This allows usernames with an underscore to be assigned roles. Also roles can contain an underscore and a dash also.
+",117,True,en,0
+165,1,0,0,Externals,arttu,2011-11-09T11:15:39Z,1,0,1,0,"Resolves issue discussed @ https://github.com/github/hubot/issues/153
+",70,True,en,0
+164,1,0,0,Externals,agrieser,2011-11-09T11:16:06Z,1,1,1,0,"In node 0.6, process.ARGV is no longer defined.
+Use process.argv instead
+",73,False,en,0
+162,4,6,3,Externals,andresilva,2011-11-13T20:47:14Z,23,16,3,4,,0,False,en,0
+158,2,0,0,Externals,markstory,2011-11-08T16:35:06Z,4,4,2,0,"Fixes issues with the Xmpp adapter.  Due to recent refactorings, I was getting the following error:
+
+```
+Error: Cannot find module '[object Object]/undefined'
+at Function._resolveFilename (module.js:322:11)
+at Function._load (module.js:267:25)
+at require (module.js:351:19)
+at XmppBot.Robot (/Users/mark/Sites/hubot/src/robot.coffee:31:17)
+at new XmppBot (/Users/mark/Sites/hubot/src/adapters/xmpp.coffee:26:37)
+at new Robot (/Users/mark/Sites/hubot/src/robot.coffee:32:22)
+at Object.loadBot (/Users/mark/Sites/hubot/index.js:4:10)
+at Object.<anonymous> (/Users/mark/Sites/hubot/bin/hubot:61:19)
+at Object.<anonymous> (/Users/mark/Sites/hubot/bin/hubot:88:4)
+at Module._compile (module.js:407:26)
+```
+
+When trying to start hubot with `./bin/hubot -a xmpp -n bot`.  These changes fix that error and hubot is able to connect to xmpp again.
+",838,True,en,0
+154,1,0,0,Externals,pescuma,2011-11-07T16:31:13Z,25,27,1,0,"Ignore also direct messages using gtalk whitelist
+",50,True,en,0
+152,1,1,0,Externals,pescuma,2011-11-07T13:24:18Z,32,17,1,0,"Handle in a better way if the whitelists are not set. It also show a nicer message when the env vars are not set.
+",114,True,en,0
+150,2,4,0,Externals,mexitek,2011-11-07T10:33:55Z,59,18,1,0,"For those who do not use the enterprise apps from google. You can now have Hubot accept a request from previously defined list of users or from a list of domains.
+### Additional Environment Variables
+- `HUBOT_GTALK_WHITELIST_DOMAINS=""foo.com,bar.com,domain.com""`
+- `HUBOT_GTALK_WHITELIST_USERS=""foo@domain.com,bar@otherdomain.com""`
+",332,False,en,0
+148,1,6,3,Externals,Vrtak-CZ,2011-11-13T20:17:05Z,14,6,2,7,"XMPP Clients reserved slash for command so i think better then --enable-slash is --alias for define custom alias (in XMPP MUC is ""standardized"" '!' for bot commands).
+",167,True,en,0
+146,1,0,0,Externals,Vrtak-CZ,2011-11-06T14:35:42Z,11,8,8,0,"fix 406 'Only occupants are allowed to send messages to the conference' error
+",78,True,en,0
+145,1,0,0,Externals,Vrtak-CZ,2011-11-06T13:49:47Z,16,4,1,0,"syntax
+
+``` sh
+export HUBOT_XMPP_ROOMS=""classic@conf.jabber.org,secured@conf.jabber.org:passwd""
+```
+",100,True,mt,0
+144,8,2,0,Externals,tombell,2011-11-07T22:39:19Z,131,94,29,3,"The goal is the move the adapters except Campfire and Shell out of the core of Hubot into their own `npm` packages maintained by the origin contributer, so we can keep the dependencies in Hubot to a minimum. This branch is the start of the changes.
+
+I've updated the Campfire, IRC and shell adapters for the new core. The next part of the changes is to get the tests working for them. So I was hoping @technoweenie could glance over and point me in the right direction due to the changes with `Robot` and `Robot.Adapter`.
+",522,True,en,2
+143,1,0,0,Externals,lautis,2011-11-03T17:42:52Z,2,2,1,0,"Allow addressing Hubot with comma in addition to colon.
+
+Using comma to address person (or a bot) feels more natural than colon for me. Plus, it's used as autocomplete in various chat clients. IMHO, Hubot should respond to both ""Hubot:"" and ""Hubot,"".
+",251,True,en,0
+142,1,0,0,Externals,erikzaadi,2011-11-03T14:34:32Z,6,0,1,0,,0,False,en,0
+141,1,0,0,Internals,cadwallion,2011-11-02T21:16:50Z,7,7,1,0,"The current version of the IRC adapter bypasses the brain entirely when setting up a user for messages.  This fixes that by using Robot.userForName and Robot.userForId to setup the user for the brain to retain.
+",211,True,en,0
+140,1,0,0,Externals,BrokenEnso,2011-11-02T19:44:37Z,1,1,1,0,"There seems to be a bug in node-irc (ver 0.2) that causes it to throw an exception when getting the list of users in the channel. Updating to version 3.2 of node-irc seems to address the issue.
+",194,True,en,0
+138,1,2,0,Externals,sishen,2011-11-02T10:34:51Z,4,0,1,0,"So for new created channels, we don't need to restart hubot.
+",61,True,en,0
+136,4,0,0,Externals,unixcharles,2011-11-01T21:21:10Z,59,65,1,0,"- Fix multi-room support
+- Fix non working ""@mentions"" replace introduce in fd0887f5c0d71557
+- Prevent hubot to listen to itself
+- Change reply format to be more talker-like, using @mention
+",190,False,en,0
+134,1,0,0,Externals,mbmccormick,2011-11-01T18:59:52Z,0,1,1,0,"The Google Talk adapter currently defaults Hubot's status to ""Chatty"", which is somewhat annoying and unnecessary. By removing the `<show />` stanzas when setting Hubot's status via XMPP, Hubot will set it's status to ""Available"" when it comes online.
+",252,True,en,0
+129,2,0,0,Externals,Mange,2011-10-31T16:13:55Z,27,18,1,0,"This fixes a problem with how Hubot works in the [Talker](http://talkerapp.com) chat rooms. In Talker, you mention users with the `@user` syntax instead of the IRC-style `user:`.
+
+The talker adapter currently replaced `@hubot` with `Hubot:` but that does not help if the bot isn't named Hubot.
+
+These changes replaces `@<current robot name>` with `<current robot name>:` case-insensitively.
+
+It works like a charm in our chat room.
+",432,True,en,0
+128,1,0,0,Externals,seancribbs,2011-10-31T16:13:17Z,4,3,1,0,"This changes the Campfire adapter's mode of sending messages to be ""tail-recursive"", that is, it calls itself in the callback after the request completes, ensuring that messages are delivered in the order given.
+",212,True,en,0
+127,2,0,0,Externals,arttu,2011-10-31T16:50:54Z,45,2,3,0,"#### Create a new Flowdock account for hubot
+
+Add hubot user to all your flows you want it to hang in.
+
+Protip: you can use your flow's email address, eg. flow_name+hubot@subdomain.flowdock.com to get a new invite.
+#### Set up the environment variables
+- HUBOT_FLOWDOCK_LOGIN_EMAIL
+- HUBOT_FLOWDOCK_LOGIN_PASSWORD
+#### Start hubot
+
+```
+./bin/hubot -a flowdock
+```
+",364,True,en,0
+126,5,2,0,Externals,tombell,2011-11-04T22:17:25Z,80,62,2,4,"Cleaned up the Twilio adapter by adding a scoped HTTP client into the `Robot` class. Also tidied up the `console.log` calls.
+
+Off topic, maybe it's worth implementing a small logging class similar to Ruby's `Logger` so all the output is consistent?
+",249,True,en,0
+124,2,4,2,Externals,russelldavis,2011-11-14T00:52:09Z,51,10,2,13,"Makes it so the `roles` script matches on partial names (when there's a single unambiguous match). For example, allows me to type
+
+```
+/who is Russ?
+```
+
+instead of
+
+```
+/who is Russell Davis?
+```
+",197,True,en,0
+117,1,0,0,Externals,jasford,2011-10-30T19:20:20Z,1,1,1,0,"I have a couple scripts written in JavaScript (instead of CoffeeScript) and wanted to get the benefit of the help script being able to show my new commands. This simple change lets you do this:
+
+```
+// Interacts with the Google Maps API.
+//
+//map me <query> - Returns a map view of the area returned by `query`.
+```
+
+instead of this:
+
+```
+# Interacts with the Google Maps API.
+#
+# map me <query> - Returns a map view of the area returned by `query`.
+```
+",454,True,en,0
+113,3,0,0,Externals,unixcharles,2011-10-30T19:20:41Z,29,20,1,0,,0,False,en,0
+111,1,0,0,Externals,OiNutter,2011-10-30T19:23:11Z,5,5,1,0,"Tidied the translate regular expression with non-matching groups so msg.match only returns the terms we're interested in.
+
+Have left the command structure as is as discussded in #81
+",182,True,en,0
+110,5,9,9,Externals,mexitek,2011-11-01T02:02:47Z,83,2,3,1,"### What it does so far
+- All methods in place for adapter
+- Logs into gtalk (also any custom domain hosted on google apps) successfully
+- Receives and sends successfully
+- Allows for IM user to omit robot name per command
+### Environment Variables
+- HUBOT_GTALK_USERNAME
+- HUBOT_GTALK_PASSWORD
+",295,False,en,0
+104,5,0,0,Externals,victorcoder,2011-10-29T21:32:21Z,113,1,2,0,"Adapter for the talkerapp.com service
+",38,True,en,0
+103,1,0,2,Externals,djl,2011-10-29T22:28:58Z,1,0,1,0,"Hubot was missing support for SSL IRC connections, now it's not :)
+
+It may be better to have an explicit `HUBOT_IRC_SSL` var, rather than inspecting the port number but 6697 is traditionally used for SSL connections.
+",217,True,en,0
+99,1,0,0,Externals,markpasc,2011-10-28T21:59:50Z,1,1,1,0,"This patch uses the bot's name (the `--name` argument) if no `HUBOT_IRC_NICK` environment variable is set, allowing you to omit the latter when they match (which they should, since otherwise IRC clients' nick completion will help you misaddress the bot).
+",255,True,en,0
+98,4,3,2,Externals,MathildeLemee,2011-10-29T21:36:36Z,93,1,2,1,"Looks for @nameOfTheBot or nameOfTheBot in the twitter timelines and respond with @myUser  .
+",93,True,en,0
+94,2,2,0,Externals,codec,2011-10-28T19:59:10Z,2,0,1,0,"Emit an event after mergeData is finished (as used by redis-brain) so we don't have to do hacky workarounds in scripts (see remind.coffee for an example).
+",155,True,en,0
+83,3,5,0,Externals,Excedrin,2011-10-28T06:50:22Z,27,9,1,0,"When the bot receives a msg directed at the bot, like
+
+/msg hubot hubot: help
+
+It replies to hubot instead of the message sender. This commit fixes that.
+",154,True,en,0
+80,3,0,0,Externals,andyfowler,2011-10-27T21:08:19Z,82,20,1,0,"Currently just using nicknames as the ID -- I'd like to expand this to use JIDs as actual user IDs, but that won't work in semi-anonymous rooms. This also includes some general improvement to presence handling.
+",211,True,en,0
+79,1,0,0,Externals,markstory,2011-10-29T22:33:07Z,27,0,2,2,"Scripts can use msg.topic to set the channel/room topic.
+Added topic support for Xmpp.
+
+I don't have much experience with the other adapters, but I've implemented topic for the Xmpp adapter.
+",191,False,en,0
+75,7,7,0,Externals,tombell,2011-10-27T13:11:51Z,66,53,11,0,"Same old clean up
+- `is`, `isnt`, `or` and `and`
+- `for x in y` instead of `forEach`
+- Whitespace
+",98,False,en,0
+74,2,1,0,Externals,OiNutter,2011-10-27T19:52:07Z,74,6,1,0,"Used a hardcoded object to map the codes to languages in lieu of finding a webservice that will do it without an API key.
+",122,True,en,0
+70,1,0,0,Externals,vinteo,2011-10-27T08:02:41Z,1,1,1,0,,0,False,en,0
+64,2,1,0,Externals,jszwedko,2011-10-26T21:51:52Z,14,6,1,0,"See issue: https://github.com/github/hubot/issues/63
+
+This alters the irc.coffee to wait until identified to join channels if a nickserv pass is specified.
+",156,True,en,0
+60,3,0,0,Externals,eventualbuddha,2011-10-26T20:40:40Z,76,16,8,0,"Allows listeners like so:
+
+``` coffeescript
+robot.enter (msg) ->
+  msg.reply ""Welcome!""
+
+robot.leave (msg) ->
+  msg.send ""Was it something I said?""
+```
+",152,True,en,1
+57,1,0,0,Externals,markstory,2011-10-26T21:30:11Z,6,3,1,0,"Adds the ability to directly message hubot on XMPP and get a reply in private.  Previously the XMPP bot would reply in the channel when directly messaged.
+",155,True,en,0
+56,4,1,4,Externals,assaf,2011-10-26T22:00:00Z,13,10,2,0,,0,False,en,0
+55,1,0,0,Externals,codec,2011-10-26T21:30:47Z,1,1,1,0,,0,False,en,0
+54,3,2,0,Externals,markpasc,2011-10-26T19:39:35Z,8,0,1,0,"Hi! This change adds support for authenticating to an IRC server, so that hubot can be used with private internet servers. It uses two new optional environment variables:
+- `HUBOT_IRC_PASSWORD`
+- `HUBOT_IRC_NICKSERV_PASSWORD`
+
+I'm not so familiar with CoffeeScript so let me know if this is broken somehow. Thanks!
+",315,False,en,0
+50,10,2,2,Externals,tombell,2011-10-26T22:41:51Z,42,57,10,0,"Pull request for some minor clean ups/refactors.
+- Use `is` instead of `==`
+- Use postfixed `if` for small conditions
+- Remove `console.log` calls which appear to be for debugging
+- Fixes whitespace in `README.md`'s
+- Fixes some formatting in code
+",248,False,en,0
+49,1,0,0,Externals,dmathieu,2011-10-26T11:46:01Z,19,1,1,0,"This adds the command `--version`
+
+```
+hubot -v
+hubot --version
+```
+
+Which parses the package.json file, looking for the hubot's version and displays it.
+",154,True,en,0
+46,5,6,2,Externals,codafoo,2011-10-26T12:14:21Z,26,17,1,0,"I updated the hipchat adapter to use the bot name assigned to it instead of the hardcoded hubot name.
+
+Also, added the environmental variable ""HUBOT_HIPCHAT_ROOMS"" to join specific rooms:
+Usage:
+HUBOT_HIPCHAT_ROOMS=room1@conf.hipchat.com,room2@conf.hipchat.com
+
+The room names are the XMPP/Jabber names found in your hipchat XMPP information. 
+",344,True,en,0
+45,2,1,0,Externals,dmathieu,2011-10-26T10:44:08Z,12,6,1,0,"This provides more explicit campfire errors for the following cases :
+- If the token, rooms or account environment vars aren't defined
+- If campfire returns a 401 error (the token is invalid)
+",192,False,en,0
+41,1,1,0,Externals,assaf,2011-10-26T12:14:22Z,7,6,1,0,"This change passes a new user object to each request to Robot.Message, so user can supply the name and reply to channel, the later depends on which room the request is coming from.
+
+Also, for public messages (rooms) it no longer depends on user list, so people added since Hubot was started can talk to Hubot. For private messages (one-on-one) it still depends on userForId, this can be addressed later on.
+",407,True,en,0
+40,1,3,0,Internals,jnewland,2011-10-26T21:33:24Z,1,1,1,0,"Those responsible for submitting a pull request that supposedly fixed this before have been sacked.
+",100,True,en,0
+39,1,0,2,Externals,assaf,2011-10-26T06:53:35Z,2,1,1,0," Very exciting discovery: the from value is different between public and private messages.
+",91,True,en,0
+37,1,0,0,Externals,assaf,2011-10-26T05:39:41Z,16,6,1,0,"Grab user list on startup from HipChat API.
+
+Properly map users based on HipChat user_id and JID.
+",98,True,en,0
+36,1,0,0,Externals,andyfowler,2011-10-26T05:14:14Z,89,1,3,0,"To use, set:
+- `HUBOT_XMPP_USERNAME`
+- `HUBOT_XMPP_PASSWORD`
+- `HUBOT_XMPP_ROOMS` (can be comma-separated)
+
+I imagine it'd be nice to share XMPP code with the Hipchat folks at some point, but I'll let you guys upstream figure that out, since those are just pull requests right now.
+
+Tested with Openfire 3.7.0, uses some ideas from markstory@5d47a8c8a7f87759e78b13239b5b82c373d65582 - cheers!
+",393,False,en,0
+35,3,1,0,Internals,jnewland,2011-10-26T05:05:10Z,6,1,2,0,"Fixes the Twilio adapter to not require a undocumented port env var.
+
+Also documents the required connection between the Twilio number's ""SMS Request URL"" and the Hubot http endpoint.
+",184,True,en,0
+34,3,6,0,Externals,assaf,2011-10-26T05:06:25Z,107,1,4,0,"Setup instructions:
+
+You'll need to create a new account and set the following environment variables:
+
+HUBOT_HIPCHAT_JID -- Jabber ID
+HUBOT_HIPCHAT_NAME -- Room nickname
+HUBOT_HIPCHAT_PASSWORD -- Account password
+HUBOT_HIPCHAT_TOKEN -- Admin authentication token
+
+To find the Jabber ID and Room nickname for the new account, sign in and head to the XMPP/Jabber account information page:
+
+https://demandforce.hipchat.com/account/xmpp
+
+You will also need an admin authentication token for API access (listing all rooms). You can find it here:
+
+https://demandforce.hipchat.com/group_admin/api
+
+This implementation automatically joins all rooms.
+
+HipChat insists on first name, last name.  We call ours ""Hubot, I"", but within the room you can refer to it as just @hubot.
+",767,True,en,0
+32,1,0,0,Externals,aitor,2011-10-26T05:26:07Z,4,3,1,0,,0,False,en,0
+30,4,3,0,Internals,technoweenie,2011-10-26T23:05:08Z,24,14,2,0,"So, I was getting the sparse hubot tests to run, when I thought ""Why do I need redis for local dev?""  This extracts the Redis-specific crap from Robot.Brain to Robot.RedisBrain.
+",178,True,en,1
+29,2,1,0,Externals,tombell,2011-10-25T22:54:34Z,106,0,3,0,"Ok, this is the quickly hacked together Twilio adapter for Hubot. The environment variables are outlined in the templates `README`.
+
+It's buggy in the sense that Twilio can't seem to send messages > 160 chars, I'm planning on working around this. Also it cannot seem to send SMS internationally (outside US/Canada?).
+
+Any feedback/improvements are welcome. :)
+
+I don't actually have an iPhone 4S, so any Siri testers would awesome.
+",432,True,en,0
+26,1,0,0,Externals,dannytatom,2011-10-25T21:28:50Z,9,0,1,0,,0,False,en,0
+25,2,5,0,Externals,titanous,2011-10-26T05:27:05Z,7,1,2,0,"Heroku doesn't automatically restart non-web processes that crash, so I've modified the script to restart it automatically.
+
+(follow-up to #19)
+",144,True,en,0
+21,5,5,0,Internals,skalnik,2011-10-25T23:20:44Z,4,3,3,0,"Loading scripts via `hubot-scripts.json` isn't very obvious. I've added a `hubot-scripts.json` file which contains an empty array to the templates which makes the layout more obvious, and updated the README to clarify that the extension is required.
+",250,True,en,0
+19,2,4,0,Externals,titanous,2011-10-25T20:12:10Z,3,29,4,0,"Heroku doesn't automatically kill process types that are not `web`, so I removed the web pinger, and updated the procfile.
+",123,True,en,0
+13,5,1,2,Externals,atmos,2011-10-08T02:50:20Z,132,9,5,0,"This gives use the start of the traditional hubot roles.  Persist to redis if available.
+",89,True,en,0
+12,4,3,0,Externals,tmm1,2011-10-28T07:11:29Z,123,0,2,21,,0,False,en,0
+6,4,2,0,Externals,benburkert,2011-10-28T07:15:07Z,157,2,3,42,"Started working on an email adapter for hubot.
+",47,True,en,1
+5,3,0,0,Externals,kneath,2011-09-15T05:43:39Z,5,2,3,0,"These are the bits that bit me while trying to get him up and running.
+",71,True,en,0
